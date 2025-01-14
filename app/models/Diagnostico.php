@@ -36,9 +36,19 @@ class Diagnostico{
         $this->Detalles = $detalles;
     }
 
+    public function cantidad(){
+        try{
+            $consulta = $this->pdo->prepare("SELECT SUM(Codigo) AS Cant_Diagnosticos FROM DIAGNOSTICO;");
+            $consulta->execute();
+            return $consulta->fetch(PDO::FETCH_OBJ);
+        }catch(Excption $e){
+            die($e->getMessage());
+        }
+    }
+
     public function listar(){
         try{
-            $consulta = $this->pdo->prepare("SELEC * FROM DIAGNOSTICO;");
+            $consulta = $this->pdo->prepare("SELECT * FROM DIAGNOSTICO;");
             $consulta->execute();
             return $consulta->fetchAll(PDO::FETCH_OBJ);
         }catch(Exception $e){

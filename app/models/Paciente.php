@@ -36,9 +36,19 @@ class Paciente{
         $this->Apellido_Paciente = $apellido;
     }
 
+    public function cantidad(){
+        try{
+            $consulta = $this->pdo->prepare("SELECT SUM(ID_Paciente) AS Cant_Pacientes FROM PACIENTE;");
+            $consulta->execute();
+            return $consulta->fetch(PDO::FETCH_OBJ);
+        }catch(Excption $e){
+            die($e->getMessage());
+        }
+    }
+
     public function listar(){
         try{
-            $consulta = $this->pdo->prepare("SELEC * FROM PACIENTE;");
+            $consulta = $this->pdo->prepare("SELECT * FROM PACIENTE;");
             $consulta->execute();
             return $consulta->fetchAll(PDO::FETCH_OBJ);
         }catch(Exception $e){

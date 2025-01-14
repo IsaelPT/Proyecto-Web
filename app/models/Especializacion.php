@@ -36,9 +36,19 @@ class Especializacion{
         $this->ID_Doc = $id_doc;
     }
 
+    public function cantidad(){
+        try{
+            $consulta = $this->pdo->prepare("SELECT SUM(ID_Especializacion) AS Cant_Especializaciones FROM ESPECIALIZACION;");
+            $consulta->execute();
+            return $consulta->fetch(PDO::FETCH_OBJ);
+        }catch(Excption $e){
+            die($e->getMessage());
+        }
+    }
+
     public function listar(){
         try{
-            $consulta = $this->pdo->prepare("SELEC * FROM ESPECIALIZACION;");
+            $consulta = $this->pdo->prepare("SELECT * FROM ESPECIALIZACION;");
             $consulta->execute();
             return $consulta->fetchAll(PDO::FETCH_OBJ);
         }catch(Exception $e){

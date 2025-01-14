@@ -27,9 +27,19 @@ class Consulta{
         $this->ID_Doc = $id_doc;
     }
 
+    public function cantidad(){
+        try{
+            $consulta = $this->pdo->prepare("SELECT SUM(ID_Doc) AS Cant_Consultas FROM CONSULTA;");
+            $consulta->execute();
+            return $consulta->fetch(PDO::FETCH_OBJ);
+        }catch(Excption $e){
+            die($e->getMessage());
+        }
+    }
+
     public function listar(){
         try{
-            $consulta = $this->pdo->prepare("SELEC * FROM CONSULTA;");
+            $consulta = $this->pdo->prepare("SELECT * FROM CONSULTA;");
             $consulta->execute();
             return $consulta->fetchAll(PDO::FETCH_OBJ);
         }catch(Exception $e){

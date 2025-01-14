@@ -1,15 +1,15 @@
 <?php
-require_once "app/controllers/AuthController.php";
+require_once "app/controllers/DashboardController.php";
 require_once "app/models/DataBase.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Si hay una solicitud POST, obtener el controlador y la acción de $_POST
-    $controller = isset($_POST['controller']) ? $_POST['controller'] : "Auth"; // Controlador predeterminado
-    $action = isset($_POST['action']) ? $_POST['action'] : 'login'; // Acción predeterminada
+    $controller = isset($_POST['controller']) ? $_POST['controller'] : "Dashboard"; // Controlador predeterminado
+    $action = isset($_POST['action']) ? $_POST['action'] : 'principal'; // Acción predeterminada
 } else {
     // Si es una solicitud GET, obtener el controlador y la acción de $_GET
-    $controller = isset($_GET['controller']) ? $_GET['controller'] : "Auth"; // Controlador predeterminado
-    $action = isset($_GET['action']) ? $_GET['action'] : 'login'; // Acción predeterminada
+    $controller = isset($_GET['controller']) ? $_GET['controller'] : "Dashboard"; // Controlador predeterminado
+    $action = isset($_GET['action']) ? $_GET['action'] : 'principal'; // Acción predeterminada
 }
 
 $controllerPath = ucfirst($controller). "Controller";
