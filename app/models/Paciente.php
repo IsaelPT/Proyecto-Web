@@ -58,7 +58,8 @@ class Paciente
     public function listar()
     {
         try {
-            $consulta = $this->pdo->prepare("SELECT * FROM PACIENTE;");
+            $consulta = $this->pdo->prepare("SELECT ID_Paciente, Nombre_Paciente, Apellido_Paciente, Detalles as Diagnostico
+                                             FROM PACIENTE INNER JOIN DIAGNOSTICO on ID_Paciente = ID_Pac;");
             $consulta->execute();
             return $consulta->fetchAll(PDO::FETCH_OBJ);
         } catch (Exception $e) {
@@ -75,6 +76,32 @@ class Paciente
                 $obj->getNombre_Paciente(),
                 $obj->getApellido_Paciente()
             ));
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function obtener(int $id)
+    {
+        try {
+            $consulta = $this->pdo->prepare("SELECT * FROM PACIENTE WHERE ID_Paciente=?;");
+            $consulta->execute(array($id));
+            $resultado = $consulta->fetch(PDO::FETCH_OBJ);
+            $obj = new Paciente();
+            $obj->setID_Paciente($resultado->ID_Paciente);
+            $obj->setNombre_Paciente($resultado->Nombre_Paciente);
+            $obj->setApellido_Paciente($resultado->Apellido_Paciente);
+            return $obj;
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function actualizar(Paciente $obj)
+    {
+        try {
+            $consulta = $this->pdo->prepare("UPDATE Paciente SET Nombre_Paciente=?, Apellido_Paciente=? WHERE ID_Paciente=?;");
+            $consulta->execute(array($obj->getNombre_Paciente(), $obj->getApellido_Paciente(), $obj->getID_Paciente()));
         } catch (Exception $e) {
             die($e->getMessage());
         }

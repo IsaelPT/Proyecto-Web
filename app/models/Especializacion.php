@@ -79,4 +79,30 @@ class Especializacion
             die($e->getMessage());
         }
     }
+
+    public function obtener(int $id)
+    {
+        try {
+            $consulta = $this->pdo->prepare("SELECT * FROM ESPECIALIZACION WHERE ID_Doc=?;");
+            $consulta->execute(array($id));
+            $resultado = $consulta->fetch(PDO::FETCH_OBJ);
+            $obj = new Diagnostico();
+            $obj->setID_Pac($resultado->ID_Pac);
+            $obj->setDetalles($resultado->Detalles);
+            $obj->setCodigo($resultado->Codigo);
+            return $obj;
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function actualizar(Especializacion $obj)
+    {
+        try {
+            $consulta = $this->pdo->prepare("UPDATE ESPECIALIZACION SET Descripcion=? WHERE ID_Doc=?;");
+            $consulta->execute(array($obj->getDescripcion(), $obj->getID_DOc()));
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
 }
