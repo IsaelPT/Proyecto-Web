@@ -1,0 +1,23 @@
+{
+  "name": "proyecto-web",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IsaelPT/Proyecto-Web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IsaelPT/Proyecto-Web/issues"
+  },
+  "homepage": "https://github.com/IsaelPT/Proyecto-Web#readme",
+  "description": "",
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
