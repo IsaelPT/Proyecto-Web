@@ -69,54 +69,41 @@
                 </nav>
             </div>
         </header>
-
+        
 
         <main class="container mx-auto py-8 px-6">
             <section class="mb-8">
                 <div class="flex flex-col items-center mt-10">
-                    <h2 class="text-4xl font-bold mb-4">Añadir doctor</h2>
-                    <form class="bg-light-gray p-6 rounded shadow-md w-full max-w-4xl backdrop-blur-lg bg-gray-100/60">
-                        <div class="mb-4 flex flex-col ">
-                            <label for="nombre" class="block text-dark-gray-text font-semibold mb-2">Nombre</label>
-                            <input type="text" id="nombre" class="w-full p-3 border rounded" placeholder="Escriba el nombre" required>
-                        </div>
-                        <div class="mb-4 flex flex-col">
-                            <label for="apellidos" class="block text-dark-gray-text font-semibold mb-2">Apellidos</label>
-                            <div>
-                                <input type="text" id="apellido_1" class="w-full p-3 border rounded mb-2" placeholder="Escriba el primer apellido" required>
-                            </div>
-                            <div class="mt-2">
-                                <input type="text" id="apellido_2" class="w-full p-3 border rounded" placeholder="Escriba el segundo apellido" required>
-                            </div>
-                        </div>
-                        <div class="mb-4 flex flex-col">
-                            <label for="paciente" class="block text-dark-gray-text font-semibold mb-2">Especialidad</label>
-                            <select id="paciente" class="w-full p-3 border rounded mb-2" required>
-                              <option value="" disabled selected>Seleccione una especialidad</option>
-                              <!-- Los pacientes se agregarán aquí dinámicamente -->
-                            </select>
-                        </div>
-
-                        <div class="flex justify-end">
-                            <button type="submit" class=" px-4 py-2 bg-green-300 text-black rounded hover:bg-green-500 mr-5">Guardar</button>
-                            <button type="reset" class=" px-4 py-2 bg-blue-300 text-black rounded hover:bg-blue-500">Limpiar</button>
-                        </div>
-                    </form>
+                    <h2 class="text-4xl font-bold mb-4 ">Listado de doctores</h2>
+                    <table id="tablaDoctores" class="min-w-full bg-light-gray p-6 rounded shadow-md w-full max-w-4xl backdrop-blur-lg bg-gray-100/60">
+                        <thead>
+                            <tr>
+                                <th class="p-3 text-left">Nombre</th>
+                                <th class="p-3 text-left">Primer Apellido</th>
+                                <th class="p-3 text-left">Segundo Apellido</th>
+                                <th class="p-3 text-left">Especialidad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Aquí se agregarán las filas dinámicamente -->
+                        </tbody>
+                    </table>
                 </div>
             </section>
         </main>
-
+        
         <footer id="footer" class="footer fixed bottom-0 left-0 w-full bg-gray-900 hidden transition-all duration-300 ease-in-out">
             <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between text-white w-full px-4 py-3">
                 <p>© 2025 Mi Sitio Web. Todos los derechos reservados.</p>
-                <a href="#" class="text-blue-500 hover:underline mt-2 sm:mt-0  hover:text-green-600">Política de Privacidad</a>
+                <a href="#" class="text-blue-500 hover:underline mt-2 sm:mt-0 hover:text-green-600">Política de Privacidad</a>
             </div>
         </footer>
-
-        <a href="#footer" class="btn-flotante fixed bottom-8 right-4 bg-gray-500 text-white px-4 py-2 rounded shadow-lg">Información</a>
-
-
-        <script src="../../src/js/script.js"></script>
-
+        
+        <a href="#footer" class="btn-flotante fixed bottom-16 right-4 bg-gray-500 text-white px-4 py-2 rounded shadow-lg ">Información</a>
+        
+        
+        <script src="../../src/js/script_listado.js" defer></script>
+        
+       
     </body>
 </html>
