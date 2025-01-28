@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /PROYECTO-WEB/
+
+    # Permitir acceso directo a recursos estáticos
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule \.(jpg|jpeg|png|gif|css|js|woff|woff2|ttf|svg|webp)$ - [L]
+
+    # Redirige el resto al index.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [L]
+
+</IfModule>
