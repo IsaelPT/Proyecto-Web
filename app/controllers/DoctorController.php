@@ -36,28 +36,16 @@ class DoctorController
     {
 
         $doc = new Doctor();
-        $esp = new Especializacion();
 
-        $doc->setID_Doctor(intval($_POST['id']));
-        $doc->setNombre_Doctor($_POST['nombre']);
-        $doc->setApellido_Doctor($_POST['primer_apellido']);
-        $doc->setSegApellido_Doctor($_POST['segundo_apellido']);
-        $esp->setDescripcion($_POST['descripcion']);
-        $esp->setID_Doc(intval($_POST['id']));
-
-        // $doc->getID_Doctor() > 0 ?
-        //     $this->doctor->actualizar($doc) :
-        //     $this->doctor->insertar($doc);
-        if($doc->getID_Doctor() > 0) {
-            $this->doctor->actualizar($doc);
-        }else{
-            $id = $this->doctor->insertar($doc);
-            $esp->setID_Doc($id);
-        }
+        $doc->setID_Doctor(intval($_POST['id_doctor']));
+        $doc->setNombre_Doctor($_POST['nombre_doctor']);
+        $doc->setApellido_Doctor($_POST['primer_apellido_doctor']);
+        $doc->setSegApellido_Doctor($_POST['segundo_apellido_doctor']);
+        $doc->setId_especilidad(intval($_POST['id_especialidad']));
 
         $doc->getID_Doctor() > 0 ?
-            $this->especializacion->actualizar($esp) :
-            $this->especializacion->insertar($esp);
+            $this->doctor->actualizar($doc) :
+            $this->doctor->insertar($doc);
 
         header("location:?controller=Doctor");
     }

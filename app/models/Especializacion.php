@@ -38,7 +38,7 @@ class Especializacion{
 
     public function listar(){
         try{
-            $consulta = $this->pdo->prepare("SELECT * FROM ESPECIALIZACION;");
+            $consulta = $this->pdo->prepare("SELECT * FROM ESPECIALIDAD;");
             $consulta->execute();
             return $consulta->fetchAll(PDO::FETCH_OBJ);
         }catch(Exception $e){
