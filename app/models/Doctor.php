@@ -113,7 +113,7 @@ class Doctor{
 
             $obj = new Doctor();
             $obj->setID_Doctor($resultado->id_doctor);
-            $obj->setId_especilidad($resultado->id_especilidad);
+            $obj->setId_especilidad($resultado->id_especialidad);
             $obj->setNombre_Doctor($resultado->nombre_doctor);
             $obj->setApellido_Doctor($resultado->primer_apellido_doctor);
             $obj->setSegApellido_Doctor($resultado->segundo_apellido_doctor);

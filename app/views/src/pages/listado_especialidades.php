@@ -140,11 +140,17 @@
                         for($i = 0; $i < count($especialidades); $i ++): ?>
                             <tr>
                                 <?php if($i+1 == count($especialidades)): ?>
-                                    <td class="p-3 border-r border-b border-gray-700 text-left"><?php echo $especialidades[$i]->detalles; ?></td>
-                                    <td class="p-3 border-r border-b border-gray-700 text-left"></td>
+                                    <td class="p-3 border-r border-gray-700 text-left"><?php echo $especialidades[$i]->detalles; ?></td>
+                                    <td class="p-3 border-gray-700 text-left">
+                                      <a href="?controller=Especialidad&&action=form_especialidades&&id=<?php echo $especialidades[$i]->id_especialidad ?>" class="px-4 py-2 bg-blue-300 text-black rounded hover:bg-blue-500 mr-5 editar-fila"> Editar </a>
+                                      <a href="?controller=Especialidad&&action=eliminar&&id=<?php echo $especialidades[$i]->id_especialidad ?>" class="px-4 py-2 bg-red-300 text-black rounded hover:bg-red-500 mr-5 borrar-fila"> Borrar </a>
+                                    </td>
                                 <?php else: ?>
                                     <td class="p-3 border-r border-b border-gray-700 text-left"><?php echo $especialidades[$i]->detalles; ?></td>
-                                    <td class="p-3 border-r border-b border-gray-700 text-left"></td>
+                                    <td class="p-3 border-b border-gray-700 text-left">
+                                      <a href="?controller=Especialidad&&action=form_especialidades&&id=<?php echo $especialidades[$i]->id_especialidad ?>" class="px-4 py-2 bg-blue-300 text-black rounded hover:bg-blue-500 mr-5 editar-fila"> Editar </a>
+                                      <a href="?controller=Especialidad&&action=eliminar&&id=<?php echo $especialidades[$i]->id_especialidad ?>" class="px-4 py-2 bg-red-300 text-black rounded hover:bg-red-500 mr-5 borrar-fila"> Borrar </a>
+                                    </td>
                                 <?php endif ?>
                             </tr>
                         <?php endfor

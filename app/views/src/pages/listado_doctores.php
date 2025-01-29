@@ -143,17 +143,23 @@
                         for($i = 0; $i < count($doctores); $i ++): ?>
                             <tr>
                                 <?php if($i+1 == count($doctores)): ?>
-                                    <td class="p-3 border-r border-b border-gray-700 text-left"><?php echo $doctores[$i]->nombre_doctor; ?></td>
-                                    <td class="p-3 border-r border-b border-gray-700 text-left"><?php echo $doctores[$i]->primer_apellido_doctor; ?></td>
-                                    <td class="p-3 border-r border-b border-gray-700 text-left"><?php echo $doctores[$i]->segundo_apellido_doctor; ?></td>
-                                    <td class="p-3 border-r border-b border-gray-700 text-left"><?php echo $doctores[$i]->detalles; ?></td>
-                                    <td class="p-3 border-r border-b border-gray-700 text-left"></td>
+                                    <td class="p-3 border-r border-gray-700 text-left"><?php echo $doctores[$i]->nombre_doctor; ?></td>
+                                    <td class="p-3 border-r border-gray-700 text-left"><?php echo $doctores[$i]->primer_apellido_doctor; ?></td>
+                                    <td class="p-3 border-r border-gray-700 text-left"><?php echo $doctores[$i]->segundo_apellido_doctor; ?></td>
+                                    <td class="p-3 border-r border-gray-700 text-left"><?php echo $doctores[$i]->detalles; ?></td>
+                                    <td class="p-3 border-gray-700 text-left">
+                                      <a href="?controller=Doctor&&action=form_doctores&&id=<?php echo $doctores[$i]->id_doctor ?>" class="px-4 py-2 bg-blue-300 text-black rounded hover:bg-blue-500 mr-5 editar-fila"> Editar </a>
+                                      <a href="?controller=Doctor&&action=eliminar&&id=<?php echo $doctores[$i]->id_doctor ?>" class="px-4 py-2 bg-red-300 text-black rounded hover:bg-red-500 mr-5 borrar-fila"> Borrar </a>
+                                    </td>
                                 <?php else: ?>
                                     <td class="p-3 border-r border-b border-gray-700 text-left"><?php echo $doctores[$i]->nombre_doctor; ?></td>
                                     <td class="p-3 border-r border-b border-gray-700 text-left"><?php echo $doctores[$i]->primer_apellido_doctor; ?></td>
                                     <td class="p-3 border-r border-b border-gray-700 text-left"><?php echo $doctores[$i]->segundo_apellido_doctor; ?></td>
                                     <td class="p-3 border-r border-b border-gray-700 text-left"><?php echo $doctores[$i]->detalles; ?></td>
-                                    <td class="p-3 border-r border-b border-gray-700 text-left"></td>
+                                    <td class="p-3 border-b border-gray-700 text-left">
+                                      <a href="?controller=Doctor&&action=form_doctores&&id=<?php echo $doctores[$i]->id_doctor ?>" class="px-4 py-2 bg-blue-300 text-black rounded hover:bg-blue-500 mr-5 editar-fila"> Editar </a>
+                                      <a href="?controller=Doctor&&action=eliminar&&id=<?php echo $doctores[$i]->id_doctor ?>" class="px-4 py-2 bg-red-300 text-black rounded hover:bg-red-500 mr-5 borrar-fila"> Borrar </a>
+                                    </td>
                                 <?php endif ?>
                             </tr>
                         <?php endfor

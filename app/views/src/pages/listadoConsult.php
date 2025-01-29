@@ -156,17 +156,21 @@
                         for($i = 0; $i < count($consultas); $i ++): ?>
                             <tr>
                                 <?php if($i+1 == count($consultas)): ?>
-                                    <td class="p-3 border-r border-b border-gray-700 text-left"><?php echo $consultas[$i]->nombre_paciente; ?></td>
-                                    <td class="p-3 border-r border-b border-gray-700 text-left"><?php echo $consultas[$i]->primer_apellido_paciente; ?></td>
-                                    <td class="p-3 border-r border-b border-gray-700 text-left"><?php echo $consultas[$i]->nombre_doctor; ?></td>
-                                    <td class="p-3 border-r border-b border-gray-700 text-left"><?php echo $consultas[$i]->primer_apellido_doctor; ?></td>
-                                    <td class="p-3 border-r border-b border-gray-700 text-left"></td>
+                                    <td class="p-3 border-r border-gray-700 text-left"><?php echo $consultas[$i]->nombre_paciente; ?></td>
+                                    <td class="p-3 border-r border-gray-700 text-left"><?php echo $consultas[$i]->primer_apellido_paciente; ?></td>
+                                    <td class="p-3 border-r border-gray-700 text-left"><?php echo $consultas[$i]->nombre_doctor; ?></td>
+                                    <td class="p-3 border-r border-gray-700 text-left"><?php echo $consultas[$i]->primer_apellido_doctor; ?></td>
+                                    <td class="p-3 border-gray-700 text-left">
+                                        <a href="?controller=Consulta&&action=eliminar&&id_doctor=<?php echo $consultas[$i]->id_doctor ?>&&id_paciente=<?php echo $consultas[$i]->id_paciente ?>" class="px-4 py-2 bg-red-300 text-black rounded hover:bg-red-500 mr-5 borrar-fila"> Borrar </a>
+                                    </td>
                                 <?php else: ?>
                                     <td class="p-3 border-r border-b border-gray-700 text-left"><?php echo $consultas[$i]->nombre_paciente; ?></td>
                                     <td class="p-3 border-r border-b border-gray-700 text-left"><?php echo $consultas[$i]->primer_apellido_paciente; ?></td>
                                     <td class="p-3 border-r border-b border-gray-700 text-left"><?php echo $consultas[$i]->nombre_doctor; ?></td>
                                     <td class="p-3 border-r border-b border-gray-700 text-left"><?php echo $consultas[$i]->primer_apellido_doctor; ?></td>
-                                    <td class="p-3 border-r border-b border-gray-700 text-left"></td>
+                                    <td class="p-3 border-b border-gray-700 text-left">
+                                        <a href="?controller=Consulta&&action=eliminar&&id_doctor=<?php echo $consultas[$i]->id_doctor ?>&&id_paciente=<?php echo $consultas[$i]->id_paciente ?>" class="px-4 py-2 bg-red-300 text-black rounded hover:bg-red-500 mr-5 borrar-fila"> Borrar </a>
+                                    </td>
                                 <?php endif ?>
                             </tr>
                         <?php endfor

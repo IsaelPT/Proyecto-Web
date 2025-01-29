@@ -129,9 +129,9 @@
                     <h2 class="text-4xl font-bold mb-4">Añadir especialidad</h2>
                     <form method="POST" action="?controller=Especialidad&&action=guardar" class="bg-light-gray p-6 rounded-lg shadow-md w-full max-w-4xl backdrop-blur-lg bg-gray-100/60">
                       <div class="mb-4 flex flex-col">
-                        <input type="hidden" name="id_especialidad"><?php echo $esp->getID_Especializacion() ?>
+                        <input type="hidden" name="id_especialidad" value="<?php echo $esp->getID_Especializacion() ?>">
                         <label for="especialidad" class="block text-dark-gray-text font-semibold mb-2">Especialidad</label>
-                        <input name="detalles" type="text" id="especialidad" class="w-full p-3 border rounded" placeholder="Escriba el nombre de la especialidad" required><?php echo $esp->getDescripcion() ?>
+                        <input name="detalles" type="text" id="especialidad" class="w-full p-3 border rounded" placeholder="Escriba el nombre de la especialidad" value="<?php echo $esp->getDescripcion() ?>" required>
                         
                     </div>
                         <div class="flex justify-end">

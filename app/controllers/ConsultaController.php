@@ -41,7 +41,7 @@ class ConsultaController{
     }
 
     public function eliminar(){
-        $this->consulta->eliminar($_GET["id_doc"], $_GET["id_pac"]);
+        $this->consulta->eliminar($_GET["id_doctor"], $_GET["id_paciente"]);
         header("location:?controller=Consulta");
         
     }

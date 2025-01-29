@@ -130,16 +130,16 @@
                     <form method="POST" action="?controller=Doctor&&action=guardar" class="bg-light-gray p-6 rounded-lg shadow-md w-full max-w-4xl backdrop-blur-lg bg-gray-100/60">
                         <div class="mb-4 flex flex-col ">
                             <label for="nombre" class="block text-dark-gray-text font-semibold mb-2">Nombre</label>
-                            <input name="id_doctor" type="hidden"><?php echo $doc->getID_Doctor(); ?>
-                            <input name="nombre_doctor" type="text" id="nombre" class="w-full p-3 border rounded" placeholder="Escriba el nombre" required><?php echo $doc->getNombre_Doctor(); ?>
+                            <input name="id_doctor" type="hidden" value="<?php echo $doc->getID_Doctor(); ?>">
+                            <input name="nombre_doctor" type="text" id="nombre" class="w-full p-3 border rounded" placeholder="Escriba el nombre" value="<?php echo $doc->getNombre_Doctor(); ?>" required>
                         </div>
                         <div class="mb-4 flex flex-col">
                             <label for="apellidos" class="block text-dark-gray-text font-semibold mb-2">Apellidos</label>
                             <div>
-                                <input name="primer_apellido_doctor" type="text" id="apellido_1" class="w-full p-3 border rounded mb-2" placeholder="Escriba el primer apellido" required><?php echo $doc->getApellido_Doctor(); ?>
+                                <input name="primer_apellido_doctor" type="text" id="apellido_1" class="w-full p-3 border rounded mb-2" placeholder="Escriba el primer apellido" value="<?php echo $doc->getApellido_Doctor(); ?>" required>
                             </div>
                             <div class="mt-2">
-                                <input name="segundo_apellido_doctor" type="text" id="apellido_2" class="w-full p-3 border rounded" placeholder="Escriba el segundo apellido" required><?php echo $doc->getSegApellido_Doctor(); ?>
+                                <input name="segundo_apellido_doctor" type="text" id="apellido_2" class="w-full p-3 border rounded" placeholder="Escriba el segundo apellido" value="<?php echo $doc->getSegApellido_Doctor(); ?>" required>
                             </div>
                         </div>
                         <div class="mb-4 flex flex-col">
