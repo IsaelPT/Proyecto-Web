@@ -46,6 +46,19 @@ class Especializacion{
         }
     }
 
+    public function cantidad()
+    {
+        try {
+            $q = "SELECT COUNT(id_especialidad) AS Cant_Especialidades FROM especialidad;";
+            $consulta = $this->pdo->prepare($q);
+            $consulta->execute();
+            return $consulta->fetch(PDO::FETCH_OBJ);
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+    }
+
+
     public function insertar(Especializacion $obj): void
     {
         try {

@@ -47,8 +47,8 @@ class Doctor{
 
     public function listar(){
         try{
-            $consulta = $this->pdo->prepare("SELECT ID_Doctor ,Nombre_Doctor, Apellido_Doctor, Descripcion, SegApellido_Doctor
-                                                     FROM DOCTOR INNER JOIN ESPECIALIZACION ON ID_Doc = ID_Doctor;");
+            $consulta = $this->pdo->prepare("SELECT d.id_doctor, nombre_doctor, primer_apellido_doctor, segundo_apellido_doctor, detalles
+                                            FROM DOCTOR d INNER JOIN ESPECIALIDAD e ON d.id_especialidad = e.id_especialidad;");
             $consulta->execute();
             return $consulta->fetchAll(PDO::FETCH_OBJ);
         }catch(Exception $e){
@@ -59,7 +59,7 @@ class Doctor{
     public function cantidad()
     {
         try {
-            $q = "SELECT COUNT(ID_Doctor) AS Cant_Doctores FROM DOCTOR;";
+            $q = "SELECT COUNT(id_doctor) AS Cant_Doctores FROM DOCTOR;";
             $consulta = $this->pdo->prepare($q);
             $consulta->execute();
             return $consulta->fetch(PDO::FETCH_OBJ);

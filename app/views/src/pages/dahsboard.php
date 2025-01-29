@@ -5,16 +5,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hospital Saturnino Lora</title>
-  <link rel="stylesheet" href="../styles/estilos.css">
-  <link rel="shortcut icon" href="../icons/logoH.png" type="image/x-icon">
-  <link rel="shortcut icon" href="../icons/logoH.png" type="image/x-icon">
+  <link rel="stylesheet" href="app/views/src/styles/estilos.css">
+  <link rel="shortcut icon" href="app/views/src/icons/logoH.png" type="image/x-icon">
 </head>
 
-<body class="bg-cover bg-center bg-fixed" style="background-image: url('../icons/dash.jpg');">
+<body class="bg-cover bg-center bg-fixed" style="background-image: url('app/views/src/icons/dash.jpg');">
   <header class="bg-blue-300">
     <div class="container mx-auto flex items-center justify-between py-4 px-6 flex-wrap">
       <div class="flex items-center space-x-2 mr-2">
-        <img src="../icons/logoH.png" alt="Ícono del hospital" class="w-12 h-12">
+        <img src="app/views/src/icons/logoH.png" alt="Ícono del hospital" class="w-12 h-12">
         <h1 class="text-black font-bold text-lg whitespace-nowrap">
           Hospital Saturnino Lora
         </h1>
@@ -26,7 +25,7 @@
               <path
                 d="M32 32c17.7 0 32 14.3 32 32l0 336c0 8.8 7.2 16 16 16l400 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L80 480c-44.2 0-80-35.8-80-80L0 64C0 46.3 14.3 32 32 32zM160 224c17.7 0 32 14.3 32 32l0 64c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32zm128-64l0 160c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-160c0-17.7 14.3-32 32-32s32 14.3 32 32zm64 32c17.7 0 32 14.3 32 32l0 96c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-96c0-17.7 14.3-32 32-32zM480 96l0 224c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-224c0-17.7 14.3-32 32-32s32 14.3 32 32z" />
             </svg>
-            <a href="dahsboard.html"
+            <a href="?controller=Dashboard"
               class="text-dark-gray hover:text-blue-logo hover:text-blue-700 ml-2 hover:underline">Dashboard</a>
           </li>
           <div class="flex items-center space-x-2">
@@ -41,12 +40,12 @@
               </button>
               <ul id="inicio-menu-consulta" class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
                 <li>
-                  <a href="addConsult.html"
+                  <a href="?controller=Consulta&&action=form_consultas"
                     class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700  hover:underline">Añadir
                     consulta</a>
                 </li>
                 <li>
-                  <a href="listadoConsult.html"
+                  <a href="?controller=Consulta&&action=principal"
                     class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700  hover:underline">Listado
                     de consultas</a>
                 </li>
@@ -61,20 +60,17 @@
                 <path
                   d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-96 55.2C54 332.9 0 401.3 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7c0-81-54-149.4-128-171.1l0 50.8c27.6 7.1 48 32.2 48 62l0 40c0 8.8-7.2 16-16 16l-16 0c-8.8 0-16-7.2-16-16s7.2-16 16-16l0-24c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 24c8.8 0 16 7.2 16 16s-7.2 16-16 16l-16 0c-8.8 0-16-7.2-16-16l0-40c0-29.8 20.4-54.9 48-62l0-57.1c-6-.6-12.1-.9-18.3-.9l-91.4 0c-6.2 0-12.3 .3-18.3 .9l0 65.4c23.1 6.9 40 28.3 40 53.7c0 30.9-25.1 56-56 56s-56-25.1-56-56c0-25.4 16.9-46.8 40-53.7l0-59.1zM144 448a24 24 0 1 0 0-48 24 24 0 1 0 0 48z" />
               </svg>
-              <button id="inicio-btn-doctores"
-                class="text-dark-gray hover:text-blue-logo hover:text-blue-700 hover:underline ml-2">
+              <button id="inicio-btn-doctores" class="text-dark-gray hover:text-blue-logo hover:text-blue-700 hover:underline ml-2">
                 Doctores
               </button>
               <ul id="inicio-menu-doctores" class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
                 <li>
-                  <a href="doctores.html"
-                    class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
+                  <a href="?controller=Doctor&&action=form_doctores" class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
                     doctor</a>
                 </li>
                 <li>
-                  <a href="listado_doctores.html"
-                    class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Listado de
-                    doctores</a>
+                  <a href="?controller=Doctor&&action=principal"
+                    class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Listado de doctores</a>
                 </li>
               </ul>
             </li>
@@ -86,20 +82,17 @@
                 <path
                   d="M48 0C21.5 0 0 21.5 0 48L0 256l144 0c8.8 0 16 7.2 16 16s-7.2 16-16 16L0 288l0 64 144 0c8.8 0 16 7.2 16 16s-7.2 16-16 16L0 384l0 80c0 26.5 21.5 48 48 48l217.9 0c-6.3-10.2-9.9-22.2-9.9-35.1c0-46.9 25.8-87.8 64-109.2l0-95.9L320 48c0-26.5-21.5-48-48-48L48 0zM152 64l16 0c8.8 0 16 7.2 16 16l0 24 24 0c8.8 0 16 7.2 16 16l0 16c0 8.8-7.2 16-16 16l-24 0 0 24c0 8.8-7.2 16-16 16l-16 0c-8.8 0-16-7.2-16-16l0-24-24 0c-8.8 0-16-7.2-16-16l0-16c0-8.8 7.2-16 16-16l24 0 0-24c0-8.8 7.2-16 16-16zM512 272a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM288 477.1c0 19.3 15.6 34.9 34.9 34.9l218.2 0c19.3 0 34.9-15.6 34.9-34.9c0-51.4-41.7-93.1-93.1-93.1l-101.8 0c-51.4 0-93.1 41.7-93.1 93.1z" />
               </svg>
-              <button id="inicio-btn-pacientes"
-                class="text-dark-gray hover:text-blue-logo hover:text-blue-700 hover:underline ml-2">
+              <button id="inicio-btn-pacientes" class="text-dark-gray hover:text-blue-logo hover:text-blue-700 hover:underline ml-2">
                 Pacientes
               </button>
               <ul id="inicio-menu-pacientes" class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
                 <li>
-                  <a href="pacientes.html"
-                    class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
-                    paciente</a>
+                  <a href="?controller=Paciente&&action=form_pacientes"
+                    class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir paciente</a>
                 </li>
                 <li>
-                  <a href="listado_pacientes.html"
-                    class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Listado de
-                    pacientes</a>
+                  <a href="?controller=Pacientes&&action=principal"
+                    class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Listado de pacientes</a>
                 </li>
               </ul>
             </li>
@@ -108,24 +101,20 @@
             <li class="relative flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
                 viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                <path
-                  d="M208 32c0-17.7 14.3-32 32-32l32 0c17.7 0 32 14.3 32 32l0 140.9 122-70.4c15.3-8.8 34.9-3.6 43.7 11.7l16 27.7c8.8 15.3 3.6 34.9-11.7 43.7L352 256l122 70.4c15.3 8.8 20.6 28.4 11.7 43.7l-16 27.7c-8.8 15.3-28.4 20.6-43.7 11.7L304 339.1 304 480c0 17.7-14.3 32-32 32l-32 0c-17.7 0-32-14.3-32-32l0-140.9L86 409.6c-15.3 8.8-34.9 3.6-43.7-11.7l-16-27.7c-8.8-15.3-3.6-34.9 11.7-43.7L160 256 38 185.6c-15.3-8.8-20.5-28.4-11.7-43.7l16-27.7C51.1 98.8 70.7 93.6 86 102.4l122 70.4L208 32z" />
+                <path 
+                  d="M208 32c0-17.7 14.3-32 32-32l32 0c17.7 0 32 14.3 32 32l0 140.9 122-70.4c15.3-8.8 34.9-3.6 43.7 11.7l16 27.7c8.8 15.3 3.6 34.9-11.7 43.7L352 256l122 70.4c15.3 8.8 20.6 28.4 11.7 43.7l-16 27.7c-8.8 15.3-28.4 20.6-43.7 11.7L304 339.1 304 480c0 17.7-14.3 32-32 32l-32 0c-17.7 0-32-14.3-32-32l0-140.9L86 409.6c-15.3 8.8-34.9 3.6-43.7-11.7l-16-27.7c-8.8-15.3-3.6-34.9 11.7-43.7L160 256 38 185.6c-15.3-8.8-20.5-28.4-11.7-43.7l16-27.7C51.1 98.8 70.7 93.6 86 102.4l122 70.4L208 32z"/>
               </svg>
-              <button id="inicio-btn-especialidad"
-                class="text-dark-gray hover:text-blue-logo hover:text-blue-700 hover:underline ml-2">
+              <button id="inicio-btn-especialidad" class="text-dark-gray hover:text-blue-logo hover:text-blue-700 hover:underline ml-2">
                 Especialidades
               </button>
-              <ul id="inicio-menu-especialidad"
-                class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
+              <ul id="inicio-menu-especialidad" class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
                 <li>
-                  <a href="especialidades.html"
-                    class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
-                    especialidad</a>
+                  <a href="?controller=Especialidad&&action=form_especialidades"
+                    class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir especialidad</a>
                 </li>
                 <li>
-                  <a href="listado_especialidades.html"
-                    class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Listado de
-                    especialidades</a>
+                  <a href="?controller=Especialidad&&action=principal"
+                    class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Listado de especialidades</a>
                 </li>
               </ul>
             </li>
@@ -135,52 +124,63 @@
     </div>
   </header>
 
+
   <main class="container mx-auto py-8 px-6">
-    <section class="mb-8">
-      <div class="flex flex-col items-center">
-        <h2 class="text-4xl font-bold mb-4">Añadir Diagnóstico</h2>
-        <form id="consulta-form"
-          class="bg-light-gray p-6 rounded-lg shadow-md w-full max-w-4xl backdrop-blur-lg bg-white/60">
-          <div class="mb-4 flex flex-col">
-            <label for="paciente" class="block text-dark-gray-text font-semibold mb-2">Paciente</label>
-            <select id="paciente" class="w-full p-3 border rounded" required>
-              <option value="" disabled selected>Seleccione un paciente</option>
-              <!-- Los pacientes se agregarán aquí dinámicamente -->
-            </select>
-          </div>
+    <section class="text-center mb-8">
+      <h2 class="text-3xl font-bold mb-4">Bienvenidos al Hospital Saturnino Lora</h2>
+      <p class="text-lg text-gray-700">Dedicados al cuidado de tu salud con los mejores profesionales y servicios.</p>
+    </section>
 
-          <div class="mb-4 flex flex-col">
-            <label for="doctor" class="block text-dark-gray-text font-semibold mb-2">Doctor Asignado</label>
-            <select id="doctor" class="w-full p-3 border rounded" required>
-              <option value="" disabled selected>Seleccione un doctor</option>
-              <!-- Los doctores se agregarán aquí dinámicamente -->
-            </select>
-          </div>
+    <!-- Sección de tarjetas -->
+    <section class="flex flex-wrap justify-between gap-6">
+      <div class="bg-blue-500 p-6 rounded-lg shadow w-64 text-center">
+        <h3 class="text-xl font-bold mb-4">Pacientes Atendidos</h3>
+        <p class="text-3xl font-semibold text-blue-900"><?php $p = $this->paciente->cantidad();
+        echo $p->Cant_Pacientes; ?></p>
+      </div>
 
-          <div class="flex justify-end">
-            <button type="submit"
-              class="px-4 py-2 bg-green-300 text-black rounded hover:bg-green-500 mr-5">Guardar</button>
-            <button type="reset" class="px-4 py-2 bg-blue-300 text-black rounded hover:bg-blue-500">Limpiar</button>
-          </div>
-        </form>
+      <div class="bg-green-500 p-6 rounded-lg shadow w-64 text-center">
+        <h3 class="text-xl font-bold mb-4">Doctores Disponibles</h3>
+        <p class="text-3xl font-semibold text-green-900"><?php $p = $this->doctor->cantidad();
+        echo $p->Cant_Doctores; ?></p>
+      </div>
+
+      <div class="bg-yellow-500 p-6 rounded-lg shadow w-64 text-center">
+        <h3 class="text-xl font-bold mb-4">Consultas realizadas</h3>
+        <p class="text-3xl font-semibold text-yellow-900"><?php $p = $this->consulta->cantidad();
+        echo $p->Cant_Consultas; ?></p>
+      </div>
+
+      <div class="bg-yellow-500 p-6 rounded-lg shadow w-64 text-center">
+        <h3 class="text-xl font-bold mb-4">Especialidades Disponibles</h3>
+        <p class="text-3xl font-semibold text-yellow-900"><?php $p = $this->especialidad->cantidad();
+        echo $p->Cant_Especialidades; ?></p>
       </div>
     </section>
-  </main>
 
+    <section class="mt-16 backdrop-blur-lg bg-white/60 p-8 rounded-lg shadow text-center">
+      <h3 class="text-3xl font-bold mb-6 text-gray-800">Nuestro Compromiso</h3>
+      <p class="text-xl text-gray-700 leading-relaxed mb-6">
+        En el Hospital Saturnino Lora, nos esforzamos por brindar una atención médica de calidad y una experiencia
+        cálida para nuestros pacientes y sus familias.
+        Contamos con equipos avanzados y un personal altamente capacitado.
+      </p>
+    </section>
+  </main>
 
   <footer id="footer"
     class="footer fixed bottom-0 left-0 w-full bg-gray-900 hidden transition-all duration-300 ease-in-out">
     <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between text-white w-full px-4 py-3">
-      <p>© 2025 Hospital Saturnino Lora. Todos los derechos reservados.</p>
+      <p>© 2025 Mi Sitio Web. Todos los derechos reservados.</p>
       <a href="#" class="text-blue-500 hover:underline mt-2 sm:mt-0">Política de Privacidad</a>
     </div>
   </footer>
 
   <a href="#footer"
-    class="btn-flotante fixed bottom-16 right-4 bg-gray-500 text-white px-4 py-2 rounded shadow-lg">Información</a>
+    class="btn-flotante fixed bottom-10 right-4 bg-gray-500 text-white px-4 py-2 rounded shadow-lg">Información</a>
 
-  <script src="../../src/js/script.js"></script>
-  <script src="../../src/js/validaciones.js"></script>
+
+  <script src="app/views/src/js/script.js"></script>
 
 </body>
 

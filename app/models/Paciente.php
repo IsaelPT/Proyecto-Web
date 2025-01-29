@@ -49,7 +49,7 @@ class Paciente{
 
     public function cantidad(){
         try{
-            $consulta = $this->pdo->prepare("SELECT COUNT(ID_Paciente) AS Cant_Pacientes FROM PACIENTE");
+            $consulta = $this->pdo->prepare("SELECT COUNT(id_paciente) AS Cant_Pacientes FROM PACIENTE");
             $consulta->execute();
             return $consulta->fetch(PDO::FETCH_OBJ);
         }catch(Exception $e){
