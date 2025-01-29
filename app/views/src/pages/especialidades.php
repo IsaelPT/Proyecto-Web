@@ -4,15 +4,15 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Hospital Saturnino Lora</title>
-        <link rel="stylesheet" href="../../src/styles/estilos.css">
-        <link rel="shortcut icon" href="../icons/logoH.png" type="image/x-icon">
+        <link rel="stylesheet" href="app/views/src/styles/estilos.css">
+        <link rel="shortcut icon" href="app/views/src/icons/logoH.png" type="image/x-icon">
     </head>
 
-    <body class="bg-cover bg-center bg-fixed" style="background-image:linear-gradient(rgba(186, 172, 172, 0.542), rgba(205, 194, 194, 0.2)), url('../../src/icons/consulta.jpg');">
+    <body class="bg-cover bg-center bg-fixed" style="background-image:linear-gradient(rgba(186, 172, 172, 0.542), rgba(205, 194, 194, 0.2)), url('app/views/src/icons/consulta.jpg');">
         <header class="bg-blue-300">
             <div class="container mx-auto flex items-center justify-between py-4 px-6 flex-wrap">
               <div class="flex items-center space-x-2 mr-2">
-                <img src="../icons/logoH.png" alt="Ícono del hospital" class="w-12 h-12">
+                <img src="app/views/src/icons/logoH.png" alt="Ícono del hospital" class="w-12 h-12">
                 <h1 class="text-black font-bold text-lg whitespace-nowrap">
                   Hospital Saturnino Lora
                 </h1>
@@ -127,10 +127,11 @@
             <section class="mb-8">
                 <div class="flex flex-col items-center">
                     <h2 class="text-4xl font-bold mb-4">Añadir especialidad</h2>
-                    <form class="bg-light-gray p-6 rounded-lg shadow-md w-full max-w-4xl backdrop-blur-lg bg-gray-100/60">
+                    <form method="POST" action="?controller=Especialidad&&action=guardar" class="bg-light-gray p-6 rounded-lg shadow-md w-full max-w-4xl backdrop-blur-lg bg-gray-100/60">
                       <div class="mb-4 flex flex-col">
+                        <input type="hidden" name="id_especialidad"><?php echo $esp->getID_Especializacion() ?>
                         <label for="especialidad" class="block text-dark-gray-text font-semibold mb-2">Especialidad</label>
-                        <input type="text" id="especialidad" class="w-full p-3 border rounded" placeholder="Escriba el nombre de la especialidad" required>
+                        <input name="detalles" type="text" id="especialidad" class="w-full p-3 border rounded" placeholder="Escriba el nombre de la especialidad" required><?php echo $esp->getDescripcion() ?>
                         
                     </div>
                         <div class="flex justify-end">
@@ -151,7 +152,7 @@
         
         <a href="#footer" class="btn-flotante fixed bottom-16 right-4 bg-gray-500 text-white px-4 py-2 rounded shadow-lg">Información</a>
         
-            <script src="../../src/js/script.js"></script>
-            <script src="../../src/js/validaciones.js"></script>
+            <script src="app/views/src/js/script.js"></script>
+            <script src="app/views/src/js/validaciones.js"></script>
     </body>
 </html>

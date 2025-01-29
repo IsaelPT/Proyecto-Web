@@ -4,14 +4,14 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Hospital Saturnino Lora</title>
-        <link rel="stylesheet" href="../../src/styles/estilos.css">
-        <link rel="shortcut icon" href="../icons/logoH.png" type="image/x-icon">
+        <link rel="stylesheet" href="app/views/src/styles/estilos.css">
+        <link rel="shortcut icon" href="app/views/src/icons/logoH.png" type="image/x-icon">
     </head>
-    <body class="bg-cover bg-center bg-fixed" style="background-image:linear-gradient(rgba(186, 172, 172, 0.542), rgba(205, 194, 194, 0.2)), url('../../src/icons/consulta.jpg');">
+    <body class="bg-cover bg-center bg-fixed" style="background-image:linear-gradient(rgba(186, 172, 172, 0.542), rgba(205, 194, 194, 0.2)), url('app/views/src/icons/consulta.jpg');">
         <header class="bg-blue-300">
             <div class="container mx-auto flex items-center justify-between py-4 px-6 flex-wrap">
               <div class="flex items-center space-x-2 mr-2">
-                <img src="../icons/logoH.png" alt="Ícono del hospital" class="w-12 h-12">
+                <img src="app/views/src/icons/logoH.png" alt="Ícono del hospital" class="w-12 h-12">
                 <h1 class="text-black font-bold text-lg whitespace-nowrap">
                   Hospital Saturnino Lora
                 </h1>
@@ -23,7 +23,7 @@
                       <path
                         d="M32 32c17.7 0 32 14.3 32 32l0 336c0 8.8 7.2 16 16 16l400 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L80 480c-44.2 0-80-35.8-80-80L0 64C0 46.3 14.3 32 32 32zM160 224c17.7 0 32 14.3 32 32l0 64c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32zm128-64l0 160c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-160c0-17.7 14.3-32 32-32s32 14.3 32 32zm64 32c17.7 0 32 14.3 32 32l0 96c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-96c0-17.7 14.3-32 32-32zM480 96l0 224c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-224c0-17.7 14.3-32 32-32s32 14.3 32 32z" />
                     </svg>
-                    <a href="dahsboard.html"
+                    <a href="?controller=Dashboard"
                       class="text-dark-gray hover:text-blue-logo hover:text-blue-700 ml-2 hover:underline">Dashboard</a>
                   </li>
                   <div class="flex items-center space-x-2">
@@ -38,12 +38,12 @@
                       </button>
                       <ul id="inicio-menu-consulta" class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
                         <li>
-                          <a href="addConsult.html"
+                          <a href="?controller=Consulta&&action=form_consultas"
                             class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700  hover:underline">Añadir
                             consulta</a>
                         </li>
                         <li>
-                          <a href="listadoConsult.html"
+                          <a href="?controller=Consulta&&action=principal"
                             class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700  hover:underline">Listado
                             de consultas</a>
                         </li>
@@ -63,11 +63,11 @@
                       </button>
                       <ul id="inicio-menu-doctores" class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
                         <li>
-                          <a href="doctores.html" class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
+                          <a href="?controller=Doctor&&action=form_doctores" class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
                             doctor</a>
                         </li>
                         <li>
-                          <a href="listado_doctores.html"
+                          <a href="?controller=Doctor&&action=principal"
                             class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Listado de doctores</a>
                         </li>
                       </ul>
@@ -85,11 +85,11 @@
                       </button>
                       <ul id="inicio-menu-pacientes" class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
                         <li>
-                          <a href="pacientes.html"
+                          <a href="?controller=Paciente&&action=form_pacientes"
                             class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir paciente</a>
                         </li>
                         <li>
-                          <a href="listado_pacientes.html"
+                          <a href="?controller=Pacientes&&action=principal"
                             class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Listado de pacientes</a>
                         </li>
                       </ul>
@@ -107,11 +107,11 @@
                       </button>
                       <ul id="inicio-menu-especialidad" class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
                         <li>
-                          <a href="especialidades.html"
+                          <a href="?controller=Especialidad&&action=form_especialidades"
                             class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir especialidad</a>
                         </li>
                         <li>
-                          <a href="listado_especialidades.html"
+                          <a href="?controller=Especialidad&&action=principal"
                             class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Listado de especialidades</a>
                         </li>
                       </ul>
@@ -135,7 +135,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Aquí se agregarán las filas dinámicamente -->
+                        <?php 
+                        $especialidades = $this->especialidad->listar();
+                        for($i = 0; $i < count($especialidades); $i ++): ?>
+                            <tr>
+                                <?php if($i+1 == count($especialidades)): ?>
+                                    <td class="p-3 border-r border-b border-gray-700 text-left"><?php echo $especialidades[$i]->detalles; ?></td>
+                                    <td class="p-3 border-r border-b border-gray-700 text-left"></td>
+                                <?php else: ?>
+                                    <td class="p-3 border-r border-b border-gray-700 text-left"><?php echo $especialidades[$i]->detalles; ?></td>
+                                    <td class="p-3 border-r border-b border-gray-700 text-left"></td>
+                                <?php endif ?>
+                            </tr>
+                        <?php endfor
+                         ?>
                         </tbody>
                     </table>
                 </div>
@@ -152,7 +165,7 @@
         <a href="#footer" class="btn-flotante fixed bottom-16 right-4 bg-gray-500 text-white px-4 py-2 rounded shadow-lg ">Información</a>
         
         
-        <script src="../../src/js/script.js" defer></script>
+        <script src="app/views/src/js/script.js" defer></script>
 
     
     </body>

@@ -4,36 +4,27 @@ class Especializacion{
 
     private $pdo;
 
-    private $ID_Especializacion;
-    private $Descripcion;
-    private $ID_Doc;
+    private $id_especialidad;
+    private $detalles;
 
     public function __CONSTRUCT(){
         $this->pdo = DataBase::connect();
     }
 
     public function getID_Especializacion(){
-        return $this->ID_Especializacion;
+        return $this->id_especialidad;
     }
 
     public function setID_Especializacion(int $id){
-        $this->ID_Especializacion = $id;
+        $this->id_especialidad = $id;
     }
 
     public function getDescripcion(){
-        return $this->Descripcion;
+        return $this->detalles;
     }
 
     public function setDescripcion(string $descripcion){
-        $this->Descripcion = $descripcion;
-    }
-
-    public function getID_Doc(){
-        return $this->ID_Doc;
-    }
-
-    public function setID_Doc(int $id_doc){
-        $this->ID_Doc = $id_doc;
+        $this->detalles = $descripcion;
     }
 
     public function listar(){
@@ -49,7 +40,7 @@ class Especializacion{
     public function cantidad()
     {
         try {
-            $q = "SELECT COUNT(id_especialidad) AS Cant_Especialidades FROM especialidad;";
+            $q = "SELECT COUNT(id_especialidad) AS Cant_Especialidades FROM ESPECIALIDAD;";
             $consulta = $this->pdo->prepare($q);
             $consulta->execute();
             return $consulta->fetch(PDO::FETCH_OBJ);
@@ -62,13 +53,12 @@ class Especializacion{
     public function insertar(Especializacion $obj): void
     {
         try {
-            $q = "INSERT INTO ESPECIALIZACION(ID_Especializacion,Descripcion,ID_Doc) VALUES (?,?,?)";
+            $q = "INSERT INTO ESPECIALIDAD(id_especialidad,detalles) VALUES (?,?)";
             $consulta = $this->pdo->prepare($q);
             $consulta->execute(
                 [
                     $obj->getID_Especializacion(),
-                    $obj->getDescripcion(),
-                    $obj->getID_Doc()
+                    $obj->getDescripcion()
                 ]
             );
         } catch (Exception $e) {
@@ -79,16 +69,15 @@ class Especializacion{
     public function obtener(int $id): Especializacion
     {
         try {
-            $q = "SELECT * FROM ESPECIALIZACION WHERE ID_Doc=?;";
+            $q = "SELECT * FROM ESPECIALIDAD WHERE id_especialidad=?;";
             $consulta = $this->pdo->prepare($q);
             $consulta->execute([$id]);
 
             $resultado = $consulta->fetch(PDO::FETCH_OBJ);
 
             $obj = new Especializacion();
-            $obj->setID_Doc($resultado->ID_Doc);
-            $obj->setID_Especializacion($resultado->ID_Especializacion);
-            $obj->setDescripcion($resultado->Descripcion);
+            $obj->setID_Especializacion($resultado->id_especialidad);
+            $obj->setDescripcion($resultado->detalles);
 
             return $obj;
         } catch (Exception $e) {
@@ -99,13 +88,22 @@ class Especializacion{
     public function actualizar(Especializacion $obj): void
     {
         try {
-            $q = "UPDATE ESPECIALIZACION SET Descripcion=? WHERE ID_Doc=?;";
+            $q = "UPDATE ESPECIALIDAD SET detalles=? WHERE id_especialidad=?;";
             $consulta = $this->pdo->prepare($q);
             $consulta->execute([
                 $obj->getDescripcion(),
-                $obj->getID_DOc()
+                $obj->getID_Especializacion()
             ]);
         } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function eliminar(int $id): void{
+        try{
+            $consulta = $this->pdo->prepare("DELETE FROM ESPECIALIDAD WHERE id_especialidad=?");
+            $consulta->execute([$id]);
+        }catch (Exception $e) {
             die($e->getMessage());
         }
     }

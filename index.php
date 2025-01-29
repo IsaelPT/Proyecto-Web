@@ -3,6 +3,7 @@ require_once "app/controllers/DashboardController.php";
 require_once "app/controllers/ConsultaController.php";
 require_once "app/controllers/DoctorController.php";
 require_once "app/controllers/PacienteController.php";
+require_once "app/controllers/EspecialidadController.php";
 require_once "app/models/DataBase.php";
 
 
