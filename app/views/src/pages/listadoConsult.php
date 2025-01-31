@@ -100,7 +100,7 @@
                                         paciente</a>
                                 </li>
                                 <li>
-                                    <a href="?controller=Pacientes&&action=principal"
+                                    <a href="?controller=Paciente&&action=principal"
                                         class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Listado
                                         de
                                         pacientes</a>
