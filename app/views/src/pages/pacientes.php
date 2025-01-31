@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hospital Saturnino Lora</title>
-<<<<<<< HEAD
     <link rel="stylesheet" href="app/views/src/styles/estilos.css">
     <link rel="shortcut icon" href="app/views/src/icons/logoH.png" type="image/x-icon">
   </head>
@@ -17,21 +16,6 @@
         <div class="flex items-center space-x-2 mr-2">
           <img src="app/views/src/icons/logoH.png" alt="Ícono del hospital" class="w-12 h-12">
           <h1 class="text-black font-bold text-lg whitespace-nowrap">Hospital Saturnino Lora</h1>
-=======
-    <link rel="stylesheet" href="../../src/styles/estilos.css">
-    <link rel="shortcut icon" href="../icons/logoH.png" type="image/x-icon">
-  </head>
-
-  <body class="bg-cover bg-center bg-fixed"
-    style="background-image:linear-gradient(rgba(186, 172, 172, 0.542), rgba(205, 194, 194, 0.2)), url('../../src/icons/pacients.jpg');">
-    <header class="bg-blue-300">
-      <div class="container mx-auto flex items-center justify-between py-4 px-6 flex-wrap">
-        <div class="flex items-center space-x-2 mr-2">
-          <img src="../icons/logoH.png" alt="Ícono del hospital" class="w-12 h-12">
-          <h1 class="text-black font-bold text-lg whitespace-nowrap">
-            Hospital Saturnino Lora
-          </h1>
->>>>>>> 6855e2a (Modified: Views conexiones con el backend.)
         </div>
         <nav class="flex-grow">
           <ul class="flex justify-end items-center space-x-4">
@@ -40,11 +24,7 @@
                 <path
                   d="M32 32c17.7 0 32 14.3 32 32l0 336c0 8.8 7.2 16 16 16l400 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L80 480c-44.2 0-80-35.8-80-80L0 64C0 46.3 14.3 32 32 32zM160 224c17.7 0 32 14.3 32 32l0 64c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32zm128-64l0 160c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-160c0-17.7 14.3-32 32-32s32 14.3 32 32zm64 32c17.7 0 32 14.3 32 32l0 96c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-96c0-17.7 14.3-32 32-32zM480 96l0 224c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-224c0-17.7 14.3-32 32-32s32 14.3 32 32z" />
               </svg>
-<<<<<<< HEAD
               <a href="?controller=Dashboard&&action=principal"
-=======
-              <a href="dahsboard.html"
->>>>>>> 6855e2a (Modified: Views conexiones con el backend.)
                 class="text-dark-gray hover:text-blue-logo hover:text-blue-700 ml-2 hover:underline">Dashboard</a>
             </li>
             <div class="flex items-center space-x-2">
@@ -60,20 +40,12 @@
                 <ul id="inicio-menu-consulta"
                   class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
                   <li>
-<<<<<<< HEAD
                     <a href="?controller=Consulta&&action=form_consultas"
-=======
-                    <a href="addConsult.html"
->>>>>>> 6855e2a (Modified: Views conexiones con el backend.)
                       class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700  hover:underline">Añadir
                       consulta</a>
                   </li>
                   <li>
-<<<<<<< HEAD
                     <a href="?controller=Consulta&&action=principal"
-=======
-                    <a href="listadoConsult.html"
->>>>>>> 6855e2a (Modified: Views conexiones con el backend.)
                       class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700  hover:underline">Listado
                       de consultas</a>
                   </li>
@@ -95,20 +67,12 @@
                 <ul id="inicio-menu-doctores"
                   class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
                   <li>
-<<<<<<< HEAD
                     <a href="?controller=Doctor&&action=form_doctores"
-=======
-                    <a href="doctores.html"
->>>>>>> 6855e2a (Modified: Views conexiones con el backend.)
                       class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
                       doctor</a>
                   </li>
                   <li>
-<<<<<<< HEAD
                     <a href="?controller=Doctor&&action=principal"
-=======
-                    <a href="listado_doctores.html"
->>>>>>> 6855e2a (Modified: Views conexiones con el backend.)
                       class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Listado de
                       doctores</a>
                   </li>
@@ -129,20 +93,12 @@
                 <ul id="inicio-menu-pacientes"
                   class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
                   <li>
-<<<<<<< HEAD
                     <a href="?controller=Paciente&&action=form_pacientes"
-=======
-                    <a href="pacientes.html"
->>>>>>> 6855e2a (Modified: Views conexiones con el backend.)
                       class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
                       paciente</a>
                   </li>
                   <li>
-<<<<<<< HEAD
                     <a href="?controller=Paciente&&action=principal"
-=======
-                    <a href="listado_pacientes.html"
->>>>>>> 6855e2a (Modified: Views conexiones con el backend.)
                       class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Listado de
                       pacientes</a>
                   </li>
@@ -163,20 +119,12 @@
                 <ul id="inicio-menu-especialidad"
                   class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
                   <li>
-<<<<<<< HEAD
                     <a href="?controller=Especialidad&&action=form_especialidades"
-=======
-                    <a href="especialidades.html"
->>>>>>> 6855e2a (Modified: Views conexiones con el backend.)
                       class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
                       especialidad</a>
                   </li>
                   <li>
-<<<<<<< HEAD
                     <a href="?controller=Especialidad&&action=principal"
-=======
-                    <a href="listado_especialidades.html"
->>>>>>> 6855e2a (Modified: Views conexiones con el backend.)
                       class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Listado de
                       especialidades</a>
                   </li>
@@ -189,7 +137,6 @@
     </header>
 
     <main class="container mx-auto py-8 px-6">
-<<<<<<< HEAD
       <section class="mb-8">
         <div class="flex flex-col items-center">
           <h2 class="text-4xl font-bold mb-4">Añadir paciente</h2>
@@ -228,41 +175,6 @@
               <button type="submit"
                 class="px-4 py-2 bg-green-300 text-black rounded hover:bg-green-500 mr-5">Guardar</button>
               <button type="reset" class="px-4 py-2 bg-blue-300 text-black rounded hover:bg-blue-500">Limpiar</button>
-=======
-      <section class="mb-">
-        <div class="flex flex-col items-center">
-          <h2 class="text-4xl font-bold mb-4">Añadir paciente</h2>
-          <form class="bg-light-gray p-6 rounded-lg shadow-md w-full max-w-4xl backdrop-blur-lg bg-gray-100/60">
-            <div class="mb-4 flex flex-col">
-              <label for="nombre" class="block text-dark-gray-text font-semibold mb-2">Nombre</label>
-              <input type="text" id="nombre" class="w-full p-3 border rounded" placeholder="Escriba el nombre" required>
-            </div>
-            <div class="mb-4 flex flex-col">
-              <label for="apellidos" class="block text-dark-gray-text font-semibold mb-2">Apellidos</label>
-              <div>
-                <input type="text" id="apellido_1" class="w-full p-3 border rounded mb-2"
-                  placeholder="Escriba el primer apellido" required>
-              </div>
-              <div class="mt-2">
-                <input type="text" id="apellido_2" class="w-full p-3 border rounded"
-                  placeholder="Escriba el segundo apellido" required>
-              </div>
-            </div>
-            <div class="mb-4 flex flex-col">
-              <label for="seguro" class="block text-dark-gray-text font-semibold mb-2">Número de seguro social</label>
-              <input type="text" id="seguro" class="w-full p-3 border rounded"
-                placeholder="Escriba el número de seguro social" required>
-            </div>
-            <div class="mb-4 flex flex-col">
-              <label for="diagnostico" class="block text-dark-gray-text font-semibold mb-2">Diagnóstico</label>
-              <input type="text" id="diagnostico" class="w-full p-3 border rounded"
-                placeholder="Escriba el diagnóstico del paciente" required>
-            </div>
-            <div class="flex justify-end">
-              <button type="submit"
-                class=" px-4 py-2 bg-green-300 text-black rounded hover:bg-green-500 mr-5">Guardar</button>
-              <button type="reset" class=" px-4 py-2 bg-blue-300 text-black rounded hover:bg-blue-500">Limpiar</button>
->>>>>>> 6855e2a (Modified: Views conexiones con el backend.)
             </div>
           </form>
         </div>
@@ -280,14 +192,9 @@
     <a href="#footer"
       class="btn-flotante fixed bottom-16 right-4 bg-gray-500 text-white px-4 py-2 rounded shadow-lg">Información</a>
 
-<<<<<<< HEAD
     <script src="app/views/src/js/script.js"></script>
     <script src="app/views/src/js/validaciones.js"></script>
 
-=======
-    <script src="../../src/js/script.js"></script>
-    <script src="../../src/js/validaciones.js"></script>
->>>>>>> 6855e2a (Modified: Views conexiones con el backend.)
   </body>
 
 </html>
