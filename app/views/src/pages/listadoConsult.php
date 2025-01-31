@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hospital Saturnino Lora</title>
-    <link rel="stylesheet" href="app/views/src/styles/estilos.css">
-    <link rel="shortcut icon" href="app/views/src/icons/logoH.png" type="image/x-icon">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hospital Saturnino Lora</title>
+        <link rel="stylesheet" href="app/views/src/styles/estilos.css">
+        <link rel="shortcut icon" href="app/views/src/icons/logoH.png" type="image/x-icon">
+    </head>
 
 <body class="bg-cover bg-center bg-fixed"
     style="background-image: linear-gradient(rgba(186, 172, 172, 0.542), rgba(205, 194, 194, 0.2)), url('app/views/src/icons/dash.jpg');background-position: center 20%;">
@@ -33,7 +33,7 @@
                         <li class="relative flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 576 512">
                                 <path
-                                    d="M142.4 21.9c5.6 16.8-3.5 34.9-20.2 40.5L96 71.1 96 192c0 53 43 96 96 96s96-43 96-96l0-120.9-26.1-8.7c-16.8-5.6-25.8-23.7-20.2-40.5s23.7-25.8 40.5-20.2l26.1 8.7C334.4 19.1 352 43.5 352 71.1L352 192c0 77.2-54.6 141.6-127.3 156.7C231 404.6 278.4 448 336 448c61.9 0 112-50.1 112-112l0-70.7c-28.3-12.3-48-40.5-48-73.3c0-44.2 35.8-80 80-80s80 35.8 80 80c0 32.8-19.7 61-48 73.3l0 70.7c0 97.2-78.8 176-176 176c-92.9 0-168.9-71.9-175.5-163.1C87.2 334.2 32 269.6 32 192L32 71.1c0-27.5 17.6-52 43.8-60.7l26.1-8.7c16.8-5.6 34.9 3.5 40.5 20.2zM480 224a32 32 0 1 0 0-64 32 32 0 1 0 0 64z" />
+                                    d="M32 32c17.7 0 32 14.3 32 32l0 336c0 8.8 7.2 16 16 16l400 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L80 480c-44.2 0-80-35.8-80-80L0 64C0 46.3 14.3 32 32 32zM160 224c17.7 0 32 14.3 32 32l0 64c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32zm128-64l0 160c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-160c0-17.7 14.3-32 32-32s32 14.3 32 32zm64 32c17.7 0 32 14.3 32 32l0 96c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-96c0-17.7 14.3-32 32-32zM480 96l0 224c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-224c0-17.7 14.3-32 32-32s32 14.3 32 32z" />
                             </svg>
                             <button id="inicio-btn-consulta"
                                 class="text-dark-gray hover:text-blue-logo hover:text-blue-700  hover:underline ml-2">
@@ -90,11 +90,11 @@
                                     d="M48 0C21.5 0 0 21.5 0 48L0 256l144 0c8.8 0 16 7.2 16 16s-7.2 16-16 16L0 288l0 64 144 0c8.8 0 16 7.2 16 16s-7.2 16-16 16L0 384l0 80c0 26.5 21.5 48 48 48l217.9 0c-6.3-10.2-9.9-22.2-9.9-35.1c0-46.9 25.8-87.8 64-109.2l0-95.9L320 48c0-26.5-21.5-48-48-48L48 0zM152 64l16 0c8.8 0 16 7.2 16 16l0 24 24 0c8.8 0 16 7.2 16 16l0 16c0 8.8-7.2 16-16 16l-24 0 0 24c0 8.8-7.2 16-16 16l-16 0c-8.8 0-16-7.2-16-16l0-24-24 0c-8.8 0-16-7.2-16-16l0-16c0-8.8 7.2-16 16-16l24 0 0-24c0-8.8 7.2-16 16-16zM512 272a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM288 477.1c0 19.3 15.6 34.9 34.9 34.9l218.2 0c19.3 0 34.9-15.6 34.9-34.9c0-51.4-41.7-93.1-93.1-93.1l-101.8 0c-51.4 0-93.1 41.7-93.1 93.1z" />
                             </svg>
                             <button id="inicio-btn-pacientes"
-                                class="text-dark-gray hover:text-blue-logo hover:text-blue-700 hover:underline ml-2">
+                                class="text-dark-gray hover:text-blue-logo hover:text-blue-700 hover:underline ml-2 z-40">
                                 Pacientes
                             </button>
                             <ul id="inicio-menu-pacientes"
-                                class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40 z-40">
+                                class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
                                 <li>
                                     <a href="?controller=Paciente&&action=form_pacientes"
                                         class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
@@ -207,19 +207,96 @@
         </section>
     </main>
 
-    <footer id="footer"
-        class="footer fixed bottom-0 left-0 w-full bg-gray-900 hidden transition-all duration-300 ease-in-out">
-        <div
-            class="container mx-auto flex flex-col sm:flex-row items-center justify-between text-white w-full px-4 py-3">
-            <p class="text-center sm:text-left">© 2025 Mi Sitio Web. Todos los derechos reservados.</p>
-            <a href="#" class="text-blue-500 hover:underline mt-2 sm:mt-0">Política de Privacidad</a>
-        </div>
-    </footer>
+        <!-- Contenido de Listado de Consultas -->
+        <main class="container mx-auto py-4 px-6 sm:px-6 max-w-full overflow-x-auto">
+            <section class="mb-8">
+                <div class="flex flex-col items-center mt-10">
+                    <h2 class="text-2xl sm:text-4xl font-bold mb-4 ">Listado de consultas</h2>
+                    <div class="w-full max-w-full overflow-x-auto mx-auto">
+                        <table id="tablaPacientes"
+                            class="p-6 w-auto backdrop-blur-lg bg-gray-100/60 border-collapse overflow-hidden rounded-lg table-auto mx-auto">
+                            <thead>
+                                <tr>
+                                    <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Paciente</th>
+                                    <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Apellido Paciente
+                                    </th>
+                                    <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Doctor asignado
+                                    </th>
+                                    <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Apellido Doctor
+                                    </th>
+                                    <th class="p-2 sm:p-3 border-b border-gray-700 text-left">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $consultas = $this->consulta->listar();
+                                for ($i = 0; $i < count($consultas); $i++): ?>
+                                    <tr>
+                                        <?php if ($i + 1 == count($consultas)): ?>
+                                            <td class="p-2 sm:p-3 border-r border-gray-700 text-left">
+                                                <?php echo $consultas[$i]->nombre_paciente; ?>
+                                            </td>
+                                            <td class="p-2 sm:p-3 border-r border-gray-700 text-left">
+                                                <?php echo $consultas[$i]->primer_apellido_paciente; ?>
+                                            </td>
+                                            <td class="p-2 sm:p-3 border-r border-gray-700 text-left">
+                                                <?php echo $consultas[$i]->nombre_doctor; ?>
+                                            </td>
+                                            <td class="p-2 sm:p-3 border-r border-gray-700 text-left">
+                                                <?php echo $consultas[$i]->primer_apellido_doctor; ?>
+                                            </td>
+                                            <td class="p-2 sm:p-3 border-gray-700 text-left">
+                                                <div
+                                                    class="flex flex-col sm:flex-row justify-end items-center space-y-2 sm:space-y-0 sm:space-x-4">
+                                                    <a href="?controller=Consulta&&action=eliminar&&id_doctor=<?php echo $consultas[$i]->id_doctor ?>&&id_paciente=<?php echo $consultas[$i]->id_paciente ?>"
+                                                        class="px-4 py-2 bg-red-300 text-black rounded hover:bg-red-500 mr-5 borrar-fila">
+                                                        Borrar </a>
+                                                </div>
+                                            </td>
+                                        <?php else: ?>
+                                            <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">
+                                                <?php echo $consultas[$i]->nombre_paciente; ?>
+                                            </td>
+                                            <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">
+                                                <?php echo $consultas[$i]->primer_apellido_paciente; ?>
+                                            </td>
+                                            <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">
+                                                <?php echo $consultas[$i]->nombre_doctor; ?>
+                                            </td>
+                                            <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">
+                                                <?php echo $consultas[$i]->primer_apellido_doctor; ?>
+                                            </td>
+                                            <td class="p-2 sm:p-3 border-b border-gray-700 text-left">
+                                                <div
+                                                    class="flex flex-col sm:flex-row justify-end items-center space-y-2 sm:space-y-0 sm:space-x-4">
+                                                    <a href="?controller=Consulta&&action=eliminar&&id_doctor=<?php echo $consultas[$i]->id_doctor ?>&&id_paciente=<?php echo $consultas[$i]->id_paciente ?>"
+                                                        class="px-4 py-2 bg-red-300 text-black rounded hover:bg-red-500 mr-5 borrar-fila">
+                                                        Borrar </a>
+                                                </div>
+                                            </td>
+                                        <?php endif ?>
+                                    </tr>
+                                <?php endfor
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+            </section>
+        </main>
 
-    <a href="#footer"
-        class="btn-flotante fixed bottom-5 right-4 bg-gray-500 text-white px-4 py-2 rounded shadow-lg text-sm sm:text-base">Información</a>
+        <footer id="footer"
+            class="footer fixed bottom-0 left-0 w-full bg-gray-900 hidden transition-all duration-300 ease-in-out">
+            <div
+                class="container mx-auto flex flex-col sm:flex-row items-center justify-between text-white w-full px-4 py-3">
+                <p class="text-center sm:text-left">© 2025 Mi Sitio Web. Todos los derechos reservados.</p>
+                <a href="#" class="text-blue-500 hover:underline mt-2 sm:mt-0">Política de Privacidad</a>
+            </div>
+        </footer>
 
-    <script src="app/views/src/js/script.js"></script>
-</body>
+        <a href="#footer"
+            class="btn-flotante fixed bottom-5 right-4 bg-gray-500 text-white px-4 py-2 rounded shadow-lg text-sm sm:text-base">Información</a>
+
+        <script src="app/views/src/js/script.js"></script>
+    </body>
 
 </html>
