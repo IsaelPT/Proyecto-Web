@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="app/views/src/icons/logoH.png" type="image/x-icon">
 </head>
 
-<body class="bg-cover bg-center bg-fixed" style="background-image: url('app/views/src/icons/dash.jpg');">
+<body class="bg-cover bg-center bg-fixed" style="background-image: linear-gradient(rgba(186, 172, 172, 0.542), rgba(205, 194, 194, 0.2)), url('app/views/src/icons/dash.jpg');background-position: center 20%;">
     <header class="bg-blue-300">
         <div class="container mx-auto flex items-center justify-between py-4 px-6 flex-wrap">
             <div class="flex items-center space-x-2 mr-2">
@@ -19,7 +19,7 @@
                 </h1>
             </div>
             <nav class="flex-grow">
-                <ul class="flex justify-end items-center space-x-4">
+            <ul class="flex flex-col sm:flex-row justify-end items-center space-y-2 sm:space-y-0 sm:space-x-4">
                     <li class="flex items-center space-x-2">
                         <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512">
                             <path
@@ -136,18 +136,19 @@
     </header>
 
     <!-- Contenido de Listado de Consultas -->
-    <main class="container mx-auto py-4 px-6">
+    <main class="container mx-auto py-4 px-6 sm:px-6 max-w-full overflow-x-auto">
         <section class="mb-8">
             <div class="flex flex-col items-center mt-10">
-                <h2 class="text-4xl font-bold mb-4">Listado de consultas</h2>
-                <table id="tablaPacientes" class="min-w-full p-6 w-auto backdrop-blur-lg bg-gray-100/60 border-collapse overflow-hidden rounded-lg table-auto">
+                <h2 class="text-2xl sm:text-4xl font-bold mb-4 ">Listado de consultas</h2>
+                <div class="w-full max-w-full overflow-x-auto mx-auto">
+                <table id="tablaPacientes" class="p-6 w-auto backdrop-blur-lg bg-gray-100/60 border-collapse overflow-hidden rounded-lg table-auto mx-auto">
                     <thead>
                         <tr>
-                            <th class="p-3 border-r border-b border-gray-700 text-left">Paciente</th>
-                            <th class="p-3 border-r border-b border-gray-700 text-left">Apellido Paciente</th>
-                            <th class="p-3 border-r border-b border-gray-700 text-left">Doctor asignado</th>
-                            <th class="p-3 border-r border-b border-gray-700 text-left">Apellido Doctor</th>
-                            <th class="p-3 border-b border-gray-700 text-left">Acciones</th>
+                            <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Paciente</th>
+                            <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Apellido Paciente</th>
+                            <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Doctor asignado</th>
+                            <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Apellido Doctor</th>
+                            <th class="p-2 sm:p-3 border-b border-gray-700 text-left">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -156,20 +157,24 @@
                         for($i = 0; $i < count($consultas); $i ++): ?>
                             <tr>
                                 <?php if($i+1 == count($consultas)): ?>
-                                    <td class="p-3 border-r border-gray-700 text-left"><?php echo $consultas[$i]->nombre_paciente; ?></td>
-                                    <td class="p-3 border-r border-gray-700 text-left"><?php echo $consultas[$i]->primer_apellido_paciente; ?></td>
-                                    <td class="p-3 border-r border-gray-700 text-left"><?php echo $consultas[$i]->nombre_doctor; ?></td>
-                                    <td class="p-3 border-r border-gray-700 text-left"><?php echo $consultas[$i]->primer_apellido_doctor; ?></td>
-                                    <td class="p-3 border-gray-700 text-left">
+                                    <td class="p-2 sm:p-3 border-r border-gray-700 text-left"><?php echo $consultas[$i]->nombre_paciente; ?></td>
+                                    <td class="p-2 sm:p-3 border-r border-gray-700 text-left"><?php echo $consultas[$i]->primer_apellido_paciente; ?></td>
+                                    <td class="p-2 sm:p-3 border-r border-gray-700 text-left"><?php echo $consultas[$i]->nombre_doctor; ?></td>
+                                    <td class="p-2 sm:p-3 border-r border-gray-700 text-left"><?php echo $consultas[$i]->primer_apellido_doctor; ?></td>
+                                    <td class="p-2 sm:p-3 border-gray-700 text-left">
+                                    <div class="flex flex-col sm:flex-row justify-end items-center space-y-2 sm:space-y-0 sm:space-x-4">
                                         <a href="?controller=Consulta&&action=eliminar&&id_doctor=<?php echo $consultas[$i]->id_doctor ?>&&id_paciente=<?php echo $consultas[$i]->id_paciente ?>" class="px-4 py-2 bg-red-300 text-black rounded hover:bg-red-500 mr-5 borrar-fila"> Borrar </a>
+                                    </div>
                                     </td>
                                 <?php else: ?>
-                                    <td class="p-3 border-r border-b border-gray-700 text-left"><?php echo $consultas[$i]->nombre_paciente; ?></td>
-                                    <td class="p-3 border-r border-b border-gray-700 text-left"><?php echo $consultas[$i]->primer_apellido_paciente; ?></td>
-                                    <td class="p-3 border-r border-b border-gray-700 text-left"><?php echo $consultas[$i]->nombre_doctor; ?></td>
-                                    <td class="p-3 border-r border-b border-gray-700 text-left"><?php echo $consultas[$i]->primer_apellido_doctor; ?></td>
-                                    <td class="p-3 border-b border-gray-700 text-left">
+                                    <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left"><?php echo $consultas[$i]->nombre_paciente; ?></td>
+                                    <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left"><?php echo $consultas[$i]->primer_apellido_paciente; ?></td>
+                                    <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left"><?php echo $consultas[$i]->nombre_doctor; ?></td>
+                                    <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left"><?php echo $consultas[$i]->primer_apellido_doctor; ?></td>
+                                    <td class="p-2 sm:p-3 border-b border-gray-700 text-left">
+                                    <div class="flex flex-col sm:flex-row justify-end items-center space-y-2 sm:space-y-0 sm:space-x-4">
                                         <a href="?controller=Consulta&&action=eliminar&&id_doctor=<?php echo $consultas[$i]->id_doctor ?>&&id_paciente=<?php echo $consultas[$i]->id_paciente ?>" class="px-4 py-2 bg-red-300 text-black rounded hover:bg-red-500 mr-5 borrar-fila"> Borrar </a>
+                                    </div>
                                     </td>
                                 <?php endif ?>
                             </tr>
@@ -185,13 +190,13 @@
         class="footer fixed bottom-0 left-0 w-full bg-gray-900 hidden transition-all duration-300 ease-in-out">
         <div
             class="container mx-auto flex flex-col sm:flex-row items-center justify-between text-white w-full px-4 py-3">
-            <p>© 2025 Mi Sitio Web. Todos los derechos reservados.</p>
+            <p class="text-center sm:text-left">© 2025 Mi Sitio Web. Todos los derechos reservados.</p>
             <a href="#" class="text-blue-500 hover:underline mt-2 sm:mt-0">Política de Privacidad</a>
         </div>
     </footer>
 
     <a href="#footer"
-        class="btn-flotante fixed bottom-16 right-4 bg-gray-500 text-white px-4 py-2 rounded shadow-lg">Información</a>
+        class="btn-flotante fixed bottom-5 right-4 bg-gray-500 text-white px-4 py-2 rounded shadow-lg text-sm sm:text-base">Información</a>
 
     <script src="app/views/src/js/script.js"></script>
 </body>

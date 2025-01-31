@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="app/views/src/styles/estilos.css">
         <link rel="shortcut icon" href="app/views/src/icons/logoH.png" type="image/x-icon">
     </head>
-    <body class="bg-cover bg-center bg-fixed" style="background-image:linear-gradient(rgba(186, 172, 172, 0.542), rgba(205, 194, 194, 0.2)), url('app/views/src/icons/consulta.jpg');">
+    <body class="bg-cover bg-center bg-fixed" style="background-image: linear-gradient(rgba(186, 172, 172, 0.542), rgba(205, 194, 194, 0.2)), url('app/views/src/icons/consulta.jpg');background-position: center 20%;">
         <header class="bg-blue-300">
             <div class="container mx-auto flex items-center justify-between py-4 px-6 flex-wrap">
               <div class="flex items-center space-x-2 mr-2">
@@ -17,7 +17,7 @@
                 </h1>
               </div>
               <nav class="flex-grow">
-                <ul class="flex justify-end items-center space-x-4">
+              <ul class="flex flex-col sm:flex-row justify-end items-center space-y-2 sm:space-y-0 sm:space-x-4">
                   <li class="flex items-center space-x-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512">
                       <path
@@ -123,15 +123,15 @@
           </header>
         
 
-        <main class="container mx-auto py-4 px-6">
+          <main class="container mx-auto py-4 px-6 sm:px-6 max-w-full overflow-x-auto">
             <section class="mb-8">
                 <div class="flex flex-col items-center mt-10">
                     <h2 class="text-4xl font-bold mb-4">Listado de especialidades</h2>
-                    <table id="tablaPacientes" class="min-w-full p-6 w-auto backdrop-blur-lg bg-gray-100/60 border-collapse overflow-hidden rounded-lg table-auto">
+                    <table id="tablaPacientes" class="p-6 w-auto backdrop-blur-lg bg-gray-100/60 border-collapse overflow-hidden rounded-lg table-auto">
                         <thead>
                             <tr>
-                                <th class="p-3 border-r border-b border-gray-700 text-left">Especialidad</th>
-                                <th class="p-3 border-b border-gray-700 text-left">Acciones</th>
+                                <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Especialidad</th>
+                                <th class="p-2 sm:p-3 border-b border-gray-700 text-left">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -140,16 +140,20 @@
                         for($i = 0; $i < count($especialidades); $i ++): ?>
                             <tr>
                                 <?php if($i+1 == count($especialidades)): ?>
-                                    <td class="p-3 border-r border-gray-700 text-left"><?php echo $especialidades[$i]->detalles; ?></td>
-                                    <td class="p-3 border-gray-700 text-left">
+                                    <td class="p-2 sm:p-3 border-r border-gray-700 text-left"><?php echo $especialidades[$i]->detalles; ?></td>
+                                    <td class="p-2 sm:p-3 border-gray-700 text-left">
+                                    <div class="flex flex-col sm:flex-row justify-end items-center space-y-2 sm:space-y-0 sm:space-x-4">
                                       <a href="?controller=Especialidad&&action=form_especialidades&&id=<?php echo $especialidades[$i]->id_especialidad ?>" class="px-4 py-2 bg-blue-300 text-black rounded hover:bg-blue-500 mr-5 editar-fila"> Editar </a>
                                       <a href="?controller=Especialidad&&action=eliminar&&id=<?php echo $especialidades[$i]->id_especialidad ?>" class="px-4 py-2 bg-red-300 text-black rounded hover:bg-red-500 mr-5 borrar-fila"> Borrar </a>
+                                    </div>
                                     </td>
                                 <?php else: ?>
-                                    <td class="p-3 border-r border-b border-gray-700 text-left"><?php echo $especialidades[$i]->detalles; ?></td>
-                                    <td class="p-3 border-b border-gray-700 text-left">
+                                    <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left"><?php echo $especialidades[$i]->detalles; ?></td>
+                                    <td class="p-2 sm:p-3 border-b border-gray-700 text-left">
+                                    <div class="flex flex-col sm:flex-row justify-end items-center space-y-2 sm:space-y-0 sm:space-x-4">
                                       <a href="?controller=Especialidad&&action=form_especialidades&&id=<?php echo $especialidades[$i]->id_especialidad ?>" class="px-4 py-2 bg-blue-300 text-black rounded hover:bg-blue-500 mr-5 editar-fila"> Editar </a>
                                       <a href="?controller=Especialidad&&action=eliminar&&id=<?php echo $especialidades[$i]->id_especialidad ?>" class="px-4 py-2 bg-red-300 text-black rounded hover:bg-red-500 mr-5 borrar-fila"> Borrar </a>
+                                    </div>
                                     </td>
                                 <?php endif ?>
                             </tr>
@@ -163,12 +167,12 @@
         
         <footer id="footer" class="footer fixed bottom-0 left-0 w-full bg-gray-900 hidden transition-all duration-300 ease-in-out">
             <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between text-white w-full px-4 py-3">
-                <p>© 2025 Mi Sitio Web. Todos los derechos reservados.</p>
+                <p class="text-center sm:text-left">© 2025 Mi Sitio Web. Todos los derechos reservados.</p>
                 <a href="#" class="text-blue-500 hover:underline mt-2 sm:mt-0 hover:text-green-600">Política de Privacidad</a>
             </div>
         </footer>
         
-        <a href="#footer" class="btn-flotante fixed bottom-16 right-4 bg-gray-500 text-white px-4 py-2 rounded shadow-lg ">Información</a>
+        <a href="#footer" class="btn-flotante fixed bottom-5 right-4 bg-gray-500 text-white px-4 py-2 rounded shadow-lg text-sm sm:text-base ">Información</a>
         
         
         <script src="app/views/src/js/script.js" defer></script>
