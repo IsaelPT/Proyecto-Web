@@ -22,7 +22,7 @@ class ConsultaController{
         include "app/views/src/pages/listadoConsult.php";
     }
 
-    public function form_consulta(){
+    public function form_consultas(){
 
         include "app/views/src/pages/addConsult.php";
     }
@@ -30,8 +30,8 @@ class ConsultaController{
     public function guardar(){
         $cons = new Consulta();
 
-        $cons->setID_Pac($_POST['id_pac']);
-        $cons->setID_Doc($_POST['id_doc']);
+        $cons->setID_Pac($_POST['id_paciente']);
+        $cons->setID_Doc($_POST['id_doctor']);
 
 
         $this->consulta->insertar($cons);
@@ -41,7 +41,7 @@ class ConsultaController{
     }
 
     public function eliminar(){
-        $this->consulta->eliminar($_GET["id_doc"], $_GET["id_pac"]);
+        $this->consulta->eliminar($_GET["id_doctor"], $_GET["id_paciente"]);
         header("location:?controller=Consulta");
         
     }

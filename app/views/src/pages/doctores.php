@@ -4,26 +4,26 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Hospital Saturnino Lora</title>
-        <link rel="stylesheet" href="../../src/styles/estilos.css">
-        <link rel="shortcut icon" href="../icons/logoH.png" type="image/x-icon">
+        <link rel="stylesheet" href="app/views/src/styles/estilos.css">
+        <link rel="shortcut icon" href="app/views/src/icons/logoH.png" type="image/x-icon">
     </head>
-    <body class="bg-cover bg-center bg-fixed" style="background-image:linear-gradient(rgba(186, 172, 172, 0.542), rgba(205, 194, 194, 0.2)), url('../../src/icons/consulta.jpg');">
+    <body class="bg-cover bg-center bg-fixed" style="background-image: linear-gradient(rgba(186, 172, 172, 0.542), rgba(205, 194, 194, 0.2)), url('app/views/src/icons/doctors.jpg');background-position: center 20%;">
         <header class="bg-blue-300">
             <div class="container mx-auto flex items-center justify-between py-4 px-6 flex-wrap">
               <div class="flex items-center space-x-2 mr-2">
-                <img src="../icons/logoH.png" alt="Ícono del hospital" class="w-12 h-12">
+                <img src="app/views/src/icons/logoH.png" alt="Ícono del hospital" class="w-12 h-12">
                 <h1 class="text-black font-bold text-lg whitespace-nowrap">
                   Hospital Saturnino Lora
                 </h1>
               </div>
               <nav class="flex-grow">
-                <ul class="flex justify-end items-center space-x-4">
+                <ul class="flex flex-col sm:flex-row justify-end items-center space-y-2 sm:space-y-0 sm:space-x-4">
                   <li class="flex items-center space-x-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512">
                       <path
                         d="M32 32c17.7 0 32 14.3 32 32l0 336c0 8.8 7.2 16 16 16l400 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L80 480c-44.2 0-80-35.8-80-80L0 64C0 46.3 14.3 32 32 32zM160 224c17.7 0 32 14.3 32 32l0 64c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32zm128-64l0 160c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-160c0-17.7 14.3-32 32-32s32 14.3 32 32zm64 32c17.7 0 32 14.3 32 32l0 96c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-96c0-17.7 14.3-32 32-32zM480 96l0 224c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-224c0-17.7 14.3-32 32-32s32 14.3 32 32z" />
                     </svg>
-                    <a href="dahsboard.html"
+                    <a href="?controller=Dashboard"
                       class="text-dark-gray hover:text-blue-logo hover:text-blue-700 ml-2 hover:underline">Dashboard</a>
                   </li>
                   <div class="flex items-center space-x-2">
@@ -38,12 +38,12 @@
                       </button>
                       <ul id="inicio-menu-consulta" class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
                         <li>
-                          <a href="addConsult.html"
+                          <a href="?controller=Consulta&&action=form_consultas"
                             class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700  hover:underline">Añadir
                             consulta</a>
                         </li>
                         <li>
-                          <a href="listadoConsult.html"
+                          <a href="?controller=Consulta&&action=principal"
                             class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700  hover:underline">Listado
                             de consultas</a>
                         </li>
@@ -63,11 +63,11 @@
                       </button>
                       <ul id="inicio-menu-doctores" class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
                         <li>
-                          <a href="doctores.html" class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
+                          <a href="?controller=Doctor&&action=form_doctores" class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
                             doctor</a>
                         </li>
                         <li>
-                          <a href="listado_doctores.html"
+                          <a href="?controller=Doctor&&action=principal"
                             class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Listado de doctores</a>
                         </li>
                       </ul>
@@ -85,11 +85,11 @@
                       </button>
                       <ul id="inicio-menu-pacientes" class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
                         <li>
-                          <a href="pacientes.html"
+                          <a href="?controller=Paciente&&action=form_pacientes"
                             class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir paciente</a>
                         </li>
                         <li>
-                          <a href="listado_pacientes.html"
+                          <a href="?controller=Pacientes&&action=principal"
                             class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Listado de pacientes</a>
                         </li>
                       </ul>
@@ -107,11 +107,11 @@
                       </button>
                       <ul id="inicio-menu-especialidad" class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
                         <li>
-                          <a href="especialidades.html"
+                          <a href="?controller=Especialidad&&action=form_especialidades"
                             class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir especialidad</a>
                         </li>
                         <li>
-                          <a href="listado_especialidades.html"
+                          <a href="?controller=Especialidad&&action=principal"
                             class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Listado de especialidades</a>
                         </li>
                       </ul>
@@ -121,39 +121,58 @@
               </nav>
             </div>
           </header>
-        
 
-        <main class="container mx-auto py-4 px-6">
+
+          <main class="container mx-auto py-4 px-6 sm:px-6 max-w-full overflow-x-auto">
             <section class="mb-8">
                 <div class="flex flex-col items-center mt-10">
-                    <h2 class="text-4xl font-bold mb-4">Listado de especialidades</h2>
-                    <table id="tablaPacientes" class="min-w-full p-6 w-auto backdrop-blur-lg bg-gray-100/60 border-collapse overflow-hidden rounded-lg table-auto">
-                        <thead>
-                            <tr>
-                                <th class="p-3 border-r border-b border-gray-700 text-left">Especialidad</th>
-                                <th class="p-3 border-b border-gray-700 text-left">Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Aquí se agregarán las filas dinámicamente -->
-                        </tbody>
-                    </table>
+                    <h2 class="text-2xl sm:text-4xl font-bold mb-4">Añadir doctor</h2>
+                    <form method="POST" action="?controller=Doctor&&action=guardar" class="bg-light-gray p-6 rounded-lg shadow-md w-full max-w-4xl backdrop-blur-lg bg-gray-100/60">
+                        <div class="mb-4 flex flex-col ">
+                            <label for="nombre" class="block text-dark-gray-text font-semibold mb-2">Nombre</label>
+                            <input name="id_doctor" type="hidden" value="<?php echo $doc->getID_Doctor(); ?>">
+                            <input name="nombre_doctor" type="text" id="nombre" class="w-full p-3 border rounded" placeholder="Escriba el nombre" value="<?php echo $doc->getNombre_Doctor(); ?>" required>
+                        </div>
+                        <div class="mb-4 flex flex-col">
+                            <label for="apellidos" class="block text-dark-gray-text font-semibold mb-2">Apellidos</label>
+                            <div>
+                                <input name="primer_apellido_doctor" type="text" id="apellido_1" class="w-full p-3 border rounded mb-2" placeholder="Escriba el primer apellido" value="<?php echo $doc->getApellido_Doctor(); ?>" required>
+                            </div>
+                            <div class="mt-2">
+                                <input name="segundo_apellido_doctor" type="text" id="apellido_2" class="w-full p-3 border rounded" placeholder="Escriba el segundo apellido" value="<?php echo $doc->getSegApellido_Doctor(); ?>" required>
+                            </div>
+                        </div>
+                        <div class="mb-4 flex flex-col">
+                            <label for="especialidad_2" class="block text-dark-gray-text font-semibold mb-2">Especialidad</label>
+                            <select name="id_especialidad" id="especialidad_2" class="w-full p-3 border rounded mb-2" required>
+                              <option value="" disabled selected>Seleccione una especialidad</option>
+                              <?php foreach($this->especializacion->listar() as $esp): ?>
+                                <option value="<?php echo $esp->id_especialidad ?>"><?php echo $esp->detalles ?></option>
+                              <?php endforeach ?>
+                            </select>
+                        </div>
+
+                        <div class="flex justify-end">
+                            <button type="submit" class=" px-4 py-2 bg-green-300 text-black rounded hover:bg-green-500 mr-5">Guardar</button>
+                            <button type="reset" class=" px-4 py-2 bg-blue-300 text-black rounded hover:bg-blue-500">Limpiar</button>
+                        </div>
+                    </form>
                 </div>
             </section>
         </main>
-        
+
         <footer id="footer" class="footer fixed bottom-0 left-0 w-full bg-gray-900 hidden transition-all duration-300 ease-in-out">
             <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between text-white w-full px-4 py-3">
-                <p>© 2025 Mi Sitio Web. Todos los derechos reservados.</p>
-                <a href="#" class="text-blue-500 hover:underline mt-2 sm:mt-0 hover:text-green-600">Política de Privacidad</a>
+                <p class="text-center sm:text-left">© 2025 Mi Sitio Web. Todos los derechos reservados.</p>
+                <a href="#" class="text-blue-500 hover:underline mt-2 sm:mt-0  hover:text-green-600">Política de Privacidad</a>
             </div>
         </footer>
-        
-        <a href="#footer" class="btn-flotante fixed bottom-16 right-4 bg-gray-500 text-white px-4 py-2 rounded shadow-lg ">Información</a>
-        
-        
-        <script src="../../src/js/script.js" defer></script>
 
-    
+        <a href="#footer" class="btn-flotante fixed bottom-5 right-4 bg-gray-500 text-white px-4 py-2 rounded shadow-lg text-sm sm:text-base">Información</a>
+
+
+        <script src="app/views/src/js/script.js"></script>
+        <script src="app/views/src/js/validaciones.js"></script>
+
     </body>
 </html>

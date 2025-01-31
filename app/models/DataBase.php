@@ -4,7 +4,7 @@ class DataBase{
     const server = "localhost";
     const user = "root";
     const password = "";
-    const dbname = "hospital";
+    const dbname = "hopital";
 
     public static function connect(){
         try{
