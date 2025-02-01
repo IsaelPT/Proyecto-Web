@@ -26,7 +26,7 @@
                 <path
                   d="M32 32c17.7 0 32 14.3 32 32l0 336c0 8.8 7.2 16 16 16l400 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L80 480c-44.2 0-80-35.8-80-80L0 64C0 46.3 14.3 32 32 32zM160 224c17.7 0 32 14.3 32 32l0 64c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32zm128-64l0 160c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-160c0-17.7 14.3-32 32-32s32 14.3 32 32zm64 32c17.7 0 32 14.3 32 32l0 96c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-96c0-17.7 14.3-32 32-32zM480 96l0 224c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-224c0-17.7 14.3-32 32-32s32 14.3 32 32z" />
               </svg>
-              <a href="dahsboard.html"
+              <a href="?controller=Dashboard&&action=principal"
                 class="text-dark-gray hover:text-blue-logo hover:text-blue-700 ml-2 hover:underline">Dashboard</a>
             </li>
             <div class="flex items-center space-x-2">
@@ -42,12 +42,12 @@
                 <ul id="inicio-menu-consulta"
                   class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
                   <li>
-                    <a href="addConsult.html"
+                    <a href="?controller=Consulta&&action=form_consulta"
                       class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700  hover:underline">Añadir
                       consulta</a>
                   </li>
                   <li>
-                    <a href="listadoConsult.html"
+                    <a href="?controller=Consulta&&action=principal"
                       class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700  hover:underline">Listado
                       de consultas</a>
                   </li>
@@ -69,12 +69,12 @@
                 <ul id="inicio-menu-doctores"
                   class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
                   <li>
-                    <a href="doctores.html"
+                    <a href="?controller=Doctor&&action=form_doctores"
                       class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
                       doctor</a>
                   </li>
                   <li>
-                    <a href="listado_doctores.html"
+                    <a href="?controller=Doctor&&action=principal"
                       class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Listado de
                       doctores</a>
                   </li>
@@ -95,12 +95,12 @@
                 <ul id="inicio-menu-pacientes"
                   class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
                   <li>
-                    <a href="pacientes.php"
+                    <a href="?controller=Paciente&&action=form_pacientes"
                       class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
                       paciente</a>
                   </li>
                   <li>
-                    <a href="listado_pacientes.php"
+                    <a href="?controller=Paciente&&action=principal"
                       class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Listado de
                       pacientes</a>
                   </li>
@@ -121,12 +121,12 @@
                 <ul id="inicio-menu-especialidad"
                   class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
                   <li>
-                    <a href="especialidades.html"
+                    <a href="?controller=Especialidad&&action=form_especialidad"
                       class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
                       especialidad</a>
                   </li>
                   <li>
-                    <a href="listado_especialidades.html"
+                    <a href="?controller=Especialidad&&action=principal"
                       class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Listado de
                       especialidades</a>
                   </li>

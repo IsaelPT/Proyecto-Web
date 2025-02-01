@@ -1,6 +1,7 @@
 <?php
 
-class Diagnostico{
+class Diagnostico
+{
 
     private $pdo;
 
@@ -8,53 +9,66 @@ class Diagnostico{
     private $ID_Pac;
     private $Detalles;
 
-    public function __CONSTRUCT(){
+    public function __CONSTRUCT()
+    {
         $this->pdo = DataBase::connect();
     }
 
-    public function getCodigo(){
+    public function getCodigo()
+    {
         return $this->Codigo;
     }
 
-    public function setCodigo(string $codigo){
+    public function setCodigo(string $codigo)
+    {
         $this->Codigo = $codigo;
     }
 
-    public function getID_Pac(){
+    public function getID_Pac()
+    {
         return $this->ID_Pac;
     }
 
-    public function setID_Pac(int $id){
+    public function setID_Pac(int $id)
+    {
         $this->ID_Pac = $id;
     }
 
-    public function getDetalles(){
+    public function getDetalles()
+    {
         return $this->Detalles;
     }
 
-    public function setDetalles(string $detalles){
+    public function setDetalles(string $detalles)
+    {
         $this->Detalles = $detalles;
     }
 
-    public function listar(){
-        try{
+    public function obtenerUltimoId(): int
+    {
+        return $this->pdo->lastInsertId();
+    }
+
+    public function listar()
+    {
+        try {
             $consulta = $this->pdo->prepare("SELEC * FROM DIAGNOSTICO;");
             $consulta->execute();
             return $consulta->fetchAll(PDO::FETCH_OBJ);
-        }catch(Exception $e){
+        } catch (Exception $e) {
             die($e->getMessage());
         }
     }
 
-    public function insertar(Diagnostico $obj): void
+    public function insertar(Diagnostico $diagnostico): void
     {
         try {
-            $q = "INSERT INTO DIAGNOSTICO(ID_Pac, Detalles) VALUES (?,?)";
+            $q = "INSERT INTO DIAGNOSTICO(id_diagnostico, descripcion) VALUES (?,?)";
             $consulta = $this->pdo->prepare($q);
             $consulta->execute(
                 [
-                    $obj->getID_Pac(),
-                    $obj->getDetalles()
+                    $diagnostico->getID_Pac(),
+                    $diagnostico->getDetalles()
                 ]
             );
         } catch (Exception $e) {
@@ -65,7 +79,7 @@ class Diagnostico{
     public function obtener(int $id): Diagnostico
     {
         try {
-            $q = "SELECT * FROM DIAGNOSTICO WHERE ID_Pac=?;";
+            $q = "SELECT * FROM DIAGNOSTICO WHERE id_diagnostico=?;";
             $consulta = $this->pdo->prepare($q);
             $consulta->execute(
                 [$id]
@@ -84,15 +98,15 @@ class Diagnostico{
         }
     }
 
-    public function actualizar(Diagnostico $obj): void
+    public function actualizar(Diagnostico $diagnostico): void
     {
         try {
-            $q = "UPDATE DIAGNOSTICO SET Detalles=? WHERE ID_Pac=?;";
+            $q = "UPDATE DIAGNOSTICO SET descripcion=? WHERE id_paciente=?;";
             $consulta = $this->pdo->prepare($q);
             $consulta->execute(
                 [
-                    $obj->getDetalles(),
-                    $obj->getID_Pac()
+                    $diagnostico->getDetalles(),
+                    $diagnostico->getID_Pac()
                 ]
             );
         } catch (Exception $e) {

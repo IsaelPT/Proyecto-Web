@@ -9,7 +9,7 @@ class PacienteController
     private $diagnostico;
 
 
-    public function _CONTRUCT(): void
+    public function __construct()
     {
         $this->paciente = new Paciente();
         $this->diagnostico = new Diagnostico();
@@ -27,7 +27,7 @@ class PacienteController
 
         if (isset($_GET['id'])) {
             $paciente = $this->paciente->obtener($_GET['id']);
-            $diagnost = $this->diagnostico->obtener($_GET['id']);
+            $diagnostico = $this->diagnostico->obtener($_GET['id']);
         }
 
         include "app/views/src/pages/pacientes.php";
@@ -35,17 +35,38 @@ class PacienteController
 
     public function guardar(): void
     {
-        $paciente = new Paciente;
-        $diagnost = new Diagnostico();
+        $paciente = new Paciente();
+        $diagnostico = new Diagnostico();
 
-        $paciente->setID_Paciente($_POST['id']);
-        $paciente->setNombre_Paciente($_POST['nombre']);
-        $paciente->setApellido_Paciente($_POST['apellido']);
+        // Paciente
+        $paciente->setId(id: intval(value: $_POST['id_paciente']) ?: 0);
+        $paciente->setNombre(nombre: $_POST['nombre'] ?? "");
+        $paciente->setPrimerApellido(primerApellido: $_POST['apellido_1'] ?? "");
+        $paciente->setSegundoApellido(segundoApellido: $_POST['apellido_2'] ?? "");
+        $paciente->setSeguro(seguro: intval(value: $_POST['seguro'] ?: 0));
 
-        $diagnost->setDetalles($_POST['detalles']);
-        $diagnost->setID_Pac($_POST['id']);
+        // Diagnostico
+        $diagnostico->setDetalles(detalles: $_POST['diagnostico'] ?? "");
+        $diagnostico->setID_Pac(id: intval(value: $_POST['id_paciente']) ?: 0);
 
-        $paciente->getID_Paciente() > 0 ? $this->paciente->actualizar($paciente) : $this->paciente->insertar($paciente);
-        $paciente->getID_Paciente() > 0 ? $this->diagnostico->actualizar($diagnost) : $this->diagnostico->insertar($diagnost);
+        if ($paciente->getId() > 0) {
+            $this->paciente->actualizar(paciente: $paciente);
+            $this->diagnostico->actualizar(diagnostico: $diagnostico);
+        } else {
+            $this->diagnostico->insertar(diagnostico: $diagnostico);
+            $idDiagnostico = $this->diagnostico->obtenerUltimoId();
+
+            $paciente->setIdDiagnostico(id: $idDiagnostico);
+            $this->paciente->insertar(paciente: $paciente);
+        }
+
+        header("Location: ?controller=Paciente");
+    }
+
+    public function eliminar(): void
+    {
+        $this->paciente->eliminarDiagnosticosDePaciente(id: $_GET["id"]);
+        $this->paciente->eliminar(id: $_GET["id"]);
+        header("Location: ?controller=Paciente");
     }
 }

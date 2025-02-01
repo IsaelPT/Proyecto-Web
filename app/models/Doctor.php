@@ -1,6 +1,7 @@
 <?php
 
-class Doctor{
+class Doctor
+{
 
     private $pdo;
 
@@ -10,24 +11,25 @@ class Doctor{
     private $primer_apellido_doctor;
     private $segundo_apellido_doctor;
 
-    public function __CONSTRUCT(){
+    public function __CONSTRUCT()
+    {
         $this->pdo = DataBase::connect();
     }
 
-    public function getSegApellido_Doctor(){
+    public function getSegApellido_Doctor()
+    {
         return $this->segundo_apellido_doctor;
     }
 
-    public function setSegApellido_Doctor($SegApellido_Doctor){
+    public function setSegApellido_Doctor($SegApellido_Doctor)
+    {
         $this->segundo_apellido_doctor = $SegApellido_Doctor;
     }
-
 
     public function getId_especilidad()
     {
         return $this->id_especilidad;
     }
-
 
     public function setId_especilidad($id_especilidad)
     {
@@ -36,37 +38,44 @@ class Doctor{
         return $this;
     }
 
-    public function getID_Doctor(){
+    public function getID_Doctor()
+    {
         return $this->id_doctor;
     }
 
-    public function setID_Doctor(int $id){
+    public function setID_Doctor(int $id)
+    {
         $this->id_doctor = $id;
     }
 
-    public function getNombre_Doctor(){
+    public function getNombre_Doctor()
+    {
         return $this->nombre_doctor;
     }
 
-    public function setNombre_Doctor(string $nombre){
+    public function setNombre_Doctor(string $nombre)
+    {
         $this->nombre_doctor = $nombre;
     }
 
-    public function getApellido_Doctor(){
+    public function getApellido_Doctor()
+    {
         return $this->primer_apellido_doctor;
     }
 
-    public function setApellido_Doctor(string $apellido){
+    public function setApellido_Doctor(string $apellido)
+    {
         $this->primer_apellido_doctor = $apellido;
     }
 
-    public function listar(){
-        try{
+    public function listar()
+    {
+        try {
             $consulta = $this->pdo->prepare("SELECT d.id_doctor, nombre_doctor, primer_apellido_doctor, segundo_apellido_doctor, detalles
                                             FROM DOCTOR d INNER JOIN ESPECIALIDAD e ON d.id_especialidad = e.id_especialidad;");
             $consulta->execute();
             return $consulta->fetchAll(PDO::FETCH_OBJ);
-        }catch(Exception $e){
+        } catch (Exception $e) {
             die($e->getMessage());
         }
     }
@@ -78,7 +87,7 @@ class Doctor{
             $consulta = $this->pdo->prepare($q);
             $consulta->execute();
             return $consulta->fetch(PDO::FETCH_OBJ);
-        }catch(Exception $e){
+        } catch (Exception $e) {
             die($e->getMessage());
         }
     }
@@ -143,13 +152,20 @@ class Doctor{
         }
     }
 
-    public function eliminar(int $id): void{
-        try{
+    public function eliminar(int $id): void
+    {
+        try {
             $consulta = $this->pdo->prepare("DELETE FROM DOCTOR WHERE id_doctor=?");
             $consulta->execute([$id]);
-        }catch (Exception $e) {
+        } catch (Exception $e) {
             die($e->getMessage());
         }
     }
 
+    public function eliminarConsultasDeDoctor(int $id_doctor): bool
+    {
+        $query = "DELETE FROM consulta WHERE id_doctor = ?";
+        $stmt = $this->pdo->prepare($query);
+        return $stmt->execute([$id_doctor]);
+    }
 }

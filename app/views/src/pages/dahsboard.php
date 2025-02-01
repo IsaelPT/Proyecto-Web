@@ -96,13 +96,11 @@
                   class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
                   <li>
                     <a href="?controller=Paciente&&action=form_pacientes"
-                      class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
-                      paciente</a>
+                      class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir paciente</a>
                   </li>
                   <li>
                     <a href="?controller=Paciente&&action=principal"
-                      class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Listado de
-                      pacientes</a>
+                      class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Listado de pacientes</a>
                   </li>
                 </ul>
               </li>
