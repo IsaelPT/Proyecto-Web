@@ -9,7 +9,8 @@
     <link rel="shortcut icon" href="app/views/src/icons/logoH.png" type="image/x-icon">
 </head>
 
-<body class="bg-cover bg-center bg-fixed" style="background-image: linear-gradient(rgba(186, 172, 172, 0.542), rgba(205, 194, 194, 0.2)), url('app/views/src/icons/dash.jpg');background-position: center 20%;">
+<body class="bg-cover bg-center bg-fixed"
+    style="background-image: linear-gradient(rgba(186, 172, 172, 0.542), rgba(205, 194, 194, 0.2)), url('app/views/src/icons/dash.jpg');background-position: center 20%;">
     <header class="bg-blue-300">
         <div class="container mx-auto flex items-center justify-between py-4 px-6 flex-wrap">
             <div class="flex items-center space-x-2 mr-2">
@@ -19,7 +20,7 @@
                 </h1>
             </div>
             <nav class="flex-grow">
-            <ul class="flex flex-col sm:flex-row justify-end items-center space-y-2 sm:space-y-0 sm:space-x-4">
+                <ul class="flex flex-col sm:flex-row justify-end items-center space-y-2 sm:space-y-0 sm:space-x-4">
                     <li class="flex items-center space-x-2">
                         <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512">
                             <path
@@ -39,7 +40,7 @@
                                 Consulta
                             </button>
                             <ul id="inicio-menu-consulta"
-                                class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
+                                class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40 z-40">
                                 <li>
                                     <a href="?controller=Consulta&&action=form_consultas"
                                         class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700  hover:underline">Añadir
@@ -66,7 +67,7 @@
                                 Doctores
                             </button>
                             <ul id="inicio-menu-doctores"
-                                class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
+                                class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40 z-40">
                                 <li>
                                     <a href="?controller=Doctor&&action=form_doctores"
                                         class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
@@ -89,7 +90,7 @@
                                     d="M48 0C21.5 0 0 21.5 0 48L0 256l144 0c8.8 0 16 7.2 16 16s-7.2 16-16 16L0 288l0 64 144 0c8.8 0 16 7.2 16 16s-7.2 16-16 16L0 384l0 80c0 26.5 21.5 48 48 48l217.9 0c-6.3-10.2-9.9-22.2-9.9-35.1c0-46.9 25.8-87.8 64-109.2l0-95.9L320 48c0-26.5-21.5-48-48-48L48 0zM152 64l16 0c8.8 0 16 7.2 16 16l0 24 24 0c8.8 0 16 7.2 16 16l0 16c0 8.8-7.2 16-16 16l-24 0 0 24c0 8.8-7.2 16-16 16l-16 0c-8.8 0-16-7.2-16-16l0-24-24 0c-8.8 0-16-7.2-16-16l0-16c0-8.8 7.2-16 16-16l24 0 0-24c0-8.8 7.2-16 16-16zM512 272a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM288 477.1c0 19.3 15.6 34.9 34.9 34.9l218.2 0c19.3 0 34.9-15.6 34.9-34.9c0-51.4-41.7-93.1-93.1-93.1l-101.8 0c-51.4 0-93.1 41.7-93.1 93.1z" />
                             </svg>
                             <button id="inicio-btn-pacientes"
-                                class="text-dark-gray hover:text-blue-logo hover:text-blue-700 hover:underline ml-2">
+                                class="text-dark-gray hover:text-blue-logo hover:text-blue-700 hover:underline ml-2 z-40">
                                 Pacientes
                             </button>
                             <ul id="inicio-menu-pacientes"
@@ -110,26 +111,30 @@
                     </div>
                     <div class="flex items-center space-x-2">
                         <li class="relative flex items-center">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
-                            viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                            <path 
-                              d="M208 32c0-17.7 14.3-32 32-32l32 0c17.7 0 32 14.3 32 32l0 140.9 122-70.4c15.3-8.8 34.9-3.6 43.7 11.7l16 27.7c8.8 15.3 3.6 34.9-11.7 43.7L352 256l122 70.4c15.3 8.8 20.6 28.4 11.7 43.7l-16 27.7c-8.8 15.3-28.4 20.6-43.7 11.7L304 339.1 304 480c0 17.7-14.3 32-32 32l-32 0c-17.7 0-32-14.3-32-32l0-140.9L86 409.6c-15.3 8.8-34.9 3.6-43.7-11.7l-16-27.7c-8.8-15.3-3.6-34.9 11.7-43.7L160 256 38 185.6c-15.3-8.8-20.5-28.4-11.7-43.7l16-27.7C51.1 98.8 70.7 93.6 86 102.4l122 70.4L208 32z"/>
-                          </svg>
-                          <button id="inicio-btn-especialidad" class="text-dark-gray hover:text-blue-logo hover:text-blue-700 hover:underline ml-2">
-                            Especialidades
-                          </button>
-                          <ul id="inicio-menu-especialidad" class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
-                            <li>
-                              <a href="?controller=Especialidad&&action=form_especialidades"
-                                class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir especialidad</a>
-                            </li>
-                            <li>
-                              <a href="?controller=Especialidad&&action=principal"
-                                class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Listado de especialidades</a>
-                            </li>
-                          </ul>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                                viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                                <path
+                                    d="M208 32c0-17.7 14.3-32 32-32l32 0c17.7 0 32 14.3 32 32l0 140.9 122-70.4c15.3-8.8 34.9-3.6 43.7 11.7l16 27.7c8.8 15.3 3.6 34.9-11.7 43.7L352 256l122 70.4c15.3 8.8 20.6 28.4 11.7 43.7l-16 27.7c-8.8 15.3-28.4 20.6-43.7 11.7L304 339.1 304 480c0 17.7-14.3 32-32 32l-32 0c-17.7 0-32-14.3-32-32l0-140.9L86 409.6c-15.3 8.8-34.9 3.6-43.7-11.7l-16-27.7c-8.8-15.3-3.6-34.9 11.7-43.7L160 256 38 185.6c-15.3-8.8-20.5-28.4-11.7-43.7l16-27.7C51.1 98.8 70.7 93.6 86 102.4l122 70.4L208 32z" />
+                            </svg>
+                            <button id="inicio-btn-especialidad"
+                                class="text-dark-gray hover:text-blue-logo hover:text-blue-700 hover:underline ml-2">
+                                Especialidades
+                            </button>
+                            <ul id="inicio-menu-especialidad"
+                                class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40 z-40">
+                                <li>
+                                    <a href="?controller=Especialidad&&action=form_especialidades"
+                                        class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
+                                        especialidad</a>
+                                </li>
+                                <li>
+                                    <a href="?controller=Especialidad&&action=principal"
+                                        class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Listado
+                                        de especialidades</a>
+                                </li>
+                            </ul>
                         </li>
-                      </div>
+                    </div>
                 </ul>
             </nav>
         </div>
@@ -141,48 +146,64 @@
             <div class="flex flex-col items-center mt-10">
                 <h2 class="text-2xl sm:text-4xl font-bold mb-4 ">Listado de consultas</h2>
                 <div class="w-full max-w-full overflow-x-auto mx-auto">
-                <table id="tablaPacientes" class="p-6 w-auto backdrop-blur-lg bg-gray-100/60 border-collapse overflow-hidden rounded-lg table-auto mx-auto">
-                    <thead>
-                        <tr>
-                            <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Paciente</th>
-                            <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Apellido Paciente</th>
-                            <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Doctor asignado</th>
-                            <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Apellido Doctor</th>
-                            <th class="p-2 sm:p-3 border-b border-gray-700 text-left">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php 
-                        $consultas = $this->consulta->listar();
-                        for($i = 0; $i < count($consultas); $i ++): ?>
+                    <table id="tablaPacientes"
+                        class="p-6 w-auto backdrop-blur-lg bg-gray-100/60 border-collapse overflow-hidden rounded-lg table-auto mx-auto">
+                        <thead>
                             <tr>
-                                <?php if($i+1 == count($consultas)): ?>
-                                    <td class="p-2 sm:p-3 border-r border-gray-700 text-left"><?php echo $consultas[$i]->nombre_paciente; ?></td>
-                                    <td class="p-2 sm:p-3 border-r border-gray-700 text-left"><?php echo $consultas[$i]->primer_apellido_paciente; ?></td>
-                                    <td class="p-2 sm:p-3 border-r border-gray-700 text-left"><?php echo $consultas[$i]->nombre_doctor; ?></td>
-                                    <td class="p-2 sm:p-3 border-r border-gray-700 text-left"><?php echo $consultas[$i]->primer_apellido_doctor; ?></td>
-                                    <td class="p-2 sm:p-3 border-gray-700 text-left">
-                                    <div class="flex flex-col sm:flex-row justify-end items-center space-y-2 sm:space-y-0 sm:space-x-4">
-                                        <a href="?controller=Consulta&&action=eliminar&&id_doctor=<?php echo $consultas[$i]->id_doctor ?>&&id_paciente=<?php echo $consultas[$i]->id_paciente ?>" class="px-4 py-2 bg-red-300 text-black rounded hover:bg-red-500 mr-5 borrar-fila"> Borrar </a>
-                                    </div>
-                                    </td>
-                                <?php else: ?>
-                                    <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left"><?php echo $consultas[$i]->nombre_paciente; ?></td>
-                                    <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left"><?php echo $consultas[$i]->primer_apellido_paciente; ?></td>
-                                    <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left"><?php echo $consultas[$i]->nombre_doctor; ?></td>
-                                    <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left"><?php echo $consultas[$i]->primer_apellido_doctor; ?></td>
-                                    <td class="p-2 sm:p-3 border-b border-gray-700 text-left">
-                                    <div class="flex flex-col sm:flex-row justify-end items-center space-y-2 sm:space-y-0 sm:space-x-4">
-                                        <a href="?controller=Consulta&&action=eliminar&&id_doctor=<?php echo $consultas[$i]->id_doctor ?>&&id_paciente=<?php echo $consultas[$i]->id_paciente ?>" class="px-4 py-2 bg-red-300 text-black rounded hover:bg-red-500 mr-5 borrar-fila"> Borrar </a>
-                                    </div>
-                                    </td>
-                                <?php endif ?>
+                                <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Paciente</th>
+                                <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Apellido Paciente
+                                </th>
+                                <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Doctor asignado</th>
+                                <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Apellido Doctor</th>
+                                <th class="p-2 sm:p-3 border-b border-gray-700 text-left">Acciones</th>
                             </tr>
-                        <?php endfor
-                         ?>
-                    </tbody>
-                </table>
-            </div>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $consultas = $this->consulta->listar();
+                            for ($i = 0; $i < count($consultas); $i++): ?>
+                                <tr>
+                                    <?php if ($i + 1 == count($consultas)): ?>
+                                        <td class="p-2 sm:p-3 border-r border-gray-700 text-left">
+                                            <?php echo $consultas[$i]->nombre_paciente; ?></td>
+                                        <td class="p-2 sm:p-3 border-r border-gray-700 text-left">
+                                            <?php echo $consultas[$i]->primer_apellido_paciente; ?></td>
+                                        <td class="p-2 sm:p-3 border-r border-gray-700 text-left">
+                                            <?php echo $consultas[$i]->nombre_doctor; ?></td>
+                                        <td class="p-2 sm:p-3 border-r border-gray-700 text-left">
+                                            <?php echo $consultas[$i]->primer_apellido_doctor; ?></td>
+                                        <td class="p-2 sm:p-3 border-gray-700 text-left">
+                                            <div
+                                                class="flex flex-col sm:flex-row justify-end items-center space-y-2 sm:space-y-0 sm:space-x-4">
+                                                <a href="?controller=Consulta&&action=eliminar&&id_doctor=<?php echo $consultas[$i]->id_doctor ?>&&id_paciente=<?php echo $consultas[$i]->id_paciente ?>"
+                                                    class="px-4 py-2 bg-red-300 text-black rounded hover:bg-red-500 mr-5 borrar-fila">
+                                                    Borrar </a>
+                                            </div>
+                                        </td>
+                                    <?php else: ?>
+                                        <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">
+                                            <?php echo $consultas[$i]->nombre_paciente; ?></td>
+                                        <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">
+                                            <?php echo $consultas[$i]->primer_apellido_paciente; ?></td>
+                                        <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">
+                                            <?php echo $consultas[$i]->nombre_doctor; ?></td>
+                                        <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">
+                                            <?php echo $consultas[$i]->primer_apellido_doctor; ?></td>
+                                        <td class="p-2 sm:p-3 border-b border-gray-700 text-left">
+                                            <div
+                                                class="flex flex-col sm:flex-row justify-end items-center space-y-2 sm:space-y-0 sm:space-x-4">
+                                                <a href="?controller=Consulta&&action=eliminar&&id_doctor=<?php echo $consultas[$i]->id_doctor ?>&&id_paciente=<?php echo $consultas[$i]->id_paciente ?>"
+                                                    class="px-4 py-2 bg-red-300 text-black rounded hover:bg-red-500 mr-5 borrar-fila">
+                                                    Borrar </a>
+                                            </div>
+                                        </td>
+                                    <?php endif ?>
+                                </tr>
+                            <?php endfor
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
         </section>
     </main>
 

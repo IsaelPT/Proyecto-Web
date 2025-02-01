@@ -36,7 +36,7 @@
                         class="text-dark-gray hover:text-blue-logo hover:text-blue-700  hover:underline ml-2">
                         Consulta
                       </button>
-                      <ul id="inicio-menu-consulta" class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
+                      <ul id="inicio-menu-consulta" class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40 z-40">
                         <li>
                           <a href="?controller=Consulta&&action=form_consultas"
                             class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700  hover:underline">Añadir
@@ -61,7 +61,7 @@
                       <button id="inicio-btn-doctores" class="text-dark-gray hover:text-blue-logo hover:text-blue-700 hover:underline ml-2">
                         Doctores
                       </button>
-                      <ul id="inicio-menu-doctores" class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
+                      <ul id="inicio-menu-doctores" class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40 z-40">
                         <li>
                           <a href="?controller=Doctor&&action=form_doctores" class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
                             doctor</a>
@@ -83,7 +83,7 @@
                       <button id="inicio-btn-pacientes" class="text-dark-gray hover:text-blue-logo hover:text-blue-700 hover:underline ml-2">
                         Pacientes
                       </button>
-                      <ul id="inicio-menu-pacientes" class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
+                      <ul id="inicio-menu-pacientes" class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40 z-40">
                         <li>
                           <a href="?controller=Paciente&&action=form_pacientes"
                             class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir paciente</a>
@@ -105,7 +105,7 @@
                       <button id="inicio-btn-especialidad" class="text-dark-gray hover:text-blue-logo hover:text-blue-700 hover:underline ml-2">
                         Especialidades
                       </button>
-                      <ul id="inicio-menu-especialidad" class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
+                      <ul id="inicio-menu-especialidad" class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40 z-40">
                         <li>
                           <a href="?controller=Especialidad&&action=form_especialidades"
                             class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir especialidad</a>

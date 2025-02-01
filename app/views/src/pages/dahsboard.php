@@ -39,7 +39,8 @@
                 class="text-dark-gray hover:text-blue-logo hover:text-blue-700  hover:underline ml-2">
                 Consulta
               </button>
-              <ul id="inicio-menu-consulta" class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
+              <ul id="inicio-menu-consulta"
+                class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40 z-40">
                 <li>
                   <a href="?controller=Consulta&&action=form_consultas"
                     class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700  hover:underline">Añadir
@@ -65,7 +66,8 @@
                 class="text-dark-gray hover:text-blue-logo hover:text-blue-700 hover:underline ml-2">
                 Doctores
               </button>
-              <ul id="inicio-menu-doctores" class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
+              <ul id="inicio-menu-doctores"
+                class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40 z-40">
                 <li>
                   <a href="?controller=Doctor&&action=form_doctores"
                     class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
@@ -90,7 +92,8 @@
                 class="text-dark-gray hover:text-blue-logo hover:text-blue-700 hover:underline ml-2">
                 Pacientes
               </button>
-              <ul id="inicio-menu-pacientes" class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
+              <ul id="inicio-menu-pacientes"
+                class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40 z-40">
                 <li>
                   <a href="?controller=Paciente&&action=form_pacientes"
                     class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
@@ -116,7 +119,7 @@
                 Especialidades
               </button>
               <ul id="inicio-menu-especialidad"
-                class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
+                class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40 z-40">
                 <li>
                   <a href="?controller=Especialidad&&action=form_especialidades"
                     class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
@@ -180,7 +183,7 @@
   </main>
 
   <footer id="footer"
-    class="footer fixed bottom-0 left-0 w-full bg-gray-900 hidden transition-all duration-300 ease-in-out">
+    class="footer fixed bottom-0 left-0 w-full bg-gray-900 hidden transition-all duration-300 ease-in-out ">
     <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between text-white w-full px-4 py-3">
       <p class="text-center sm:text-left">© 2025 Mi Sitio Web. Todos los derechos reservados.</p>
       <a href="#" class="text-blue-500 hover:underline mt-2 sm:mt-0">Política de Privacidad</a>
