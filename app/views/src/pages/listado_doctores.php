@@ -135,7 +135,7 @@
                               <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Primer Apellido</th>
                               <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Segundo Apellido</th>
                               <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Especialidad</th>
-                              <th class="p-2 sm:p-3 border-b border-gray-700 text-left">Acciones</th>
+                              <th class="p-2 sm:p-3 border-b border-gray-700 text-center">Acciones</th>
                           </tr>
                       </thead>
                       <tbody>
