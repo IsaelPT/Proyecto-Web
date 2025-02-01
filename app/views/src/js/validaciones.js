@@ -104,61 +104,34 @@ const fieldsConfig = [
   {
     field: "#nombre",
     regex: /^[a-zA-ZÁÉÍÓÚáéíóúÑñ\s]+$/,
-<<<<<<< HEAD
     errorMessage: "El nombre solo debe contener letras."
-=======
-    errorMessage: "El nombre solo debe contener letras.",
->>>>>>> 8e21249 (Eliminado validar.js y refactorizado script de validaciones)
   },
   {
     field: "#apellido_1",
     regex: /^[a-zA-ZÁÉÍÓÚáéíóúÑñ\s]+$/,
-<<<<<<< HEAD
     errorMessage: "El primer apellido solo debe contener letras."
-=======
-    errorMessage: "El primer apellido solo debe contener letras.",
->>>>>>> 8e21249 (Eliminado validar.js y refactorizado script de validaciones)
   },
   {
     field: "#apellido_2",
     regex: /^[a-zA-ZÁÉÍÓÚáéíóúÑñ\s]+$/,
-<<<<<<< HEAD
     errorMessage: "El segundo apellido solo debe contener letras."
-=======
-    errorMessage: "El segundo apellido solo debe contener letras.",
->>>>>>> 8e21249 (Eliminado validar.js y refactorizado script de validaciones)
   },
   {
     field: "#seguro",
     regex: /^[a-zA-Z0-9]{8}$/,
-<<<<<<< HEAD
     errorMessage: "El código debe contener solo números y letras (mín. 8 caracteres).",
     optional: true
-=======
-    errorMessage:
-      "El código debe contener solo números y letras (mín. 8 caracteres).",
-    optional: true,
->>>>>>> 8e21249 (Eliminado validar.js y refactorizado script de validaciones)
   },
   {
     field: "#diagnostico",
     regex: /^[a-zA-ZÁÉÍÓÚáéíóúÑñ\s]+$/,
-<<<<<<< HEAD
     errorMessage: "El diagnóstico solo debe contener letras."
-=======
-    errorMessage: "El diagnóstico solo debe contener letras.",
->>>>>>> 8e21249 (Eliminado validar.js y refactorizado script de validaciones)
   },
   {
     field: "#especialidad",
     regex: /^[a-zA-ZÁÉÍÓÚáéíóúÑñ\s]+$/,
-<<<<<<< HEAD
     errorMessage: "La especialidad solo debe contener letras."
   }
-=======
-    errorMessage: "La especialidad solo debe contener letras.",
-  },
->>>>>>> 8e21249 (Eliminado validar.js y refactorizado script de validaciones)
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -173,14 +146,7 @@ function handleValidation(event) {
 
     if (input) {
       // Validar solo si el campo no es opcional o tiene un valor
-<<<<<<< HEAD
       if ((!optional || input.value.trim() !== "") && !regex.test(input.value)) {
-=======
-      if (
-        (!optional || input.value.trim() !== "") &&
-        !regex.test(input.value)
-      ) {
->>>>>>> 8e21249 (Eliminado validar.js y refactorizado script de validaciones)
         isValid = false;
         showError(input, errorMessage);
       } else {
