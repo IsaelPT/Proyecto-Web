@@ -227,7 +227,7 @@
                       paciente</a>
                   </li>
                   <li>
-                    <a href="?controller=Pacientes&&action=principal"
+                    <a href="?controller=Paciente&&action=principal"
                       class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Listado de
                       pacientes</a>
                   </li>
@@ -291,9 +291,11 @@
                       <td class="p-2 sm:p-3 border-r border-gray-700 text-left"><?php echo $doctores[$i]->nombre_doctor; ?>
                       </td>
                       <td class="p-2 sm:p-3 border-r border-gray-700 text-left">
-                        <?php echo $doctores[$i]->primer_apellido_doctor; ?></td>
+                        <?php echo $doctores[$i]->primer_apellido_doctor; ?>
+                      </td>
                       <td class="p-2 sm:p-3 border-r border-gray-700 text-left">
-                        <?php echo $doctores[$i]->segundo_apellido_doctor; ?></td>
+                        <?php echo $doctores[$i]->segundo_apellido_doctor; ?>
+                      </td>
                       <td class="p-2 sm:p-3 border-r border-gray-700 text-left"><?php echo $doctores[$i]->detalles; ?></td>
                       <td class="p-2 sm:p-3 border-gray-700 text-left">
                         <div class="flex flex-col sm:flex-row justify-end items-center space-y-2 sm:space-y-0 sm:space-x-4">
@@ -305,13 +307,17 @@
                       </td>
                     <?php else: ?>
                       <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">
-                        <?php echo $doctores[$i]->nombre_doctor; ?></td>
+                        <?php echo $doctores[$i]->nombre_doctor; ?>
+                      </td>
                       <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">
-                        <?php echo $doctores[$i]->primer_apellido_doctor; ?></td>
+                        <?php echo $doctores[$i]->primer_apellido_doctor; ?>
+                      </td>
                       <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">
-                        <?php echo $doctores[$i]->segundo_apellido_doctor; ?></td>
+                        <?php echo $doctores[$i]->segundo_apellido_doctor; ?>
+                      </td>
                       <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">
-                        <?php echo $doctores[$i]->detalles; ?></td>
+                        <?php echo $doctores[$i]->detalles; ?>
+                      </td>
                       <td class="p-2 sm:p-3 border-b border-gray-700 text-left">
                         <div class="flex flex-col sm:flex-row justify-end items-center space-y-2 sm:space-y-0 sm:space-x-4">
                           <a href="?controller=Doctor&&action=form_doctores&&id=<?php echo $doctores[$i]->id_doctor ?>"
@@ -342,9 +348,7 @@
     <a href="#footer"
       class="btn-flotante fixed bottom-5 right-4 bg-gray-500 text-white px-4 py-2 rounded shadow-lg text-sm sm:text-base">Información</a>
 
-
     <script src="app/views/src/js/script.js" defer></script>
-
 
   </body>
 

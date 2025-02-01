@@ -50,7 +50,9 @@ class DoctorController
         header("location:?controller=Doctor");
     }
 
-    public function eliminar(): void{
+    public function eliminar(): void
+    {
+        $this->doctor->eliminarConsultasDeDoctor($_GET["id"]);
         $this->doctor->eliminar($_GET["id"]);
         header("location:?controller=Doctor");
     }
