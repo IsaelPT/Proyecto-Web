@@ -63,20 +63,28 @@ class Diagnostico
     public function insertar(Diagnostico $diagnostico): void
     {
         try {
-            $q = "INSERT INTO DIAGNOSTICO(id_diagnostico, descripcion) VALUES (?,?)";
-            $consulta = $this->pdo->prepare($q);
-            $consulta->execute(
-                [
-                    $diagnostico->getID_Pac(),
-                    $diagnostico->getDetalles()
-                ]
-            );
+            $check = "SELECT COUNT(*) FROM DIAGNOSTICO WHERE descripcion = ?";
+            $consulta = $this->pdo->prepare($check);
+            $consulta->execute([$diagnostico->getDetalles()]);
+            $count = $consulta->fetchColumn();
+
+            // Aquí verificando que este diagnóstico no esté en la base de datos.
+            if ($count == 0) {
+                $q = "INSERT INTO DIAGNOSTICO(id_diagnostico, descripcion) VALUES (?,?)";
+                $consulta = $this->pdo->prepare($q);
+                $consulta->execute(
+                    [
+                        $diagnostico->getID_Pac(),
+                        $diagnostico->getDetalles()
+                    ]
+                );
+            }
         } catch (Exception $e) {
             die($e->getMessage());
         }
     }
 
-    public function obtener(int $id): Diagnostico
+    public function obtener(int $id): ?Diagnostico
     {
         try {
             $q = "SELECT * FROM DIAGNOSTICO WHERE id_diagnostico=?;";
@@ -87,12 +95,16 @@ class Diagnostico
 
             $resultado = $consulta->fetch(PDO::FETCH_OBJ);
 
-            $obj = new Diagnostico();
-            $obj->setID_Pac($resultado->idPaciente);
-            $obj->setDetalles($resultado->detalles);
-            $obj->setCodigo($resultado->codigo);
+            if (!$resultado) {
+                return null;
+            }
 
-            return $obj;
+            $diagnostico = new Diagnostico();
+            $diagnostico->setID_Pac($resultado->idPaciente ?? 0);
+            $diagnostico->setDetalles($resultado->detalles ?? "");
+            $diagnostico->setCodigo($resultado->codigo ?? "");
+
+            return $diagnostico;
         } catch (Exception $e) {
             die($e->getMessage());
         }

@@ -142,7 +142,7 @@ class Paciente
         }
     }
 
-    public function obtener(int $id): Paciente
+    public function obtener(int $id): ?Paciente
     {
         try {
             $consulta = $this->pdo->prepare(
@@ -156,11 +156,15 @@ class Paciente
 
             $resultado = $consulta->fetch(mode: PDO::FETCH_OBJ);
 
+            if (!$resultado) {
+                return null;
+            }
+
             $paciente = new Paciente();
             $paciente->setId(id: $resultado->id_paciente);
-            $paciente->setNombre(nombre: $resultado->nombre);
-            $paciente->setPrimerApellido(primerApellido: $resultado->primerApellido);
-            $paciente->setSegundoApellido(segundoApellido: $resultado->segundoApellido);
+            $paciente->setNombre(nombre: $resultado->nombre ?? "");
+            $paciente->setPrimerApellido(primerApellido: $resultado->primerApellido ?? "");
+            $paciente->setSegundoApellido(segundoApellido: $resultado->segundoApellido ?? "");
 
             return $paciente;
         } catch (Exception $e) {
