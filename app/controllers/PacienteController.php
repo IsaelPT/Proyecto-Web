@@ -39,25 +39,25 @@ class PacienteController
         $diagnostico = new Diagnostico();
 
         // Paciente
-        $paciente->setId(id: intval(value: $_POST['id_paciente']) ?: 0);
-        $paciente->setNombre(nombre: $_POST['nombre'] ?? "");
-        $paciente->setPrimerApellido(primerApellido: $_POST['apellido_1'] ?? "");
-        $paciente->setSegundoApellido(segundoApellido: $_POST['apellido_2'] ?? "");
-        $paciente->setSeguro(seguro: intval(value: $_POST['seguro'] ?: 0));
+        $paciente->setId(intval($_POST['id_paciente']));
+        $paciente->setNombre($_POST['nombre']);
+        $paciente->setPrimerApellido($_POST['apellido_1']);
+        $paciente->setSegundoApellido($_POST['apellido_2']);
+        $paciente->setSeguro(intval($_POST['seguro']));
 
         // Diagnostico
-        $diagnostico->setDetalles(detalles: $_POST['diagnostico'] ?? "");
-        $diagnostico->setID_Pac(id: intval(value: $_POST['id_paciente']) ?: 0);
-
+        $diagnostico->setDetalles($_POST['diagnostico']);
+        $diagnostico->setID_Pac(intval($_POST['id_paciente']));
+        
         if ($paciente->getId() > 0) {
-            $this->paciente->actualizar(paciente: $paciente);
-            $this->diagnostico->actualizar(diagnostico: $diagnostico);
+            $this->paciente->actualizar($paciente);
+            $this->diagnostico->actualizar($diagnostico);
         } else {
-            $this->diagnostico->insertar(diagnostico: $diagnostico);
+            $this->diagnostico->insertar($diagnostico);
             $idDiagnostico = $this->diagnostico->obtenerUltimoId();
 
-            $paciente->setIdDiagnostico(id: $idDiagnostico);
-            $this->paciente->insertar(paciente: $paciente);
+            $paciente->setIdDiagnostico($idDiagnostico);
+            $this->paciente->insertar($paciente);
         }
 
         header("Location: ?controller=Paciente");

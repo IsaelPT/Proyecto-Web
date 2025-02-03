@@ -142,7 +142,7 @@
           <h2 class="text-4xl font-bold mb-4">Añadir paciente</h2>
           <form class="bg-light-gray p-6 rounded-lg shadow-md w-full max-w-4xl backdrop-blur-lg bg-gray-100/60"
             method="POST" action="?controller=Paciente&&action=guardar">
-            <input type="hidden" id="id_paciente" name="id_paciente" value="<?php echo $paciente->getId(); ?>">
+            <input type="hidden" name="id_paciente" value="<?php echo $paciente->getId(); ?>">
             <div class="mb-4 flex flex-col">
               <label for="nombre" class="block text-dark-gray-text font-semibold mb-2">Nombre</label>
               <input type="text" id="nombre" name="nombre" class="w-full p-3 border rounded"
@@ -168,7 +168,8 @@
             <div class="mb-4 flex flex-col">
               <label for="diagnostico" class="block text-dark-gray-text font-semibold mb-2">Diagnóstico</label>
               <input type="text" id="diagnostico" name="diagnostico" class="w-full p-3 border rounded"
-                placeholder="Escriba el diagnóstico del paciente" value="<?php echo $paciente->getDiagnosticoPaciente(); ?>" required>
+                placeholder="Escriba el diagnóstico del paciente"
+                value="<?php echo $paciente->getDiagnosticoPaciente(); ?>" required>
             </div>
             <div class="flex justify-end">
               <button type="submit"

@@ -15,9 +15,9 @@ class Paciente
         $this->pdo = DataBase::connect();
     }
 
-    public function getId(): int
+    public function getId(): ?int
     {
-        return $this->id_paciente ?? 0;
+        return $this->id_paciente;
     }
     public function setId(int $id): void
     {
@@ -34,9 +34,9 @@ class Paciente
         return $this->id_diagnostico;
     }
 
-    public function getNombre(): string
+    public function getNombre(): ?string
     {
-        return $this->nombre ?? "";
+        return $this->nombre;
     }
 
     public function setNombre(string $nombre): void
@@ -44,9 +44,9 @@ class Paciente
         $this->nombre = $nombre;
     }
 
-    public function getPrimerApellido(): string
+    public function getPrimerApellido(): ?string
     {
-        return $this->primerApellido ?? "";
+        return $this->primerApellido;
     }
 
     public function setPrimerApellido(string $primerApellido): void
@@ -54,9 +54,9 @@ class Paciente
         $this->primerApellido = $primerApellido;
     }
 
-    public function getSegundoApellido(): string
+    public function getSegundoApellido(): ?string
     {
-        return $this->segundoApellido ?? "";
+        return $this->segundoApellido;
     }
 
     public function setSegundoApellido($segundoApellido): void
@@ -64,34 +64,34 @@ class Paciente
         $this->segundoApellido = $segundoApellido;
     }
 
-    public function getSeguro(): int
+    public function getSeguro(): ?int
     {
-        return $this->seguro ?? 0;
+        return $this->seguro;
+    }
+
+    public function setSeguro($seguro): void
+    {
+        $this->seguro = $seguro;
     }
 
     public function getDiagnosticoPaciente(): string
     {
         try {
             $consulta = $this->pdo->prepare(
-                query: "SELECT d.descripcion FROM DIAGNOSTICO d INNER JOIN PACIENTE p ON d.id_diagnostico = p.id_diagnostico WHERE p.id_paciente=?;"
+                "SELECT d.descripcion FROM DIAGNOSTICO d INNER JOIN PACIENTE p ON d.id_diagnostico = p.id_diagnostico WHERE p.id_paciente=?;"
             );
-            $consulta->execute(
-                params: [
-                    $this->getId()
-                ]
-            );
+            $id = $this->getId();
+            $consulta->execute([$id]);
+            $resultado = $consulta->fetch(PDO::FETCH_OBJ);
 
-            return $consulta->fetch(
-                mode: PDO::FETCH_OBJ
-            )->descripcion ?? "";
+            if ($resultado && $resultado->descripcion) {
+                return $resultado->descripcion;
+            } else {
+                return "";
+            }
         } catch (Exception $e) {
             die($e->getMessage());
         }
-    }
-
-    public function setSeguro($seguro): void
-    {
-        $this->seguro = $seguro;
     }
 
     public function listar(): array
@@ -125,46 +125,45 @@ class Paciente
     public function insertar(Paciente $paciente): void
     {
         try {
+            $consulta = $this->pdo->prepare("SELECT COUNT(*) FROM DIAGNOSTICO WHERE id_diagnostico = ?");
+            $consulta->execute([$paciente->getIdDiagnostico()]);
+            $exists = $consulta->fetchColumn();
+
+            if (!$exists) {
+                $this->pdo->prepare("INSERT INTO DIAGNOSTICO(id_diagnostico, descripcion) VALUES (?, 'Descripción no disponible');")
+                    ->execute([$paciente->getIdDiagnostico()]);
+            }
+
             $this->pdo->prepare(
-                query: "INSERT INTO PACIENTE(id_paciente,nombre_paciente,primer_apellido_paciente, segundo_apellido_paciente, numero_seguro, id_diagnostico) VALUES (?,?,?,?,?,?);"
-            )->execute(
-                    params: [
+                "INSERT INTO PACIENTE(id_paciente,nombre_paciente,primer_apellido_paciente, segundo_apellido_paciente, numero_seguro, id_diagnostico) VALUES (?,?,?,?,?,?);"
+            )->execute([
                         $paciente->getId(),
                         $paciente->getNombre(),
                         $paciente->getPrimerApellido(),
                         $paciente->getSegundoApellido(),
                         $paciente->getSeguro(),
                         $paciente->getIdDiagnostico()
-                    ]
-                );
+                    ]);
         } catch (Exception $e) {
             die($e->getMessage());
         }
     }
 
-    public function obtener(int $id): ?Paciente
+    public function obtener(int $id): Paciente
     {
         try {
-            $consulta = $this->pdo->prepare(
-                query: "SELECT * FROM PACIENTE WHERE id_paciente=?;"
-            );
-            $consulta->execute(
-                params: [
-                    $id
-                ]
-            );
+            $query = "SELECT id_paciente, nombre_paciente, primer_apellido_paciente, segundo_apellido_paciente, numero_seguro FROM PACIENTE WHERE id_paciente=?;";
+            $consulta = $this->pdo->prepare($query);
+            $consulta->execute([$id]);
 
-            $resultado = $consulta->fetch(mode: PDO::FETCH_OBJ);
-
-            if (!$resultado) {
-                return null;
-            }
+            $resultado = $consulta->fetch(PDO::FETCH_OBJ);
 
             $paciente = new Paciente();
-            $paciente->setId(id: $resultado->id_paciente);
-            $paciente->setNombre(nombre: $resultado->nombre ?? "");
-            $paciente->setPrimerApellido(primerApellido: $resultado->primerApellido ?? "");
-            $paciente->setSegundoApellido(segundoApellido: $resultado->segundoApellido ?? "");
+            $paciente->setId($resultado->id_paciente);
+            $paciente->setNombre($resultado->nombre_paciente);
+            $paciente->setPrimerApellido($resultado->primer_apellido_paciente);
+            $paciente->setSegundoApellido($resultado->segundo_apellido_paciente);
+            $paciente->setSeguro($resultado->numero_seguro);
 
             return $paciente;
         } catch (Exception $e) {
@@ -191,17 +190,27 @@ class Paciente
             die($e->getMessage());
         }
     }
-
     public function eliminar(int $id): void
     {
         try {
             $this->pdo->prepare(
-                query: "DELETE FROM PACIENTE WHERE id_paciente=?;"
-            )->execute(
-                    params: [
-                        $id
-                    ]
-                );
+                "DELETE FROM consulta WHERE id_paciente=?;"
+            )->execute([$id]);
+
+            $consulta = $this->pdo->prepare(
+                "SELECT id_diagnostico FROM PACIENTE WHERE id_paciente=?;"
+            );
+            $consulta->execute([$id]);
+            $resultado = $consulta->fetch(PDO::FETCH_OBJ);
+            $id_diagnostico = $resultado->id_diagnostico;
+
+            $this->pdo->prepare(
+                "DELETE FROM PACIENTE WHERE id_paciente=?;"
+            )->execute([$id]);
+
+            $this->pdo->prepare(
+                "DELETE FROM DIAGNOSTICO WHERE id_diagnostico=?;"
+            )->execute([$id_diagnostico]);
         } catch (Exception $e) {
             die($e->getMessage());
         }
@@ -209,8 +218,32 @@ class Paciente
 
     public function eliminarDiagnosticosDePaciente(int $id): bool
     {
-        $query = "DELETE FROM PACIENTE WHERE id_paciente = ?";
-        $stmt = $this->pdo->prepare($query);
-        return $stmt->execute([$id]);
+        try {
+            // Delete from consulta table
+            $this->pdo->prepare(
+                "DELETE FROM consulta WHERE id_paciente=?;"
+            )->execute([$id]);
+
+            // Get the diagnostic ID associated with the patient
+            $consulta = $this->pdo->prepare(
+                "SELECT id_diagnostico FROM PACIENTE WHERE id_paciente=?;"
+            );
+            $consulta->execute([$id]);
+            $resultado = $consulta->fetch(PDO::FETCH_OBJ);
+            $id_diagnostico = $resultado->id_diagnostico;
+
+            // Delete from PACIENTE table
+            $this->pdo->prepare(
+                "DELETE FROM PACIENTE WHERE id_paciente=?;"
+            )->execute([$id]);
+
+            // Delete from DIAGNOSTICO table
+            $stmt = $this->pdo->prepare(
+                "DELETE FROM DIAGNOSTICO WHERE id_diagnostico=?;"
+            );
+            return $stmt->execute([$id_diagnostico]);
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
     }
 }
