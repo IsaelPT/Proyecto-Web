@@ -22,7 +22,7 @@ const fieldsConfig = [
     regex: /^[a-zA-Z0-9]{8}$/,
     errorMessage:
       "El código debe contener solo números y letras (mín. 8 caracteres).",
-    optional: true,
+    
   },
   {
     field: "#diagnostico",
@@ -49,7 +49,7 @@ function handleValidation(event) {
     if (input) {
       // Validar solo si el campo no es opcional o tiene un valor
       if (
-        (!optional || input.value.trim() !== "") &&
+        (input.value.trim() !== "") &&
         !regex.test(input.value)
       ) {
         isValid = false;

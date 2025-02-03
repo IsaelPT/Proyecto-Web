@@ -90,18 +90,18 @@
                                     d="M48 0C21.5 0 0 21.5 0 48L0 256l144 0c8.8 0 16 7.2 16 16s-7.2 16-16 16L0 288l0 64 144 0c8.8 0 16 7.2 16 16s-7.2 16-16 16L0 384l0 80c0 26.5 21.5 48 48 48l217.9 0c-6.3-10.2-9.9-22.2-9.9-35.1c0-46.9 25.8-87.8 64-109.2l0-95.9L320 48c0-26.5-21.5-48-48-48L48 0zM152 64l16 0c8.8 0 16 7.2 16 16l0 24 24 0c8.8 0 16 7.2 16 16l0 16c0 8.8-7.2 16-16 16l-24 0 0 24c0 8.8-7.2 16-16 16l-16 0c-8.8 0-16-7.2-16-16l0-24-24 0c-8.8 0-16-7.2-16-16l0-16c0-8.8 7.2-16 16-16l24 0 0-24c0-8.8 7.2-16 16-16zM512 272a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM288 477.1c0 19.3 15.6 34.9 34.9 34.9l218.2 0c19.3 0 34.9-15.6 34.9-34.9c0-51.4-41.7-93.1-93.1-93.1l-101.8 0c-51.4 0-93.1 41.7-93.1 93.1z" />
                             </svg>
                             <button id="inicio-btn-pacientes"
-                                class="text-dark-gray hover:text-blue-logo hover:text-blue-700 hover:underline ml-2 z-40">
+                                class="text-dark-gray hover:text-blue-logo hover:text-blue-700 hover:underline ml-2 ">
                                 Pacientes
                             </button>
                             <ul id="inicio-menu-pacientes"
-                                class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
+                                class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40 z-40">
                                 <li>
                                     <a href="?controller=Paciente&&action=form_pacientes"
                                         class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
                                         paciente</a>
                                 </li>
                                 <li>
-                                    <a href="?controller=Pacientes&&action=principal"
+                                    <a href="?controller=Paciente&&action=principal"
                                         class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Listado
                                         de
                                         pacientes</a>
@@ -206,83 +206,6 @@
                 </div>
         </section>
     </main>
-
-        <!-- Contenido de Listado de Consultas -->
-        <main class="container mx-auto py-4 px-6 sm:px-6 max-w-full overflow-x-auto">
-            <section class="mb-8">
-                <div class="flex flex-col items-center mt-10">
-                    <h2 class="text-2xl sm:text-4xl font-bold mb-4 ">Listado de consultas</h2>
-                    <div class="w-full max-w-full overflow-x-auto mx-auto">
-                        <table id="tablaPacientes"
-                            class="p-6 w-auto backdrop-blur-lg bg-gray-100/60 border-collapse overflow-hidden rounded-lg table-auto mx-auto">
-                            <thead>
-                                <tr>
-                                    <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Paciente</th>
-                                    <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Apellido Paciente
-                                    </th>
-                                    <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Doctor asignado
-                                    </th>
-                                    <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Apellido Doctor
-                                    </th>
-                                    <th class="p-2 sm:p-3 border-b border-gray-700 text-left">Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                $consultas = $this->consulta->listar();
-                                for ($i = 0; $i < count($consultas); $i++): ?>
-                                    <tr>
-                                        <?php if ($i + 1 == count($consultas)): ?>
-                                            <td class="p-2 sm:p-3 border-r border-gray-700 text-left">
-                                                <?php echo $consultas[$i]->nombre_paciente; ?>
-                                            </td>
-                                            <td class="p-2 sm:p-3 border-r border-gray-700 text-left">
-                                                <?php echo $consultas[$i]->primer_apellido_paciente; ?>
-                                            </td>
-                                            <td class="p-2 sm:p-3 border-r border-gray-700 text-left">
-                                                <?php echo $consultas[$i]->nombre_doctor; ?>
-                                            </td>
-                                            <td class="p-2 sm:p-3 border-r border-gray-700 text-left">
-                                                <?php echo $consultas[$i]->primer_apellido_doctor; ?>
-                                            </td>
-                                            <td class="p-2 sm:p-3 border-gray-700 text-left">
-                                                <div
-                                                    class="flex flex-col sm:flex-row justify-end items-center space-y-2 sm:space-y-0 sm:space-x-4">
-                                                    <a href="?controller=Consulta&&action=eliminar&&id_doctor=<?php echo $consultas[$i]->id_doctor ?>&&id_paciente=<?php echo $consultas[$i]->id_paciente ?>"
-                                                        class="px-4 py-2 bg-red-300 text-black rounded hover:bg-red-500 mr-5 borrar-fila">
-                                                        Borrar </a>
-                                                </div>
-                                            </td>
-                                        <?php else: ?>
-                                            <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">
-                                                <?php echo $consultas[$i]->nombre_paciente; ?>
-                                            </td>
-                                            <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">
-                                                <?php echo $consultas[$i]->primer_apellido_paciente; ?>
-                                            </td>
-                                            <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">
-                                                <?php echo $consultas[$i]->nombre_doctor; ?>
-                                            </td>
-                                            <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">
-                                                <?php echo $consultas[$i]->primer_apellido_doctor; ?>
-                                            </td>
-                                            <td class="p-2 sm:p-3 border-b border-gray-700 text-left">
-                                                <div
-                                                    class="flex flex-col sm:flex-row justify-end items-center space-y-2 sm:space-y-0 sm:space-x-4">
-                                                    <a href="?controller=Consulta&&action=eliminar&&id_doctor=<?php echo $consultas[$i]->id_doctor ?>&&id_paciente=<?php echo $consultas[$i]->id_paciente ?>"
-                                                        class="px-4 py-2 bg-red-300 text-black rounded hover:bg-red-500 mr-5 borrar-fila">
-                                                        Borrar </a>
-                                                </div>
-                                            </td>
-                                        <?php endif ?>
-                                    </tr>
-                                <?php endfor
-                                ?>
-                            </tbody>
-                        </table>
-                    </div>
-            </section>
-        </main>
 
         <footer id="footer"
             class="footer fixed bottom-0 left-0 w-full bg-gray-900 hidden transition-all duration-300 ease-in-out">

@@ -10,7 +10,7 @@
   </head>
 
   <body class="bg-cover bg-center bg-fixed"
-    style="background-image:linear-gradient(rgba(186, 172, 172, 0.542), rgba(205, 194, 194, 0.2)), url('app/views/src/icons/pacients.jpg');">
+    style="background-image:linear-gradient(rgba(186, 172, 172, 0.542), rgba(205, 194, 194, 0.2)), url('app/views/src/icons/pacients.jpg');background-position: center 20%;">
     <header class="bg-blue-300">
       <div class="container mx-auto flex items-center justify-between py-4 px-6 flex-wrap">
         <div class="flex items-center space-x-2 mr-2">
@@ -18,7 +18,7 @@
           <h1 class="text-black font-bold text-lg whitespace-nowrap">Hospital Saturnino Lora</h1>
         </div>
         <nav class="flex-grow">
-          <ul class="flex justify-end items-center space-x-4">
+          <ul class="flex flex-col sm:flex-row justify-end items-center space-y-2 sm:space-y-0 sm:space-x-4">
             <li class="flex items-center space-x-2">
               <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512">
                 <path
@@ -38,7 +38,7 @@
                   Consulta
                 </button>
                 <ul id="inicio-menu-consulta"
-                  class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
+                  class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40 z-40">
                   <li>
                     <a href="?controller=Consulta&&action=form_consultas"
                       class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700  hover:underline">Añadir
@@ -65,7 +65,7 @@
                   Doctores
                 </button>
                 <ul id="inicio-menu-doctores"
-                  class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
+                  class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40 z-40">
                   <li>
                     <a href="?controller=Doctor&&action=form_doctores"
                       class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
@@ -91,7 +91,7 @@
                   Pacientes
                 </button>
                 <ul id="inicio-menu-pacientes"
-                  class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
+                  class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40 z-40">
                   <li>
                     <a href="?controller=Paciente&&action=form_pacientes"
                       class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
@@ -117,7 +117,7 @@
                   Especialidades
                 </button>
                 <ul id="inicio-menu-especialidad"
-                  class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
+                  class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40 z-40">
                   <li>
                     <a href="?controller=Especialidad&&action=form_especialidades"
                       class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
@@ -136,10 +136,10 @@
       </div>
     </header>
 
-    <main class="container mx-auto py-8 px-6">
+    <main class="container mx-auto py-4 px-6 sm:px-6 max-w-full overflow-x-auto">
       <section class="mb-8">
-        <div class="flex flex-col items-center">
-          <h2 class="text-4xl font-bold mb-4">Añadir paciente</h2>
+        <div class="flex flex-col items-center mt-10">
+          <h2 class="text-2xl sm:text-4xl font-bold mb-4">Añadir paciente</h2>
           <form class="bg-light-gray p-6 rounded-lg shadow-md w-full max-w-4xl backdrop-blur-lg bg-gray-100/60"
             method="POST" action="?controller=Paciente&&action=guardar">
             <input type="hidden" id="id_paciente" name="id_paciente" value="<?php echo $paciente->getId(); ?>">
@@ -155,7 +155,7 @@
                   placeholder="Escriba el primer apellido" value="<?php echo $paciente->getPrimerApellido(); ?>"
                   required>
               </div>
-              <div class="mt-2"></div>
+              <div class="mt-2">
               <input type="text" id="apellido_2" name="apellido_2" class="w-full p-3 border rounded"
                 placeholder="Escriba el segundo apellido" value="<?php echo $paciente->getSegundoApellido(); ?>"
                 required>
@@ -189,7 +189,7 @@
     </footer>
 
     <a href="#footer"
-      class="btn-flotante fixed bottom-16 right-4 bg-gray-500 text-white px-4 py-2 rounded shadow-lg">Información</a>
+      class="btn-flotante fixed bottom-5 right-4 bg-gray-500 text-white px-4 py-2 rounded shadow-lg text-sm sm:text-base">Información</a>
 
     <script src="app/views/src/js/script.js"></script>
     <script src="app/views/src/js/validaciones.js"></script>
