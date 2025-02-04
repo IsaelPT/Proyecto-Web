@@ -27,7 +27,7 @@ class PacienteController
 
         if (isset($_GET['id'])) {
             $paciente = $this->paciente->obtener($_GET['id']);
-            $diagnostico = $this->diagnostico->obtener($_GET['id']);
+            $diagnostico = $this->diagnostico->obtener($_GET['id_diagnostico']);
         }
 
         include "app/views/src/pages/pacientes.php";
@@ -40,6 +40,7 @@ class PacienteController
 
         // Paciente
         $paciente->setId(id: intval(value: $_POST['id_paciente']) ?: 0);
+        $paciente->setIdDiagnostico(intval($_POST['id_diagnostico']));
         $paciente->setNombre(nombre: $_POST['nombre'] ?? "");
         $paciente->setPrimerApellido(primerApellido: $_POST['apellido_1'] ?? "");
         $paciente->setSegundoApellido(segundoApellido: $_POST['apellido_2'] ?? "");
@@ -47,11 +48,17 @@ class PacienteController
 
         // Diagnostico
         $diagnostico->setDetalles(detalles: $_POST['diagnostico'] ?? "");
-        $diagnostico->setID_Pac(id: intval(value: $_POST['id_paciente']) ?: 0);
+        $diagnostico->setID_Pac(id: intval(value: $_POST['id_diagnostico']) ?: 0);
 
         if ($paciente->getId() > 0) {
+            $idDiagnostico = $this->diagnostico->insertar($diagnostico);
+            if ($idDiagnostico > 0) {
+                $paciente->setIdDiagnostico($idDiagnostico);
+            } else {
+                $idDiagnostico = $diagnostico->obtenerUltimoId();
+                $paciente->setIdDiagnostico($idDiagnostico);
+            }
             $this->paciente->actualizar(paciente: $paciente);
-            $this->diagnostico->actualizar(diagnostico: $diagnostico);
         } else {
 
             $idDiagnostico = $this->diagnostico->insertar($diagnostico);

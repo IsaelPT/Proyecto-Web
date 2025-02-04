@@ -87,7 +87,7 @@ class Diagnostico
         }
     }
 
-    public function obtener(int $id): ?Diagnostico
+    public function obtener(int $id): Diagnostico
     {
         try {
             $q = "SELECT * FROM DIAGNOSTICO WHERE id_diagnostico=?;";
@@ -97,10 +97,6 @@ class Diagnostico
             );
 
             $resultado = $consulta->fetch(PDO::FETCH_OBJ);
-
-            if (!$resultado) {
-                return null;
-            }
 
             $diagnostico = new Diagnostico();
             $diagnostico->setID_Pac($resultado->idPaciente ?? 0);

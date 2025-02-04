@@ -98,7 +98,7 @@ class Paciente
     {
         try {
             $consulta = $this->pdo->prepare(
-                query: "SELECT p.id_paciente, p.nombre_paciente, p.primer_apellido_paciente, p.segundo_apellido_paciente, p.numero_seguro, d.descripcion FROM PACIENTE p INNER JOIN DIAGNOSTICO d ON p.id_diagnostico = d.id_diagnostico;"
+                query: "SELECT p.id_diagnostico, p.id_paciente, p.nombre_paciente, p.primer_apellido_paciente, p.segundo_apellido_paciente, p.numero_seguro, d.descripcion FROM PACIENTE p INNER JOIN DIAGNOSTICO d ON p.id_diagnostico = d.id_diagnostico;"
             );
             $consulta->execute();
             return $consulta->fetchAll(PDO::FETCH_OBJ);
@@ -130,7 +130,7 @@ class Paciente
             die($e->getMessage());
         }
     }
-    
+
     public function insertar(Paciente $paciente): void
     {
         try {
@@ -146,13 +146,13 @@ class Paciente
             $this->pdo->prepare(
                 "INSERT INTO PACIENTE(id_paciente,nombre_paciente,primer_apellido_paciente, segundo_apellido_paciente, numero_seguro, id_diagnostico) VALUES (?,?,?,?,?,?);"
             )->execute([
-                        $paciente->getId(),
-                        $paciente->getNombre(),
-                        $paciente->getPrimerApellido(),
-                        $paciente->getSegundoApellido(),
-                        $paciente->getSeguro(),
-                        $paciente->getIdDiagnostico()
-                    ]);
+                $paciente->getId(),
+                $paciente->getNombre(),
+                $paciente->getPrimerApellido(),
+                $paciente->getSegundoApellido(),
+                $paciente->getSeguro(),
+                $paciente->getIdDiagnostico()
+            ]);
         } catch (Exception $e) {
             die($e->getMessage());
         }
@@ -178,9 +178,10 @@ class Paciente
 
             $paciente = new Paciente();
             $paciente->setId(id: $resultado->id_paciente);
-            $paciente->setNombre(nombre: $resultado->nombre ?? "");
-            $paciente->setPrimerApellido(primerApellido: $resultado->primerApellido ?? "");
-            $paciente->setSegundoApellido(segundoApellido: $resultado->segundoApellido ?? "");
+            $paciente->setNombre(nombre: $resultado->nombre_paciente ?? "");
+            $paciente->setPrimerApellido(primerApellido: $resultado->primer_apellido_paciente ?? "");
+            $paciente->setSegundoApellido(segundoApellido: $resultado->segundo_apellido_paciente ?? "");
+            $paciente->setSeguro(seguro: $resultado->numero_seguro ?? "");
 
             return $paciente;
         } catch (Exception $e) {
@@ -192,17 +193,17 @@ class Paciente
     {
         try {
             $this->pdo->prepare(
-                query:
-                "UPDATE PACIENTE SET nombre_paciente=?, primer_apellido_paciente=?, segundo_apellido_paciente=?, numero_seguro=? WHERE id_paciente=?;"
+                query: "UPDATE PACIENTE SET id_diagnostico=?, nombre_paciente=?, primer_apellido_paciente=?, segundo_apellido_paciente=?, numero_seguro=? WHERE id_paciente=?;"
             )->execute(
-                    params: [
-                        $paciente->getNombre(),
-                        $paciente->getPrimerApellido(),
-                        $paciente->getSegundoApellido(),
-                        $paciente->getSeguro(),
-                        $paciente->getId()
-                    ]
-                );
+                params: [
+                    $paciente->getIdDiagnostico(),
+                    $paciente->getNombre(),
+                    $paciente->getPrimerApellido(),
+                    $paciente->getSegundoApellido(),
+                    $paciente->getSeguro(),
+                    $paciente->getId()
+                ]
+            );
         } catch (Exception $e) {
             die($e->getMessage());
         }
@@ -214,10 +215,10 @@ class Paciente
             $this->pdo->prepare(
                 query: "DELETE FROM PACIENTE WHERE id_paciente=?;"
             )->execute(
-                    params: [
-                        $id
-                    ]
-                );
+                params: [
+                    $id
+                ]
+            );
         } catch (Exception $e) {
             die($e->getMessage());
         }
