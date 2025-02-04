@@ -52,7 +52,7 @@ class Diagnostico
     public function listar()
     {
         try {
-            $consulta = $this->pdo->prepare("SELEC * FROM DIAGNOSTICO;");
+            $consulta = $this->pdo->prepare("SELECT * FROM DIAGNOSTICO;");
             $consulta->execute();
             return $consulta->fetchAll(PDO::FETCH_OBJ);
         } catch (Exception $e) {
@@ -60,13 +60,14 @@ class Diagnostico
         }
     }
 
-    public function insertar(Diagnostico $diagnostico): void
+    public function insertar(Diagnostico $diagnostico)
     {
         try {
-            $check = "SELECT COUNT(*) FROM DIAGNOSTICO WHERE descripcion = ?";
-            $consulta = $this->pdo->prepare($check);
-            $consulta->execute([$diagnostico->getDetalles()]);
-            $count = $consulta->fetchColumn();
+            $check = "SELECT COUNT(*), id_diagnostico FROM DIAGNOSTICO WHERE descripcion = ?";
+            $consulta_id = $this->pdo->prepare($check);
+            $consulta_id->execute([$diagnostico->getDetalles()]);
+            $resul = $consulta_id->fetch(PDO::FETCH_OBJ);
+            $count = $consulta_id->fetchColumn();
 
             // Aquí verificando que este diagnóstico no esté en la base de datos.
             if ($count == 0) {
@@ -79,6 +80,8 @@ class Diagnostico
                     ]
                 );
             }
+
+            return $resul->id_diagnostico;
         } catch (Exception $e) {
             die($e->getMessage());
         }

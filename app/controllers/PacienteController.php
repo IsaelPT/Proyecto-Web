@@ -49,15 +49,22 @@ class PacienteController
         $diagnostico->setDetalles($_POST['diagnostico']);
         $diagnostico->setID_Pac(intval($_POST['id_paciente']));
         echo $paciente->getId();
-        
+
         if ($paciente->getId() > 0) {
             $this->paciente->actualizar($paciente);
             $this->diagnostico->actualizar($diagnostico);
         } else {
-            $this->diagnostico->insertar($diagnostico);
-            $idDiagnostico = $this->diagnostico->obtenerUltimoId();
 
-            $paciente->setIdDiagnostico($idDiagnostico);
+            $idDiagnostico = $this->diagnostico->insertar($diagnostico);
+
+            if ($idDiagnostico > 0) {
+                $paciente->setIdDiagnostico($idDiagnostico);
+            } else {
+                $idDiagnostico = $diagnostico->obtenerUltimoId();
+                $paciente->setIdDiagnostico($idDiagnostico);
+            }
+
+
             $this->paciente->insertar($paciente);
         }
 
