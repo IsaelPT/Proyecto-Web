@@ -53,11 +53,18 @@ class PacienteController
             $this->paciente->actualizar(paciente: $paciente);
             $this->diagnostico->actualizar(diagnostico: $diagnostico);
         } else {
-            $this->diagnostico->insertar(diagnostico: $diagnostico);
-            $idDiagnostico = $this->diagnostico->obtenerUltimoId();
 
-            $paciente->setIdDiagnostico(id: $idDiagnostico);
-            $this->paciente->insertar(paciente: $paciente);
+            $idDiagnostico = $this->diagnostico->insertar($diagnostico);
+
+            if ($idDiagnostico > 0) {
+                $paciente->setIdDiagnostico($idDiagnostico);
+            } else {
+                $idDiagnostico = $diagnostico->obtenerUltimoId();
+                $paciente->setIdDiagnostico($idDiagnostico);
+            }
+
+
+            $this->paciente->insertar($paciente);
         }
 
         header("Location: ?controller=Paciente");
