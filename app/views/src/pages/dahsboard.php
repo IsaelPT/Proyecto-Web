@@ -29,21 +29,7 @@
             <a href="?controller=Dashboard"
               class="text-dark-gray hover:text-blue-logo hover:text-blue-700 ml-2 hover:underline">Dashboard</a>
           </li>
-          <div class="flex items-center space-x-2">
-            <li class="relative flex items-center">
-              <ul id="inicio-menu-consulta" class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40 z-40">
-                <li>
-                  <a href="?controller=Consulta&&action=form_consultas"
-                    class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700  hover:underline">Añadir
-                    consulta</a>
-                </li>
-                <li>
-                  <a href="?controller=Consulta&&action=principal"
-                    class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700  hover:underline">Listado
-                    de consultas</a>
-                </li>
-              </ul>
-            </li>
+          
             <div class="flex items-center space-x-2">
               <li class="relative flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 576 512">
