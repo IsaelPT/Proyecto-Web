@@ -113,7 +113,7 @@ class Diagnostico
     public function actualizar(Diagnostico $diagnostico): void
     {
         try {
-            $q = "UPDATE DIAGNOSTICO SET descripcion=? WHERE id_diagnostico=?;";
+            $q = "UPDATE DIAGNOSTICO SET descripcion=? WHERE id_paciente=?;";
             $consulta = $this->pdo->prepare($q);
             $consulta->execute(
                 [
