@@ -194,7 +194,7 @@ class Paciente
     {
         try {
             $this->pdo->prepare(
-                "DELETE FROM consulta WHERE id_paciente=?;"
+                "DELETE FROM consulta WHERE id_paciente =?;"
             )->execute([$id]);
 
             $consulta = $this->pdo->prepare(

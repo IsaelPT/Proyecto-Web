@@ -48,6 +48,7 @@ class PacienteController
         // Diagnostico
         $diagnostico->setDetalles($_POST['diagnostico']);
         $diagnostico->setID_Pac(intval($_POST['id_paciente']));
+        echo $paciente->getId();
         
         if ($paciente->getId() > 0) {
             $this->paciente->actualizar($paciente);

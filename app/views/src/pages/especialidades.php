@@ -42,7 +42,7 @@
                 <ul id="inicio-menu-consulta"
                   class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
                   <li>
-                    <a href="?controller=Consulta&&action=form_consulta"
+                    <a href="?controller=Consulta&&action=form_consultas"
                       class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700  hover:underline">Añadir
                       consulta</a>
                   </li>
@@ -121,7 +121,7 @@
                 <ul id="inicio-menu-especialidad"
                   class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
                   <li>
-                    <a href="?controller=Especialidad&&action=form_especialidad"
+                    <a href="?controller=Especialidad&&action=form_especialidades"
                       class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
                       especialidad</a>
                   </li>
