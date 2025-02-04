@@ -9,7 +9,6 @@
     <link rel="shortcut icon" href="app/views/src/icons/logoH.png" type="image/x-icon">
   </head>
 
-<<<<<<< HEAD
   <body class="bg-cover bg-center bg-fixed"
     style="background-image: linear-gradient(rgba(186, 172, 172, 0.542), rgba(205, 194, 194, 0.2)), url('app/views/src/icons/dash.jpg');background-position: center 20%;">
     <header class="bg-blue-300">
@@ -29,42 +28,6 @@
               </svg>
               <a href="?controller=Dashboard"
                 class="text-dark-gray hover:text-blue-logo hover:text-blue-700 ml-2 hover:underline">Dashboard</a>
-=======
-<body class="bg-cover bg-center bg-fixed"
-  style="background-image: linear-gradient(rgba(186, 172, 172, 0.542), rgba(205, 194, 194, 0.2)), url('app/views/src/icons/dash.jpg');background-position: center 20%;">
-  <header class="bg-blue-300">
-    <div class="container mx-auto flex items-center justify-between py-4 px-6 flex-wrap">
-      <div class="flex items-center space-x-2 mr-2">
-        <img src="app/views/src/icons/logoH.png" alt="Ícono del hospital" class="w-12 h-12">
-        <h1 class="text-black font-bold text-lg whitespace-nowrap">
-          Hospital Saturnino Lora
-        </h1>
-      </div>
-      <nav class="flex-grow">
-      <ul class="flex flex-col sm:flex-row justify-end items-center space-y-2 sm:space-y-0 sm:space-x-4">
-          <li class="flex items-center space-x-2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512">
-              <path
-                d="M32 32c17.7 0 32 14.3 32 32l0 336c0 8.8 7.2 16 16 16l400 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L80 480c-44.2 0-80-35.8-80-80L0 64C0 46.3 14.3 32 32 32zM160 224c17.7 0 32 14.3 32 32l0 64c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32zm128-64l0 160c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-160c0-17.7 14.3-32 32-32s32 14.3 32 32zm64 32c17.7 0 32 14.3 32 32l0 96c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-96c0-17.7 14.3-32 32-32zM480 96l0 224c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-224c0-17.7 14.3-32 32-32s32 14.3 32 32z" />
-            </svg>
-            <a href="?controller=Dashboard"
-              class="text-dark-gray hover:text-blue-logo hover:text-blue-700 ml-2 hover:underline">Dashboard</a>
-          </li>
-          <div class="flex items-center space-x-2">
-            <li class="relative flex items-center">
-              <ul id="inicio-menu-consulta" class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40 z-40">
-                <li>
-                  <a href="?controller=Consulta&&action=form_consultas"
-                    class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700  hover:underline">Añadir
-                    consulta</a>
-                </li>
-                <li>
-                  <a href="?controller=Consulta&&action=principal"
-                    class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700  hover:underline">Listado
-                    de consultas</a>
-                </li>
-              </ul>
->>>>>>> d13f14d (Fixed: Arreglando problemas con los enlaces E-D)
             </li>
             <div class="flex items-center space-x-2">
               <li class="relative flex items-center">
