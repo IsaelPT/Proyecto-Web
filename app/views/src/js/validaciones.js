@@ -142,11 +142,10 @@ document.addEventListener("DOMContentLoaded", () => {
 function handleValidation(event) {
   let isValid = true;
 
-  fieldsConfig.forEach(({ field, regex, errorMessage, optional }) => {
+  fieldsConfig.forEach(({ field, regex, errorMessage}) => {
     const input = document.querySelector(field);
 
     if (input) {
-      // Validar solo si el campo no es opcional o tiene un valor
       if (
         (input.value.trim() !== "") &&
         !regex.test(input.value)
