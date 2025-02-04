@@ -67,7 +67,7 @@
               </button>
               <ul id="inicio-menu-doctores" class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40 z-40">
                 <li>
-                  <a href="?controller=Doctor&&"
+                  <a href="?controller=Doctor&&action=form_doctores"
                     class=" block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
                     doctor</a>
                 </li>

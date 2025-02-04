@@ -117,26 +117,42 @@ class Paciente
             return $consulta->fetch(
                 mode: PDO::FETCH_OBJ
             );
+            $id = $this->getId();
+            $consulta->execute([$id]);
+            $resultado = $consulta->fetch(PDO::FETCH_OBJ);
+
+            if ($resultado && $resultado->descripcion) {
+                return $resultado->descripcion;
+            } else {
+                return "";
+            }
         } catch (Exception $e) {
             die($e->getMessage());
         }
     }
-
+    
     public function insertar(Paciente $paciente): void
     {
         try {
+            $consulta = $this->pdo->prepare("SELECT COUNT(*) FROM DIAGNOSTICO WHERE id_diagnostico = ?");
+            $consulta->execute([$paciente->getIdDiagnostico()]);
+            $exists = $consulta->fetchColumn();
+
+            if (!$exists) {
+                $this->pdo->prepare("INSERT INTO DIAGNOSTICO(id_diagnostico, descripcion) VALUES (?, 'Descripción no disponible');")
+                    ->execute([$paciente->getIdDiagnostico()]);
+            }
+
             $this->pdo->prepare(
-                query: "INSERT INTO PACIENTE(id_paciente,nombre_paciente,primer_apellido_paciente, segundo_apellido_paciente, numero_seguro, id_diagnostico) VALUES (?,?,?,?,?,?);"
-            )->execute(
-                    params: [
+                "INSERT INTO PACIENTE(id_paciente,nombre_paciente,primer_apellido_paciente, segundo_apellido_paciente, numero_seguro, id_diagnostico) VALUES (?,?,?,?,?,?);"
+            )->execute([
                         $paciente->getId(),
                         $paciente->getNombre(),
                         $paciente->getPrimerApellido(),
                         $paciente->getSegundoApellido(),
                         $paciente->getSeguro(),
                         $paciente->getIdDiagnostico()
-                    ]
-                );
+                    ]);
         } catch (Exception $e) {
             die($e->getMessage());
         }

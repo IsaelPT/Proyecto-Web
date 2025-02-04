@@ -22,11 +22,9 @@ class DoctorController
     public function form_doctores(): void
     {
         $doc = new Doctor();
-        $esp = new Especializacion();
 
         if (isset($_GET['id'])) {
             $doc = $this->doctor->obtener($_GET['id']);
-            $esp = $this->especializacion->obtener($_GET['id']);
         }
 
         include "app/views/src/pages/doctores.php";
