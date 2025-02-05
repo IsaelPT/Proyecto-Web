@@ -154,7 +154,7 @@
           <div class="mb-4 flex flex-col">
             <label for="doctor" class="block text-dark-gray-text font-semibold mb-2">Doctor Asignado</label>
             <select name="id_doctor" id="doctor" class="w-full p-3 border rounded" required>
-              <option value="" disabled selected>Seleccione un paciente</option>
+              <option value="" disabled selected>Seleccione un doctor</option>
               <?php foreach($this->doctor->listar() as $doc): ?>
                 <option value="<?php echo $doc->id_doctor; ?>" ><?php echo $doc->nombre_doctor ." ". $doc->primer_apellido_doctor; ?></option>
               <?php endforeach ?>
