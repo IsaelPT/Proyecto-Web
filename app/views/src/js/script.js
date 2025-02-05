@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   mostrarOcultarFooter();
+  agregarEventosBorrar();
 
   // Configuración de menús dinámicamente
   const menus = [
@@ -54,5 +55,22 @@ function mostrarOcultarFooter() {
       btnFlotante.classList.remove("bottom-20");
       btnFlotante.classList.add("bottom-5");
     }
+  });
+}
+
+function agregarEventosBorrar() {
+  const botones = document.querySelectorAll(".borrar-fila");
+  botones.forEach(boton => {
+      boton.addEventListener('click', (event) => {
+          // Evitar que el enlace se siga
+          event.preventDefault(); 
+          const userConfirmed = confirm("¿Estás seguro de que deseas eliminar?");
+          if (userConfirmed) {
+              // Redirigir a la URL del enlace
+              window.location.href = boton.href;
+          } else {
+              alert("Has cancelado la acción.");
+          }
+      });
   });
 }

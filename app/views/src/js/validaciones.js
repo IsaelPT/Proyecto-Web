@@ -1,102 +1,4 @@
-// const form = document.querySelector("form");
-// const nombre = document.querySelector("#nombre");
-// const apellido1 = document.querySelector("#apellido_1");
-// const apellido2 = document.querySelector("#apellido_2");
-// const seguro = document.getElementById("seguro");
-// const diagnostico = document.getElementById("diagnostico");
-// const especialidad = document.getElementById("especialidad");
 
-// const alfanumerico = /^[a-zA-Z0-9]{8}$/;
-// const soloLetras = /^[a-zA-ZÁÉÍÓÚáéíóúÑñ\s]+$/; // Expresión regular para solo letras y espacios
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   validaciones();
-// });
-
-// function validaciones(){
-
-//   form.addEventListener("submit", (event) => {
-//     let isValid = true;
-
-//     // Validar el campo "nombre"
-//     if (!soloLetras.test(nombre.value)) {
-//       isValid = false;
-//       showError(nombre, "El nombre solo debe contener letras.");
-//     } else {
-//       clearError(nombre);
-//     }
-
-//     // Validar el campo "apellido_1"
-//     if (!soloLetras.test(apellido1.value)) {
-//       isValid = false;
-//       showError(apellido1, "El primer apellido solo debe contener letras.");
-//     } else {
-//       clearError(apellido1);
-//     }
-
-//     // Validar el campo "apellido_2"
-//     if (!soloLetras.test(apellido2.value)) {
-//       isValid = false;
-//       showError(apellido2, "El segundo apellido solo debe contener letras.");
-//     } else {
-//       clearError(apellido2);
-//     }
-
-//     // Validar el campo "seguro"
-//     if (seguro) {
-//       if (!alfanumerico.test(seguro.value)) {
-//         isValid = false;
-//         showError(
-//           seguro,
-//           "El código debe contener solo números y letras (mín. 8 caracteres)."
-//         );
-//       } else {
-//         clearError(seguro);
-//       }
-//     }
-
-//     // Validar el campo "diagnostico"
-//     if (!soloLetras.test(diagnostico.value)) {
-//       isValid = false;
-//       showError(diagnostico, "El diagnóstico solo debe contener letras.");
-//     } else {
-//       clearError(diagnostico);
-//     }
-
-//     // Validar el campo "especialidad"
-//     if (!soloLetras.test(especialidad.value)) {
-//       isValid = false;
-//       showError(especialidad, "La especialidad solo debe contener letras.");
-//     }else {
-//       clearError(especialidad);
-//     }
-
-//     // Prevenir el envío del formulario si no pasa la validación
-//     if (!isValid) {
-//       event.preventDefault();
-//     }
-
-//   });
-// }
-
-// // Mostrar mensaje de error
-// function showError(input, message) {
-//     clearError(input);
-//     const error = document.createElement("p");
-//     error.classList.add("text-red-500", "text-sm", "mt-1");
-//     error.textContent = message;
-//     input.classList.add("border-red-500");
-//     input.parentElement.appendChild(error);
-// }
-
-// // Limpiar el mensaje de error
-// function clearError(input) {
-//     input.classList.remove("border-red-500");
-//     const error = input.parentElement.querySelector(".text-red-500");
-//     if (error) {
-//       error.remove();
-//     }
-// }
 const form = document.querySelector("form");
 
 // Configuración de validaciones
@@ -142,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function handleValidation(event) {
   let isValid = true;
 
-  fieldsConfig.forEach(({ field, regex, errorMessage}) => {
+  fieldsConfig.forEach(({field, regex, errorMessage}) => {
     const input = document.querySelector(field);
 
     if (input) {
