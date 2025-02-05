@@ -29,7 +29,7 @@ class Paciente
         $this->id_diagnostico = $id;
     }
 
-    public function getIdDiagnostico(): int
+    public function getIdDiagnosticoPaciente(): int
     {
         return $this->id_diagnostico;
     }
@@ -131,31 +131,65 @@ class Paciente
         }
     }
 
+    /**
+     * Insertar en la base de datos un Paciente con su diagnóstico. El Paciente tiene una llave foránea que hace referencia a la tabla Diagnóstico, de modo que si se crea un paciente que tiene un diagnóstico, y este ya está presente la base de datos, lo que se haga es referencia a ese diagnóstico existente, no crear uno nuevo.
+     * @param Paciente $paciente
+     * @return void
+     */
     public function insertar(Paciente $paciente): void
     {
         try {
-            $consulta = $this->pdo->prepare("SELECT COUNT(*) FROM DIAGNOSTICO WHERE id_diagnostico = ?");
-            $consulta->execute([$paciente->getIdDiagnostico()]);
-            $exists = $consulta->fetchColumn();
-
-            if (!$exists) {
-                $this->pdo->prepare("INSERT INTO DIAGNOSTICO(id_diagnostico, descripcion) VALUES (?, 'Descripción no disponible');")
-                    ->execute([$paciente->getIdDiagnostico()]);
+            $check = $this->checkExistenciaDiagn($paciente);
+            if ($check == null) {
+                throw new Exception("ERROR: El paciente no tiene asociado un ID de diagnóstico válido.");
             }
-
             $this->pdo->prepare(
-                "INSERT INTO PACIENTE(id_paciente,nombre_paciente,primer_apellido_paciente, segundo_apellido_paciente, numero_seguro, id_diagnostico) VALUES (?,?,?,?,?,?);"
-            )->execute([
-                $paciente->getId(),
-                $paciente->getNombre(),
-                $paciente->getPrimerApellido(),
-                $paciente->getSegundoApellido(),
-                $paciente->getSeguro(),
-                $paciente->getIdDiagnostico()
-            ]);
+                query:
+                "
+                    INSERT INTO PACIENTE(
+                        id_paciente,
+                        id_diagnostico,
+                        nombre_paciente,
+                        primer_apellido_paciente,
+                        segundo_apellido_paciente,
+                        numero_seguro
+                    ) VALUES (?,?,?,?,?,?)
+                    "
+            )->execute(
+                    [
+                        $paciente->getId(),
+                        $paciente->getIdDiagnosticoPaciente(),
+                        $paciente->getNombre(),
+                        $paciente->getPrimerApellido(),
+                        $paciente->getSegundoApellido(),
+                        $paciente->getSeguro()
+                    ]
+                );
         } catch (Exception $e) {
             die($e->getMessage());
         }
+    }
+
+    /**
+     * Obtiene la cantidad de diagnósticos específicos que tiene un paciente determinado. Si se obtiene 0, no existen diagnósticos, si es más de 1, es que este diagnóstico ya está en la base de datos. Se entiende de que habrá 1 solo Diagnóstico por Paciente, por la naturaleza de la Base de Datos. Si el paciente no tiene un ID de diagnóstico definido por la razón que sea, se devuelve null.
+     * @param Paciente $paciente
+     * @return int
+     */
+    public function checkExistenciaDiagn(Paciente $paciente): ?int
+    {
+        $idDiagnosticoPaciente = $paciente->getIdDiagnosticoPaciente();
+        if ($idDiagnosticoPaciente) {
+            $consulta = $this->pdo->prepare(
+                query: "SELECT COUNT(*) AS x FROM DIAGNOSTICO WHERE id_diagnostico=?"
+            );
+            $consulta->execute(
+                [
+                    $idDiagnosticoPaciente
+                ]
+            );
+            return (int) $consulta->fetchColumn();
+        }
+        return null;
     }
 
     public function obtener(int $id): ?Paciente
@@ -195,15 +229,15 @@ class Paciente
             $this->pdo->prepare(
                 query: "UPDATE PACIENTE SET id_diagnostico=?, nombre_paciente=?, primer_apellido_paciente=?, segundo_apellido_paciente=?, numero_seguro=? WHERE id_paciente=?;"
             )->execute(
-                params: [
-                    $paciente->getIdDiagnostico(),
-                    $paciente->getNombre(),
-                    $paciente->getPrimerApellido(),
-                    $paciente->getSegundoApellido(),
-                    $paciente->getSeguro(),
-                    $paciente->getId()
-                ]
-            );
+                    params: [
+                        $paciente->getIdDiagnosticoPaciente(),
+                        $paciente->getNombre(),
+                        $paciente->getPrimerApellido(),
+                        $paciente->getSegundoApellido(),
+                        $paciente->getSeguro(),
+                        $paciente->getId()
+                    ]
+                );
         } catch (Exception $e) {
             die($e->getMessage());
         }
@@ -215,10 +249,10 @@ class Paciente
             $this->pdo->prepare(
                 query: "DELETE FROM PACIENTE WHERE id_paciente=?;"
             )->execute(
-                params: [
-                    $id
-                ]
-            );
+                    params: [
+                        $id
+                    ]
+                );
         } catch (Exception $e) {
             die($e->getMessage());
         }

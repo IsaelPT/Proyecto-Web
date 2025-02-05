@@ -6,7 +6,7 @@ class Diagnostico
     private $pdo;
 
     private $Codigo;
-    private $ID_Pac;
+    private $idDiagnostico;
     private $Detalles;
 
     public function __CONSTRUCT()
@@ -24,14 +24,14 @@ class Diagnostico
         $this->Codigo = $codigo;
     }
 
-    public function getID_Pac()
+    public function getIdDiagn()
     {
-        return $this->ID_Pac;
+        return $this->idDiagnostico;
     }
 
     public function setID_Pac(int $id)
     {
-        $this->ID_Pac = $id;
+        $this->idDiagnostico = $id;
     }
 
     public function getDetalles()
@@ -46,7 +46,7 @@ class Diagnostico
 
     public function obtenerUltimoId(): int
     {
-        return $this->pdo->lastInsertId();
+        return (int) $this->pdo->lastInsertId(); // Casteado a int para estar seguros...
     }
 
     public function listar()
@@ -75,12 +75,11 @@ class Diagnostico
                 $consulta = $this->pdo->prepare($q);
                 $consulta->execute(
                     [
-                        $diagnostico->getID_Pac(),
+                        $diagnostico->getIdDiagn(),
                         $diagnostico->getDetalles()
                     ]
                 );
             }
-
             return $resul->id_diagnostico;
         } catch (Exception $e) {
             die($e->getMessage());
@@ -117,7 +116,7 @@ class Diagnostico
             $consulta->execute(
                 [
                     $diagnostico->getDetalles(),
-                    $diagnostico->getID_Pac()
+                    $diagnostico->getIdDiagn()
                 ]
             );
         } catch (Exception $e) {

@@ -143,7 +143,7 @@
         <form class="bg-light-gray p-6 rounded-lg shadow-md w-full max-w-4xl backdrop-blur-lg bg-gray-100/60"
           method="POST" action="?controller=Paciente&&action=guardar">
           <input type="hidden" id="id_paciente" name="id_paciente" value="<?php echo $paciente->getId(); ?>">
-          <input type="hidden" id="id_diagnostico" name="id_diagnostico" value="<?php echo $diagnostico->getID_Pac(); ?>">
+          <input type="hidden" id="id_diagnostico" name="id_diagnostico" value="<?php echo $diagnostico->getIdDiagn(); ?>">
           <div class="mb-4 flex flex-col">
             <label for="nombre" class="block text-dark-gray-text font-semibold mb-2">Nombre</label>
             <input type="text" id="nombre" name="nombre" class="w-full p-3 border rounded"
