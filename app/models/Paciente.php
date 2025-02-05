@@ -114,7 +114,7 @@ class Paciente
                 query: "SELECT COUNT(id_paciente) AS Cant_Pacientes FROM PACIENTE"
             );
             $consulta->execute();
-            return $consulta->fetch(
+            $consulta->fetch(
                 mode: PDO::FETCH_OBJ
             );
             $id = $this->getId();
