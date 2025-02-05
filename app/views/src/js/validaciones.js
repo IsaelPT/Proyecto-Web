@@ -22,7 +22,7 @@ const fieldsConfig = [
     field: "#seguro",
     regex: /^[a-zA-Z0-9]{8}$/,
     errorMessage:
-      "El código debe contener solo números y letras (mín. 8 caracteres).",
+      "El código debe contener solo números y letras (8 caracteres).",
     
   },
   {
