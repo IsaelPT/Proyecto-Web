@@ -150,9 +150,9 @@
                         class="p-6 w-auto backdrop-blur-lg bg-gray-100/60 border-collapse overflow-hidden rounded-lg table-auto mx-auto">
                         <thead>
                             <tr>
+                                <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Fecha</th>
                                 <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Paciente</th>
-                                <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Apellido Paciente
-                                </th>
+                                <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Apellido Paciente</th>
                                 <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Doctor asignado</th>
                                 <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Apellido Doctor</th>
                                 <th class="p-2 sm:p-3 border-b border-gray-700 text-left">Acciones</th>
@@ -164,6 +164,8 @@
                             for ($i = 0; $i < count($consultas); $i++): ?>
                                 <tr>
                                     <?php if ($i + 1 == count($consultas)): ?>
+                                        <td class="p-2 sm:p-3 border-r border-gray-700 text-left">
+                                            <?php echo $consultas[$i]->fecha_consulta; ?></td>
                                         <td class="p-2 sm:p-3 border-r border-gray-700 text-left">
                                             <?php echo $consultas[$i]->nombre_paciente; ?></td>
                                         <td class="p-2 sm:p-3 border-r border-gray-700 text-left">
@@ -181,6 +183,8 @@
                                             </div>
                                         </td>
                                     <?php else: ?>
+                                        <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">
+                                            <?php echo $consultas[$i]->fecha_consulta; ?></td>
                                         <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">
                                             <?php echo $consultas[$i]->nombre_paciente; ?></td>
                                         <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">

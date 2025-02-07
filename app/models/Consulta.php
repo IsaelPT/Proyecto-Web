@@ -38,7 +38,14 @@ class Consulta{
 
     public function listar(){
         try{
-            $consulta = $this->pdo->prepare("SELECT c.id_consulta, c.id_doctor, c.id_paciente, nombre_doctor, primer_apellido_doctor, nombre_paciente, primer_apellido_paciente
+            $consulta = $this->pdo->prepare("SELECT c.fecha_consulta,
+                                                           c.id_consulta,
+                                                           c.id_doctor, 
+                                                           c.id_paciente, 
+                                                           nombre_doctor, 
+                                                           primer_apellido_doctor, 
+                                                           nombre_paciente, 
+                                                           primer_apellido_paciente
                                                     FROM DOCTOR d INNER JOIN CONSULTA c ON d.id_doctor = c.id_doctor
                                                     INNER JOIN PACIENTE p ON c.id_paciente = p.id_paciente;");
             $consulta->execute();
