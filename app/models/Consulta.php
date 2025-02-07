@@ -6,9 +6,18 @@ class Consulta{
 
     private $id_paciente;
     private $id_doctor;
+    private $id_consulta;
 
     public function __CONSTRUCT(){
         $this->pdo = DataBase::connect();
+    }
+
+    private function getId_consulta(){
+        return $this->id_consulta;
+    }
+
+    private function setId_consulta($id_consulta){
+        $this->id_consulta = $id_consulta;
     }
 
     public function getID_Pac(){
@@ -29,7 +38,7 @@ class Consulta{
 
     public function listar(){
         try{
-            $consulta = $this->pdo->prepare("SELECT c.id_doctor, c.id_paciente, nombre_doctor, primer_apellido_doctor, nombre_paciente, primer_apellido_paciente
+            $consulta = $this->pdo->prepare("SELECT c.id_consulta, c.id_doctor, c.id_paciente, nombre_doctor, primer_apellido_doctor, nombre_paciente, primer_apellido_paciente
                                                     FROM DOCTOR d INNER JOIN CONSULTA c ON d.id_doctor = c.id_doctor
                                                     INNER JOIN PACIENTE p ON c.id_paciente = p.id_paciente;");
             $consulta->execute();
@@ -42,7 +51,7 @@ class Consulta{
     public function cantidad()
     {
         try {
-            $q = "SELECT COUNT(id_doctor) AS Cant_Consultas FROM CONSULTA;";
+            $q = "SELECT COUNT(id_consulta) AS Cant_Consultas FROM CONSULTA;";
             $consulta = $this->pdo->prepare($q);
             $consulta->execute();
             return $consulta->fetch(PDO::FETCH_OBJ);
@@ -54,10 +63,11 @@ class Consulta{
     public function insertar(Consulta $obj): void
     {
         try {
-            $q = "INSERT INTO CONSULTA(id_paciente, id_doctor) VALUES (?,?);";
+            $q = "INSERT INTO CONSULTA(id_consulta, id_paciente, id_doctor) VALUES (?,?,?);";
             $consulta = $this->pdo->prepare($q);
             $consulta->execute(
                 [
+                    $obj->getId_consulta(),
                     $obj->getID_Pac(),
                     $obj->getID_Doc()
                 ]
@@ -67,10 +77,10 @@ class Consulta{
         }
     }
 
-    public function eliminar(int $id_doc, int $id_pac): void{
+    public function eliminar(int $id_consulta): void{
         try{
-            $consulta = $this->pdo->prepare("DELETE FROM CONSULTA WHERE id_doctor=? AND id_paciente=?");
-            $consulta->execute([$id_doc, $id_pac]);
+            $consulta = $this->pdo->prepare("DELETE FROM CONSULTA WHERE id_consulta=?");
+            $consulta->execute([$id_consulta]);
         }catch (Exception $e) {
             die($e->getMessage());
         }

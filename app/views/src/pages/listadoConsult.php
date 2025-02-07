@@ -175,7 +175,7 @@
                                         <td class="p-2 sm:p-3 border-gray-700 text-left">
                                             <div
                                                 class="flex flex-col sm:flex-row justify-end items-center space-y-2 sm:space-y-0 sm:space-x-4">
-                                                <a href="?controller=Consulta&&action=eliminar&&id_doctor=<?php echo $consultas[$i]->id_doctor ?>&&id_paciente=<?php echo $consultas[$i]->id_paciente ?>"
+                                                <a href="?controller=Consulta&&action=eliminar&&id_consulta=<?php echo $consultas[$i]->id_consulta ?>"
                                                     class="px-4 py-2 bg-red-300 text-black rounded hover:bg-red-500 mr-5 borrar-fila">
                                                     Borrar </a>
                                             </div>
@@ -192,7 +192,7 @@
                                         <td class="p-2 sm:p-3 border-b border-gray-700 text-left">
                                             <div
                                                 class="flex flex-col sm:flex-row justify-end items-center space-y-2 sm:space-y-0 sm:space-x-4">
-                                                <a href="?controller=Consulta&&action=eliminar&&id_doctor=<?php echo $consultas[$i]->id_doctor ?>&&id_paciente=<?php echo $consultas[$i]->id_paciente ?>"
+                                                <a href="?controller=Consulta&&action=eliminar&&id_consulta=<?php echo $consultas[$i]->id_consulta ?>"
                                                     class="px-4 py-2 bg-red-300 text-black rounded hover:bg-red-500 mr-5 borrar-fila">
                                                     Borrar </a>
                                             </div>
