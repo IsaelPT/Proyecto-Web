@@ -68,8 +68,6 @@ function agregarEventosBorrar() {
           if (userConfirmed) {
               // Redirigir a la URL del enlace
               window.location.href = boton.href;
-          } else {
-              alert("Has cancelado la acción.");
           }
       });
   });
