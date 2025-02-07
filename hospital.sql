@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-02-2025 a las 07:46:45
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.1.25
+-- Tiempo de generación: 07-02-2025 a las 15:23:44
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `hopital`
+-- Base de datos: `hospital`
 --
 
 -- --------------------------------------------------------
@@ -29,18 +29,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `consulta` (
   `id_doctor` int(11) NOT NULL,
-  `id_paciente` int(11) NOT NULL
+  `id_paciente` int(11) NOT NULL,
+  `id_consulta` int(11) NOT NULL,
+  `fecha_consulta` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `consulta`
 --
 
-INSERT INTO `consulta` (`id_doctor`, `id_paciente`) VALUES
-(3, 3),
-(4, 4),
-(3, 2),
-(1, 1);
+INSERT INTO `consulta` (`id_doctor`, `id_paciente`, `id_consulta`, `fecha_consulta`) VALUES
+(1, 1, 5, '2025-02-07 14:22:19'),
+(7, 10, 7, '2025-02-07 14:23:09'),
+(4, 2, 8, '2025-02-07 14:23:19');
 
 -- --------------------------------------------------------
 
@@ -62,7 +63,8 @@ INSERT INTO `diagnostico` (`id_diagnostico`, `descripcion`) VALUES
 (2, 'Diabetes'),
 (3, 'Hipertensión'),
 (4, 'Eczema'),
-(8, 'Locura');
+(8, 'Locura'),
+(9, 'Locuraaaaaaaaaaaaaaaaaaaaaa');
 
 -- --------------------------------------------------------
 
@@ -123,7 +125,7 @@ CREATE TABLE `paciente` (
   `nombre_paciente` varchar(50) NOT NULL,
   `primer_apellido_paciente` varchar(50) NOT NULL,
   `segundo_apellido_paciente` varchar(50) NOT NULL,
-  `numero_seguro` int(11) NOT NULL
+  `numero_seguro` varchar(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -131,11 +133,11 @@ CREATE TABLE `paciente` (
 --
 
 INSERT INTO `paciente` (`id_paciente`, `id_diagnostico`, `nombre_paciente`, `primer_apellido_paciente`, `segundo_apellido_paciente`, `numero_seguro`) VALUES
-(1, 1, 'Carlos', 'Mendoza', 'Pérez', 12345678),
-(2, 2, 'Lucía', 'Morales', 'Hernández', 23456778),
-(3, 3, 'Pedro', 'Castillo', 'Ríos', 34567878),
-(4, 4, 'Elena', 'Vásquez', 'Jiménez', 45678978),
-(9, 8, 'Isael', 'Perez', 'Triana', 34543234);
+(1, 1, 'Carlos', 'Mendoza', 'Pérez', '12345678'),
+(2, 2, 'Lucía', 'Morales', 'Hernández', '23456778'),
+(3, 3, 'Pedro', 'Castillo', 'Ríos', '34567878'),
+(4, 4, 'Elena', 'Vásquez', 'Jiménez', '45678978'),
+(10, 9, 'Isaelaaaaaaaaa', 'Perezaaaaaaaaaa', 'Trianaaaaaaaaaaaaa', '33333333');
 
 --
 -- Índices para tablas volcadas
@@ -145,6 +147,7 @@ INSERT INTO `paciente` (`id_paciente`, `id_diagnostico`, `nombre_paciente`, `pri
 -- Indices de la tabla `consulta`
 --
 ALTER TABLE `consulta`
+  ADD PRIMARY KEY (`id_consulta`),
   ADD KEY `fk_doctor_consulta` (`id_doctor`),
   ADD KEY `fk_paciente_consulta` (`id_paciente`);
 
@@ -179,10 +182,16 @@ ALTER TABLE `paciente`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `consulta`
+--
+ALTER TABLE `consulta`
+  MODIFY `id_consulta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT de la tabla `diagnostico`
 --
 ALTER TABLE `diagnostico`
-  MODIFY `id_diagnostico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_diagnostico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `doctor`
@@ -200,7 +209,7 @@ ALTER TABLE `especialidad`
 -- AUTO_INCREMENT de la tabla `paciente`
 --
 ALTER TABLE `paciente`
-  MODIFY `id_paciente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_paciente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restricciones para tablas volcadas
