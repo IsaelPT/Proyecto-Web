@@ -5,48 +5,32 @@ class Diagnostico
 
     private $pdo;
 
-    private $Codigo;
-    private $idDiagnostico;
-    private $Detalles;
+    private $id_diagnostico;
+    private $descripcion;
 
     public function __CONSTRUCT()
     {
         $this->pdo = DataBase::connect();
     }
 
-    public function getCodigo()
+    public function getId_diagnostico()
     {
-        return $this->Codigo;
+        return $this->id_diagnostico;
     }
 
-    public function setCodigo(string $codigo)
+    public function setId_diagnostico(int $id)
     {
-        $this->Codigo = $codigo;
+        $this->id_diagnostico = $id;
     }
 
-    public function getIdDiagn()
+    public function getDescripcion()
     {
-        return $this->idDiagnostico;
+        return $this->descripcion;
     }
 
-    public function setID_Pac(int $id)
+    public function setDescripcion(string $detalles)
     {
-        $this->idDiagnostico = $id;
-    }
-
-    public function getDetalles()
-    {
-        return $this->Detalles;
-    }
-
-    public function setDetalles(string $detalles)
-    {
-        $this->Detalles = $detalles;
-    }
-
-    public function obtenerUltimoId(): int
-    {
-        return (int) $this->pdo->lastInsertId(); // Casteado a int para estar seguros...
+        $this->descripcion = $detalles;
     }
 
     public function listar()
@@ -63,24 +47,22 @@ class Diagnostico
     public function insertar(Diagnostico $diagnostico)
     {
         try {
-            $check = "SELECT COUNT(*), id_diagnostico FROM DIAGNOSTICO WHERE descripcion = ?";
-            $consulta_id = $this->pdo->prepare($check);
-            $consulta_id->execute([$diagnostico->getDetalles()]);
-            $resul = $consulta_id->fetch(PDO::FETCH_OBJ);
-            $count = $consulta_id->fetchColumn();
+            $check = $this->pdo->prepare("SELECT COUNT(id_diagnostico) AS cantidad, id_diagnostico 
+                                                FROM DIAGNOSTICO 
+                                                WHERE descripcion=?;");
+            $check->execute([$diagnostico->getDescripcion()]);
+            $check_in = $check->fetch(PDO::FETCH_OBJ);
+            $id_diagnostico = $check_in->id_diagnostico;
 
-            // Aquí verificando que este diagnóstico no esté en la base de datos.
-            if ($count == 0) {
-                $q = "INSERT INTO DIAGNOSTICO(id_diagnostico, descripcion) VALUES (?,?)";
-                $consulta = $this->pdo->prepare($q);
-                $consulta->execute(
-                    [
-                        $diagnostico->getIdDiagn(),
-                        $diagnostico->getDetalles()
-                    ]
-                );
+            if($check_in->cantidad == 0){
+                $query = $this->pdo->prepare("INSERT INTO DIAGNOSTICO(id_diagnostico, descripcion)
+                                                    VALUES(?,?);");
+                $query->execute([$diagnostico->getId_diagnostico(),
+                                         $diagnostico->getDescripcion()]);
+                $id_diagnostico = $this->pdo->lastInsertId();
             }
-            return $resul->id_diagnostico;
+
+            return $id_diagnostico;
         } catch (Exception $e) {
             die($e->getMessage());
         }
@@ -98,27 +80,10 @@ class Diagnostico
             $resultado = $consulta->fetch(PDO::FETCH_OBJ);
 
             $diagnostico = new Diagnostico();
-            $diagnostico->setID_Pac($resultado->idPaciente ?? 0);
-            $diagnostico->setDetalles($resultado->detalles ?? "");
-            $diagnostico->setCodigo($resultado->codigo ?? "");
+            $diagnostico->setId_diagnostico($resultado->id_diagnostico ?? 0);
+            $diagnostico->setDescripcion($resultado->descripcion ?? "");
 
             return $diagnostico;
-        } catch (Exception $e) {
-            die($e->getMessage());
-        }
-    }
-
-    public function actualizar(Diagnostico $diagnostico): void
-    {
-        try {
-            $q = "UPDATE DIAGNOSTICO SET descripcion=? WHERE id_diagnostico=?;";
-            $consulta = $this->pdo->prepare($q);
-            $consulta->execute(
-                [
-                    $diagnostico->getDetalles(),
-                    $diagnostico->getIdDiagn()
-                ]
-            );
         } catch (Exception $e) {
             die($e->getMessage());
         }
