@@ -20,10 +20,10 @@
     </div>
 
     <!-- Formulario Login -->
-    <form method="POST" action="controller=Auth&&action=auntenticar_user" id="loginForm" class="space-y-6">
+    <form id="loginForm" class="space-y-6">
       <div>
         <label for="username" class="block text-sm font-medium text-gray-700 mb-1">Usuario</label>
-        <input type="text" id="username" name="usuario"
+        <input type="text" id="username"
           class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="Usuario">
         <span class="text-red-500 text-sm hidden" id="loginUserError"></span>
@@ -32,7 +32,7 @@
       <div>
         <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Contraseña</label>
         <div class="relative">
-          <input type="password" id="password" name="pass"
+          <input type="password" id="password"
             class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="••••••••">
           <button type="button" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-blue-500"
@@ -55,10 +55,10 @@
     </form>
 
     <!-- Formulario Registro -->
-    <form id="signupForm" class="space-y-6 hidden" method="POST" action="?controller=Auth&&action=isertar_usuario">
+    <form id="signupForm" class="space-y-6 hidden">
       <div>
         <label for="fullname" class="block text-sm font-medium text-gray-700 mb-1">Nombre completo</label>
-        <input type="text" id="fullname" name="usuario"
+        <input type="text" id="fullname"
           class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="Juan Pérez">
         <span class="text-red-500 text-sm hidden" id="signupNameError"></span>
@@ -75,7 +75,7 @@
       <div>
         <label for="newPassword" class="block text-sm font-medium text-gray-700 mb-1">Contraseña</label>
         <div class="relative">
-          <input type="password" id="newPassword" name="pass"
+          <input type="password" id="newPassword"
             class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="••••••••">
           <button type="button" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-blue-500"
