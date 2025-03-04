@@ -7,10 +7,10 @@
   <title>Hospital Saturnino Lora</title>
   <link rel="stylesheet" href="app/views/src/styles/estilos.css">
   <link rel="shortcut icon" href="app/views/src/icons/logoH.png" type="image/x-icon">
-  <link rel="shortcut icon" href="app/views/src/icons/logoH.png" type="image/x-icon">
 </head>
 
-<body class="bg-cover bg-center bg-fixed" style="background-image: linear-gradient(rgba(186, 172, 172, 0.542), rgba(205, 194, 194, 0.2)), url('app/views/src/icons/dash.jpg');background-position: center 20%;">
+<body class="bg-cover bg-center bg-fixed"
+  style="background-image: linear-gradient(rgba(186, 172, 172, 0.542), rgba(205, 194, 194, 0.2)), url('app/views/src/icons/dash.jpg');background-position: center 20%;">
   <header class="bg-blue-300">
     <div class="container mx-auto flex items-center justify-between py-4 px-6 flex-wrap">
       <div class="flex items-center space-x-2 mr-2">
@@ -20,7 +20,7 @@
         </h1>
       </div>
       <nav class="flex-grow">
-      <ul class="flex flex-col sm:flex-row justify-end items-center space-y-2 sm:space-y-0 sm:space-x-4">
+        <ul class="flex flex-col sm:flex-row justify-end items-center space-y-2 sm:space-y-0 sm:space-x-4">
           <li class="flex items-center space-x-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512">
               <path
@@ -39,7 +39,8 @@
                 class="text-dark-gray hover:text-blue-logo hover:text-blue-700  hover:underline ml-2">
                 Consulta
               </button>
-              <ul id="inicio-menu-consulta" class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40 z-40">
+              <ul id="inicio-menu-consulta"
+                class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40 z-40">
                 <li>
                   <a href="?controller=Consulta&&action=form_consultas"
                     class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700  hover:underline">Añadir
@@ -65,7 +66,8 @@
                 class="text-dark-gray hover:text-blue-logo hover:text-blue-700 hover:underline ml-2">
                 Doctores
               </button>
-              <ul id="inicio-menu-doctores" class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40 z-40">
+              <ul id="inicio-menu-doctores"
+                class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40 z-40">
                 <li>
                   <a href="?controller=Doctor&&action=form_doctores"
                     class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
@@ -90,7 +92,8 @@
                 class="text-dark-gray hover:text-blue-logo hover:text-blue-700 hover:underline ml-2">
                 Pacientes
               </button>
-              <ul id="inicio-menu-pacientes" class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40 z-40">
+              <ul id="inicio-menu-pacientes"
+                class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40 z-40">
                 <li>
                   <a href="?controller=Paciente&&action=form_pacientes"
                     class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
@@ -145,8 +148,9 @@
             <label for="paciente" class="block text-dark-gray-text font-semibold mb-2">Paciente</label>
             <select name="id_paciente" id="paciente" class="w-full p-3 border rounded" required>
               <option value="" disabled selected>Seleccione un paciente</option>
-              <?php foreach($this->paciente->listar() as $pac): ?>
-                <option value="<?php echo $pac->id_paciente; ?>" ><?php echo $pac->nombre_paciente ." ". $pac->primer_apellido_paciente; ?></option>
+              <?php foreach ($this->paciente->listar() as $pac): ?>
+                <option value="<?php echo $pac->id_paciente; ?>">
+                  <?php echo $pac->nombre_paciente . " " . $pac->primer_apellido_paciente; ?></option>
               <?php endforeach ?>
             </select>
           </div>
@@ -155,8 +159,9 @@
             <label for="doctor" class="block text-dark-gray-text font-semibold mb-2">Doctor Asignado</label>
             <select name="id_doctor" id="doctor" class="w-full p-3 border rounded" required>
               <option value="" disabled selected>Seleccione un doctor</option>
-              <?php foreach($this->doctor->listar() as $doc): ?>
-                <option value="<?php echo $doc->id_doctor; ?>" ><?php echo $doc->nombre_doctor ." ". $doc->primer_apellido_doctor; ?></option>
+              <?php foreach ($this->doctor->listar() as $doc): ?>
+                <option value="<?php echo $doc->id_doctor; ?>">
+                  <?php echo $doc->nombre_doctor . " " . $doc->primer_apellido_doctor; ?></option>
               <?php endforeach ?>
             </select>
           </div>
