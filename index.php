@@ -4,8 +4,16 @@ require_once "app/controllers/ConsultaController.php";
 require_once "app/controllers/DoctorController.php";
 require_once "app/controllers/PacienteController.php";
 require_once "app/controllers/EspecialidadController.php";
+require_once "app/controllers/AuthController.php";
 require_once "app/models/DataBase.php";
 
+//Verificar si un usuario esta autenticado
+$autenticado = isset($_SESSION['usuario']);
+
+//Si no esta autenticado y no esta intentando acceder al login, redirigir al login
+if(!$autenticado && ($_GET['controller'] !== 'Auth')){
+    header('Location: ?controller=Auth&&action=principal');
+}
 
 // Si es una solicitud GET, obtener el controlador y la acción de $_GET
 $controller = isset($_GET['controller']) ? $_GET['controller'] : "Dashboard"; // Controlador predeterminado

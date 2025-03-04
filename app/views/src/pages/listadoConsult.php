@@ -1,3 +1,4 @@
+<?php session_start()?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -41,11 +42,13 @@
                         </button>
                         <ul id="inicio-menu-consulta"
                           class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40">
+                        <?php if($_SESSION['rol'] === 'admin'): ?>
                           <li>
                             <a href="?controller=Consulta&&action=form_consultas"
                               class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700  hover:underline">Añadir
                               consulta</a>
                           </li>
+                        <?php endif ?>
                           <li>
                             <a href="?controller=Consulta&&action=principal"
                               class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700  hover:underline">Listado
@@ -68,11 +71,13 @@
                             </button>
                             <ul id="inicio-menu-doctores"
                                 class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40 z-40">
+                            <?php if($_SESSION['rol'] === 'admin'): ?>
                                 <li>
                                     <a href="?controller=Doctor&&action=form_doctores"
                                         class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
                                         doctor</a>
                                 </li>
+                            <?php endif ?>
                                 <li>
                                     <a href="?controller=Doctor&&action=principal"
                                         class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Listado
@@ -95,11 +100,13 @@
                             </button>
                             <ul id="inicio-menu-pacientes"
                                 class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40 z-40">
+                            <?php if($_SESSION['rol'] === 'admin'): ?>
                                 <li>
                                     <a href="?controller=Paciente&&action=form_pacientes"
                                         class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
                                         paciente</a>
                                 </li>
+                            <?php endif ?>
                                 <li>
                                     <a href="?controller=Paciente&&action=principal"
                                         class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Listado
@@ -122,11 +129,13 @@
                             </button>
                             <ul id="inicio-menu-especialidad"
                                 class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40 z-40">
+                            <?php if($_SESSION['rol'] === 'admin'): ?>
                                 <li>
                                     <a href="?controller=Especialidad&&action=form_especialidades"
                                         class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
                                         especialidad</a>
                                 </li>
+                            <?php endif ?>
                                 <li>
                                     <a href="?controller=Especialidad&&action=principal"
                                         class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Listado
@@ -155,7 +164,9 @@
                                 <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Apellido Paciente</th>
                                 <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Doctor asignado</th>
                                 <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Apellido Doctor</th>
+                                <?php if($_SESSION['rol'] === 'admin'): ?>
                                 <th class="p-2 sm:p-3 border-b border-gray-700 text-left">Acciones</th>
+                                <?php endif ?>
                             </tr>
                         </thead>
                         <tbody>
@@ -174,6 +185,7 @@
                                             <?php echo $consultas[$i]->nombre_doctor; ?></td>
                                         <td class="p-2 sm:p-3 border-r border-gray-700 text-left">
                                             <?php echo $consultas[$i]->primer_apellido_doctor; ?></td>
+                                        <?php if($_SESSION['rol'] === 'admin'): ?>
                                         <td class="p-2 sm:p-3 border-gray-700 text-left">
                                             <div
                                                 class="flex flex-col sm:flex-row justify-end items-center space-y-2 sm:space-y-0 sm:space-x-4">
@@ -182,6 +194,7 @@
                                                     Borrar </a>
                                             </div>
                                         </td>
+                                        <?php endif ?>
                                     <?php else: ?>
                                         <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">
                                             <?php echo $consultas[$i]->fecha_consulta; ?></td>
@@ -193,6 +206,7 @@
                                             <?php echo $consultas[$i]->nombre_doctor; ?></td>
                                         <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">
                                             <?php echo $consultas[$i]->primer_apellido_doctor; ?></td>
+                                        <?php if($_SESSION['rol'] === 'admin'): ?>
                                         <td class="p-2 sm:p-3 border-b border-gray-700 text-left">
                                             <div
                                                 class="flex flex-col sm:flex-row justify-end items-center space-y-2 sm:space-y-0 sm:space-x-4">
@@ -201,6 +215,7 @@
                                                     Borrar </a>
                                             </div>
                                         </td>
+                                        <?php endif ?>
                                     <?php endif ?>
                                 </tr>
                             <?php endfor

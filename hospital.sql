@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-02-2025 a las 15:23:44
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Tiempo de generación: 04-03-2025 a las 15:47:38
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.1.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,7 +40,6 @@ CREATE TABLE `consulta` (
 
 INSERT INTO `consulta` (`id_doctor`, `id_paciente`, `id_consulta`, `fecha_consulta`) VALUES
 (1, 1, 5, '2025-02-07 14:22:19'),
-(7, 10, 7, '2025-02-07 14:23:09'),
 (4, 2, 8, '2025-02-07 14:23:19');
 
 -- --------------------------------------------------------
@@ -136,8 +135,28 @@ INSERT INTO `paciente` (`id_paciente`, `id_diagnostico`, `nombre_paciente`, `pri
 (1, 1, 'Carlos', 'Mendoza', 'Pérez', '12345678'),
 (2, 2, 'Lucía', 'Morales', 'Hernández', '23456778'),
 (3, 3, 'Pedro', 'Castillo', 'Ríos', '34567878'),
-(4, 4, 'Elena', 'Vásquez', 'Jiménez', '45678978'),
-(10, 9, 'Isaelaaaaaaaaa', 'Perezaaaaaaaaaa', 'Trianaaaaaaaaaaaaa', '33333333');
+(4, 4, 'Elena', 'Vásquez', 'Jiménez', '45678978');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `id_usuario` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `rol` enum('user','admin') NOT NULL DEFAULT 'user'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id_usuario`, `username`, `password`, `rol`) VALUES
+(1, 'user', '12345678', 'user'),
+(2, 'admin', 'admin', 'admin');
 
 --
 -- Índices para tablas volcadas
@@ -178,6 +197,12 @@ ALTER TABLE `paciente`
   ADD KEY `fk_paciente_diagnostico` (`id_diagnostico`);
 
 --
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id_usuario`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -210,6 +235,12 @@ ALTER TABLE `especialidad`
 --
 ALTER TABLE `paciente`
   MODIFY `id_paciente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
