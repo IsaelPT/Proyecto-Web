@@ -10,35 +10,29 @@ class AuthController{
         $this->usuario = new Usuario();
     }
     public function principal(){
-
+        
         include "app/views/src/pages/login.php";
 
     }
 
-    public function form_login(){
-
-        include "app/views/src/pages/form_login.php";
-
-    }
-
     public function auntenticar_user(){
-
+        
         $user = $_POST['usuario'];
-        $pas = $_POST['pass'];
-        $eror = "";
+        $pass = $_POST['pass'];
+        session_start();
+        $_SESSION['error'] = "";
 
-        $existe = $this->usuario->verificar($user, $pas)->CantidadUser;
-
-        if($existe == 1){
-
-            session_start();
+        $usuario_bd = $this->usuario->verificar($user, $pass);
+        
+        if($usuario_bd){
 
             $_SESSION['user'] = $user;
-            $_SESSION['rol'] = $this->usuario->getRol();
+            $_SESSION['rol'] = $usuario_bd->rol;
 
-            header( 'Location: ?controller=Dashboard');
+            header('Location: ?controller=Dashboard');
         } else {
-            $error = "Credenciales incorrectas";
+            $_SESSION['error'] = $pass;
+            header('Location: ?controller=Auth&&action=principal');
         }
     }
 
@@ -48,22 +42,23 @@ class AuthController{
         $user->setUsername($_POST['usuario']);
         $user->setPassword($_POST['pass']);
         $user->setRol("user");
-        $error = "";
+        session_start();
+        $_SESSION['error'] = "";
 
-        $existe = $this->usuario->existe($user->getUsername())->CantidadUser;
+        $existe = $this->usuario->existe($user->getUsername());
 
-        if($existe == 1){
+        if($existe->CantidadUser == 0){
 
             $this->usuario->insertar($user);
 
-            session_start();
             $_SESSION['user'] = $user->getUsername();
             $_SESSION['rol'] = $user->getRol();
 
             header('Location: ?controller=Dashboard');
         }else{
-            $error = "Ya existe usuario con ese nombre";
-            header('Lacation: ?controller=Auth&&action=form_login');
+            
+            $_SESSION['error'] = "Ya existe usuario con ese nombre";
+            header('Location: ?controller=Auth');
         }
     }
 }

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-03-2025 a las 15:47:38
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.1.25
+-- Tiempo de generación: 05-03-2025 a las 06:15:10
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -146,7 +146,7 @@ INSERT INTO `paciente` (`id_paciente`, `id_diagnostico`, `nombre_paciente`, `pri
 CREATE TABLE `usuario` (
   `id_usuario` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` varchar(260) NOT NULL,
   `rol` enum('user','admin') NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -155,8 +155,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `username`, `password`, `rol`) VALUES
-(1, 'user', '12345678', 'user'),
-(2, 'admin', 'admin', 'admin');
+(9, 'admin', '$2y$10$QZgtOBPzuCZjCStN/3KSn.IVfzvWjLPdk/86n6kKFxEJLHPcMUtQu', 'admin'),
+(10, 'user', '$2y$10$8Ye80rXppbwYsOUb89Zgp.RZtsZu98m8/Dzwp7EzlLDVTlQXPu0GG', 'user');
 
 --
 -- Índices para tablas volcadas
@@ -240,7 +240,7 @@ ALTER TABLE `paciente`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restricciones para tablas volcadas

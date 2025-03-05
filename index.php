@@ -8,11 +8,13 @@ require_once "app/controllers/AuthController.php";
 require_once "app/models/DataBase.php";
 
 //Verificar si un usuario esta autenticado
-$autenticado = isset($_SESSION['usuario']);
+session_start();
+$autenticado = isset($_SESSION['user']);
 
 //Si no esta autenticado y no esta intentando acceder al login, redirigir al login
 if(!$autenticado && ($_GET['controller'] !== 'Auth')){
     header('Location: ?controller=Auth&&action=principal');
+    exit();
 }
 
 // Si es una solicitud GET, obtener el controlador y la acción de $_GET

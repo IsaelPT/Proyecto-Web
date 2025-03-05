@@ -97,12 +97,18 @@ class Usuario{
     public function verificar($username, $pass){
         try{
 
-            $consulta = $this->pdo->prepare("SELECT COUNT(u.id_usuario) as CantidadUser 
+            $consulta = $this->pdo->prepare("SELECT password, rol 
                                                     FROM USUARIO u
-                                                    WHERE u.username=? AND u.password=?;");
-            $consulta->execute([$username,
-                password_hash($pass, PASSWORD_DEFAULT)]);
-            return $consulta->fetch(PDO::FETCH_OBJ);
+                                                    WHERE u.username=?;");
+            $consulta->execute([$username]);
+
+            $usuario = $consulta->fetch(PDO::FETCH_OBJ);
+
+            if($usuario && password_verify($pass, $usuario->password)){
+                return $usuario;
+            }else{
+                return false;
+            }
 
         } catch (Exception $e) {
             die($e->getMessage());
@@ -128,8 +134,8 @@ class Usuario{
             $consulta = $this->pdo->prepare("INSERT INTO USUARIO(username, password, rol)
                                             VALUES(?,?,?);");
             $consulta->execute([$user->getUsername(),
-                                $user->getPassword(),
-                                $user->getRol()]);
+                password_hash($user->getPassword(), PASSWORD_DEFAULT),
+                                        $user->getRol()]);
         } catch (Exception $e) {
             die($e->getMessage());
         }
