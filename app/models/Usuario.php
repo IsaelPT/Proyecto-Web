@@ -140,5 +140,4 @@ class Usuario{
             die($e->getMessage());
         }
     }
-
 }

@@ -61,4 +61,11 @@ class AuthController{
             header('Location: ?controller=Auth');
         }
     }
+
+    
+    public function cerrar_sesion(){
+        session_destroy();
+
+        header("Location: controller=Auth&&action=principal");
+    }
 }

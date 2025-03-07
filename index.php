@@ -11,6 +11,10 @@ require_once "app/models/DataBase.php";
 session_start();
 $autenticado = isset($_SESSION['user']);
 
+if (!isset($_SESSION['eror'])) {
+    $_SESSION['error'] = '';
+}
+
 //Si no esta autenticado y no esta intentando acceder al login, redirigir al login
 if(!$autenticado && ($_GET['controller'] !== 'Auth')){
     header('Location: ?controller=Auth&&action=principal');
