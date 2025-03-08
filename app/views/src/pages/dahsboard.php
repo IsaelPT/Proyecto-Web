@@ -139,11 +139,41 @@
                 </li>
               </ul>
             </li>
+          </div>
+          <?php if($_SESSION['rol'] === "admin"): ?>
+          <div class="flex items-center space-x-2">
             <li class="relative flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
-                viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                viewBox="0 0 24 24"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
                 <path
-                  d="M208 32c0-17.7 14.3-32 32-32l32 0c17.7 0 32 14.3 32 32l0 140.9 122-70.4c15.3-8.8 34.9-3.6 43.7 11.7l16 27.7c8.8 15.3 3.6 34.9-11.7 43.7L352 256l122 70.4c15.3 8.8 20.6 28.4 11.7 43.7l-16 27.7c-8.8 15.3-28.4 20.6-43.7 11.7L304 339.1 304 480c0 17.7-14.3 32-32 32l-32 0c-17.7 0-32-14.3-32-32l0-140.9L86 409.6c-15.3 8.8-34.9 3.6-43.7-11.7l-16-27.7c-8.8-15.3-3.6-34.9 11.7-43.7L160 256 38 185.6c-15.3-8.8-20.5-28.4-11.7-43.7l16-27.7C51.1 98.8 70.7 93.6 86 102.4l122 70.4L208 32z" />
+                  d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4m0-12a6 6 0 0 0-6 6c0 2.1 1.23 3.9 3 4.79V16H9v2h2v2H4v-2c0-2.21 3.58-4 8-4 1.65 0 3.14.5 4.28 1.33A6.002 6.002 0 0 0 12 2m8 10c2.21 0 4 1.79 4 4v2h-6v-2c0-2.21 1.79-4 4-4m0-2a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z" />
+              </svg>
+              <button id="inicio-btn-usuarios"
+                class="text-dark-gray hover:text-blue-logo hover:text-blue-700 hover:underline ml-2">
+                Usuarios
+              </button>
+              <ul id="inicio-menu-usuarios"
+                class="hidden absolute top-full right-0 bg-white shadow rounded mt-2 w-40 z-40">
+                <li>
+                  <a href="?controller=Usuario&&action=form_usuarios"
+                    class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Añadir
+                    usuario</a>
+                </li>
+                <li>
+                  <a href="?controller=Usuario&&action=principal"
+                    class="block px-4 py-2 hover:bg-light-gray text-sm hover:text-blue-700 hover:underline">Listado de
+                    usuarios</a>
+                </li>
+              </ul>
+            </li>
+          </div>
+          <?php endif ?>
+          <div class="flex items-center space-x-2">
+            <li class="relative flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                viewBox="0 0 24 24"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                <path
+                  d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z" />
               </svg>
               <button id="inicio-btn-user"
                 class="text-dark-gray hover:text-blue-logo hover:text-blue-700 hover:underline ml-2"><?php echo $_SESSION['user'];?>

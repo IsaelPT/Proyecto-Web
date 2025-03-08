@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     { buttonId: "#inicio-btn-consulta", menuId: "#inicio-menu-consulta" },
     { buttonId: "#inicio-btn-user", menuId: "#inicio-menu-user" },
+    { buttonId: "#inicio-btn-usuarios", menuId: "#inicio-menu-usuarios" },
   ];
 
   menus.forEach(({ buttonId, menuId }) => {

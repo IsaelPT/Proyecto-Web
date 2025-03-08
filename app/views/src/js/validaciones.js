@@ -35,6 +35,16 @@ const fieldsConfig = [
     regex: /^[a-zA-ZÁÉÍÓÚáéíóúÑñ\s]+$/,
     errorMessage: "La especialidad solo debe contener letras.",
   },
+  {
+    field: "#password",
+    regex: /^[a-zA-ZÁÉÍÓÚáéíóúÑñ*#\s]+$/,
+    errorMessage: "La contraseña solo debe contener letras, numeros y los caracteres especiales (*,#).",
+  },
+  {
+    field: "#username",
+    regex: /^[a-zA-ZÁÉÍÓÚáéíóúÑñ_\s]+$/,
+    errorMessage: "El nombre de usuario solo debe contener letras o el caracter especial (_).",
+  },
 ];
 
 document.addEventListener("DOMContentLoaded", () => {

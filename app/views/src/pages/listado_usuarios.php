@@ -188,45 +188,33 @@
                       <thead>
                           <tr>
                               <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Nombre</th>
-                              <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Primer Apellido</th>
-                              <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Segundo Apellido</th>
-                              <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Especialidad</th>
-                              <?php if($_SESSION['rol'] === 'admin'): ?>
+                              <th class="p-2 sm:p-3 border-r border-b border-gray-700 text-left">Rol</th>
                               <th class="p-2 sm:p-3 border-b border-gray-700 text-center">Acciones</th>
-                              <?php endif?>
                           </tr>
                       </thead>
                       <tbody>
                         <?php
-                        $doctores = $this->doctor->listar();
-                        for($i = 0; $i < count($doctores); $i ++): ?>
+                        $usuarios = $this->usuario->listar();
+                        for($i = 0; $i < count($usuarios); $i ++): ?>
                             <tr>
-                                <?php if($i+1 == count($doctores)): ?>
-                                    <td class="p-2 sm:p-3 border-r border-gray-700 text-left"><?php echo $doctores[$i]->nombre_doctor; ?></td>
-                                    <td class="p-2 sm:p-3 border-r border-gray-700 text-left"><?php echo $doctores[$i]->primer_apellido_doctor; ?></td>
-                                    <td class="p-2 sm:p-3 border-r border-gray-700 text-left"><?php echo $doctores[$i]->segundo_apellido_doctor; ?></td>
-                                    <td class="p-2 sm:p-3 border-r border-gray-700 text-left"><?php echo $doctores[$i]->detalles; ?></td>
-                                    <?php if($_SESSION['rol'] === 'admin'): ?>
+                                <?php if($i+1 == count($usuarios)): ?>
+                                    <td class="p-2 sm:p-3 border-r border-gray-700 text-left"><?php echo $usuarios[$i]->username; ?></td>
+                                    <td class="p-2 sm:p-3 border-r border-gray-700 text-left"><?php echo $usuarios[$i]->rol; ?></td>
                                     <td class="p-2 sm:p-3 border-gray-700 text-left">
                                       <div class="flex flex-col sm:flex-row justify-end items-center space-y-2 sm:space-y-0 sm:space-x-4">
-                                        <a href="?controller=Doctor&&action=form_doctores&&id=<?php echo $doctores[$i]->id_doctor ?>" class="px-4 py-2 bg-blue-300 text-black rounded hover:bg-blue-500 mr-5 editar-fila"> Editar </a>
-                                        <a href="?controller=Doctor&&action=eliminar&&id=<?php echo $doctores[$i]->id_doctor ?>" class="px-4 py-2 bg-red-300 text-black rounded hover:bg-red-500 mr-5 borrar-fila"> Borrar </a>
+                                        <a href="?controller=Usuario&&action=form_usuarios&&id=<?php echo $usuarios[$i]->id_usuario ?>" class="px-4 py-2 bg-blue-300 text-black rounded hover:bg-blue-500 mr-5 editar-fila"> Editar </a>
+                                        <a href="?controller=Usuario&&action=eliminar&&id=<?php echo $usuarios[$i]->id_usuario ?>" class="px-4 py-2 bg-red-300 text-black rounded hover:bg-red-500 mr-5 borrar-fila"> Borrar </a>
                                       </div>
                                     </td>
-                                    <?php endif?>
                                 <?php else: ?>
-                                    <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left"><?php echo $doctores[$i]->nombre_doctor; ?></td>
-                                    <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left"><?php echo $doctores[$i]->primer_apellido_doctor; ?></td>
-                                    <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left"><?php echo $doctores[$i]->segundo_apellido_doctor; ?></td>
-                                    <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left"><?php echo $doctores[$i]->detalles; ?></td>
-                                    <?php if($_SESSION['rol'] === 'admin'): ?>
+                                    <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left"><?php echo $usuarios[$i]->username; ?></td>
+                                    <td class="p-2 sm:p-3 border-r border-b border-gray-700 text-left"><?php echo $usuarios[$i]->rol; ?></td>
                                     <td class="p-2 sm:p-3 border-b border-gray-700 text-left">
                                       <div class="flex flex-col sm:flex-row justify-end items-center space-y-2 sm:space-y-0 sm:space-x-4">
-                                        <a href="?controller=Doctor&&action=form_doctores&&id=<?php echo $doctores[$i]->id_doctor ?>" class="px-4 py-2 bg-blue-300 text-black rounded hover:bg-blue-500 mr-5 editar-fila"> Editar </a>
-                                        <a href="?controller=Doctor&&action=eliminar&&id=<?php echo $doctores[$i]->id_doctor ?>" class="px-4 py-2 bg-red-300 text-black rounded hover:bg-red-500 mr-5 borrar-fila"> Borrar </a>
+                                        <a href="?controller=Usuario&&action=form_usuarios&&id=<?php echo $usuarios[$i]->id_usuario ?>" class="px-4 py-2 bg-blue-300 text-black rounded hover:bg-blue-500 mr-5 editar-fila"> Editar </a>
+                                        <a href="?controller=Usuario&&action=eliminar&&id=<?php echo $usuarios[$i]->id_usuario ?>" class="px-4 py-2 bg-red-300 text-black rounded hover:bg-red-500 mr-5 borrar-fila"> Borrar </a>
                                       </div>
                                     </td>
-                                    <?php endif ?>
                                 <?php endif ?>
                             </tr>
                         <?php endfor

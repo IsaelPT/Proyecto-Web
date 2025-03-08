@@ -140,4 +140,69 @@ class Usuario{
             die($e->getMessage());
         }
     }
+
+    public function obtener(int $id){
+        try{
+            $consulta = $this->pdo->prepare("SELECT * FROM USUARIO WHERE id_usuario=?;");
+            $consulta->execute([$id]);
+            $resultado = $consulta->fetch(mode: PDO::FETCH_OBJ);
+
+            $user = new Usuario();
+            $user->setId_usuario($id);
+            $user->setUsername($resultado->username);
+            $user->setPassword("*******");
+
+            return $user;
+
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function actualizar ($user){
+
+        if($user->getPassword() == "*******"){
+
+            try{
+                $consulta = $this->pdo->prepare("UPDATE USUARIO SET username=?, rol=? WHERE id_usuario=?;");
+                $consulta->execute([$user->getUsername(),
+                                            $user->getRol(),
+                                            $user->getId_usuario()]);
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }else{
+            try{
+                $consulta = $this->pdo->prepare("UPDATE USUARIO SET username=?, password=?, rol=? WHERE id_usuario=?;");
+                $consulta->execute([$user->getUsername(),
+                password_hash($user->getPassword(), PASSWORD_DEFAULT),
+                                        $user->getRol(),
+                                        $user->getId_usuario()]);
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+    }
+
+    public function eliminar(int $id){
+        try{
+            $consulta = $this->pdo->prepare("DELETE FROM USUARIO WHERE id_usuario=?;");
+            $consulta->execute([$id]);
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function listar(): array
+    {
+        try {
+            $consulta = $this->pdo->prepare(
+                query: "SELECT username, rol, id_usuario FROM USUARIO;"
+            );
+            $consulta->execute();
+            return $consulta->fetchAll(PDO::FETCH_OBJ);
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
 }
